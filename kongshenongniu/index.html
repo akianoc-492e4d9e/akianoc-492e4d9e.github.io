@@ -1,0 +1,1401 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>控射农牛肌肉gv - 健身内容聚合与训练解析</title>
+<meta name="description" content="控射农牛肌肉gv聚合力量训练、增肌食谱、控射节奏练习与乡村健身场景内容，包含训练动作拆解、计划对比和常见问题解答，适合想系统增肌的健身爱好者参考。">
+<meta name="keywords" content="控射农牛肌肉gv">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b3a2f'/%3E%3Cpath d='M14 42c6-16 14-22 18-22s12 6 18 22' stroke='%23f2c14e' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='22' r='5' fill='%23f2c14e'/%3E%3C/svg%3E">
+<style>
+:root{
+  --brand:#1b3a2f;
+  --brand-light:#2f5d4a;
+  --brand-dark:#10251e;
+  --accent:#f2c14e;
+  --accent-soft:#f9e7b3;
+  --bg:#f5f3ee;
+  --panel:#ffffff;
+  --panel-alt:#efeee7;
+  --text:#23281f;
+  --text-2:#5a6058;
+  --text-3:#8b9088;
+  --line:#dcd9cf;
+  --radius-card:14px;
+  --radius-btn:8px;
+  --radius-tag:6px;
+  --radius-banner:20px;
+  --shadow:0 2px 8px rgba(27,58,47,.07);
+  --shadow-hover:0 8px 22px rgba(27,58,47,.14);
+  --announce-h:38px;
+  --header-h:64px;
+  --offset:calc(var(--announce-h) + var(--header-h) + 12px);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:var(--offset);}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+
+/* ---------- 吸顶公告条 ---------- */
+.announce{
+  position:sticky;top:0;z-index:60;
+  height:var(--announce-h);
+  background:var(--brand-dark);
+  color:#e8e6dc;
+  font-size:13px;
+  display:flex;align-items:center;
+  overflow:hidden;
+}
+.announce-inner{
+  width:100%;max-width:1360px;margin:0 auto;padding:0 20px;
+  display:flex;align-items:center;gap:18px;
+}
+.announce-brand{color:var(--accent);font-weight:700;white-space:nowrap;letter-spacing:.5px;}
+.announce-track{display:flex;gap:26px;overflow:hidden;flex:1;min-width:0;}
+.announce-item{white-space:nowrap;display:flex;gap:8px;align-items:center;}
+.announce-item time{color:var(--accent-soft);font-variant-numeric:tabular-nums;}
+.announce-badge{background:var(--brand-light);padding:1px 7px;border-radius:4px;font-size:11px;}
+
+/* ---------- 页头 ---------- */
+.site-header{
+  position:sticky;top:var(--announce-h);z-index:55;
+  height:var(--header-h);
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:1360px;height:100%;margin:0 auto;padding:0 20px;
+  display:flex;align-items:center;gap:22px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.logo svg{width:38px;height:38px;flex-shrink:0;}
+.logo-text{font-weight:800;font-size:18px;color:var(--brand);letter-spacing:.5px;line-height:1.15;}
+.main-nav{display:flex;gap:4px;flex:1;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;}
+.main-nav::-webkit-scrollbar{display:none;}
+.main-nav a{
+  padding:7px 12px;border-radius:var(--radius-btn);font-size:14px;color:var(--text-2);
+  white-space:nowrap;transition:.18s;
+}
+.main-nav a:hover{background:var(--panel-alt);color:var(--brand);}
+.main-nav a.active{background:var(--brand);color:#fff;}
+.header-cta{
+  background:var(--accent);color:var(--brand-dark);font-weight:700;font-size:14px;
+  padding:9px 16px;border-radius:var(--radius-btn);border:none;white-space:nowrap;
+  transition:.18s;
+}
+.header-cta:hover{background:#e5b13c;transform:translateY(-1px);}
+.hamburger{
+  display:none;background:none;border:1px solid var(--line);border-radius:var(--radius-btn);
+  width:42px;height:40px;align-items:center;justify-content:center;flex-direction:column;gap:5px;
+}
+.hamburger span{width:20px;height:2px;background:var(--brand);display:block;transition:.2s;}
+
+/* 移动抽屉 */
+.drawer-mask{
+  display:none;position:fixed;inset:0;background:rgba(16,37,30,.5);z-index:70;
+}
+.drawer-mask.show{display:block;}
+.drawer{
+  position:fixed;top:0;right:-280px;width:280px;height:100%;background:#fff;z-index:80;
+  padding:22px 18px;transition:right .25s ease;overflow-y:auto;
+}
+.drawer.show{right:0;}
+.drawer h3{margin:0 0 14px;font-size:16px;color:var(--brand);}
+.drawer a{display:block;padding:11px 10px;border-radius:8px;font-size:15px;color:var(--text-2);}
+.drawer a:hover{background:var(--panel-alt);color:var(--brand);}
+.drawer-close{
+  position:absolute;top:14px;right:14px;background:none;border:none;font-size:22px;color:var(--text-3);
+  width:36px;height:36px;border-radius:50%;
+}
+.drawer-close:hover{background:var(--panel-alt);}
+
+/* ---------- 首屏 ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(150deg,var(--brand-dark) 0%,var(--brand) 55%,var(--brand-light) 100%);
+  color:#fff;
+}
+.hero-inner{
+  max-width:1360px;margin:0 auto;padding:56px 20px 60px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+}
+.hero h1{
+  font-size:clamp(30px,4.4vw,50px);line-height:1.15;margin:0 0 18px;
+  letter-spacing:1px;font-weight:800;
+}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero-desc{font-size:16px;color:#d8ddd6;max-width:560px;margin:0 0 26px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{
+  background:var(--accent);color:var(--brand-dark);font-weight:700;padding:13px 26px;
+  border-radius:var(--radius-btn);border:none;font-size:15px;transition:.18s;
+}
+.btn-primary:hover{background:#e5b13c;transform:translateY(-2px);box-shadow:0 6px 18px rgba(242,193,78,.35);}
+.btn-ghost{
+  border:1px solid rgba(255,255,255,.4);color:#fff;padding:13px 24px;border-radius:var(--radius-btn);
+  font-size:15px;background:rgba(255,255,255,.06);transition:.18s;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.16);}
+.hero-meta{display:flex;gap:30px;margin-top:34px;flex-wrap:wrap;}
+.hero-meta div{font-size:13px;color:#a9b6a9;}
+.hero-meta strong{display:block;font-size:24px;color:var(--accent);font-weight:800;font-variant-numeric:tabular-nums;}
+.hero-visual{position:relative;height:320px;}
+.hero-visual svg{width:100%;height:100%;}
+.hero-visual .orbit{animation:spin 26s linear infinite;transform-origin:center;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ---------- 布局 ---------- */
+.layout{
+  max-width:1360px;margin:0 auto;padding:34px 20px 10px;
+  display:grid;grid-template-columns:200px minmax(0,1fr) 280px;gap:28px;align-items:start;
+}
+.channel-nav{position:sticky;top:var(--offset);}
+.channel-nav h2{
+  font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-3);
+  margin:0 0 12px;font-weight:700;
+}
+.channel-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px;}
+.channel-nav a{
+  display:flex;align-items:center;justify-content:space-between;gap:6px;
+  padding:9px 12px;border-radius:8px;font-size:14px;color:var(--text-2);transition:.16s;
+}
+.channel-nav a:hover{background:var(--panel);color:var(--brand);box-shadow:var(--shadow);}
+.channel-nav a.current{background:var(--brand);color:#fff;}
+.channel-nav a span{font-size:11px;color:var(--text-3);}
+.channel-nav a.current span{color:var(--accent-soft);}
+.channel-nav a:hover span{color:var(--brand-light);}
+
+.main-col{min-width:0;display:flex;flex-direction:column;gap:46px;}
+
+.sidebar{position:sticky;top:var(--offset);display:flex;flex-direction:column;gap:22px;}
+.side-card{
+  background:var(--panel);border-radius:var(--radius-card);padding:18px;box-shadow:var(--shadow);
+  border:1px solid var(--line);
+}
+.side-card h3{margin:0 0 14px;font-size:15px;color:var(--brand);display:flex;align-items:center;gap:8px;}
+.side-card h3::before{content:"";width:4px;height:15px;background:var(--accent);border-radius:2px;}
+.hot-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;}
+.hot-list li a{display:flex;gap:10px;padding:9px 6px;border-radius:7px;font-size:13.5px;color:var(--text-2);transition:.16s;align-items:baseline;}
+.hot-list li a:hover{background:var(--panel-alt);color:var(--brand);}
+.hot-list .rank{font-weight:800;color:var(--text-3);font-size:13px;min-width:18px;font-variant-numeric:tabular-nums;}
+.hot-list li:nth-child(-n+3) .rank{color:var(--accent);}
+.hot-list .meta{font-size:11px;color:var(--text-3);margin-left:auto;white-space:nowrap;}
+
+.search-box{position:relative;margin-bottom:12px;}
+.search-box input{
+  width:100%;padding:10px 12px 10px 34px;border:1px solid var(--line);border-radius:var(--radius-btn);
+  font-size:14px;background:var(--panel-alt);color:var(--text);transition:.16s;
+}
+.search-box input:focus{outline:none;border-color:var(--brand-light);background:#fff;box-shadow:0 0 0 3px rgba(47,93,74,.12);}
+.search-box svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--text-3);}
+.search-empty{display:none;font-size:13px;color:var(--text-3);padding:8px 4px;}
+.search-empty.show{display:block;}
+
+/* 通用板块标题 */
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:20px;flex-wrap:wrap;}
+.sec-head h2{font-size:23px;margin:0;color:var(--brand);font-weight:800;letter-spacing:.3px;}
+.sec-head .sub{font-size:13px;color:var(--text-3);margin-top:2px;}
+.sec-head .more{font-size:13px;color:var(--brand-light);font-weight:600;white-space:nowrap;}
+.sec-head .more:hover{color:var(--accent);}
+
+/* 概览 */
+.overview{
+  background:var(--panel);border-radius:var(--radius-card);padding:26px 28px;border:1px solid var(--line);
+  box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.overview::before{
+  content:"";position:absolute;top:0;left:0;width:100%;height:4px;
+  background:linear-gradient(90deg,var(--brand),var(--accent));
+}
+.overview p{margin:0 0 14px;font-size:15px;color:var(--text-2);line-height:1.85;}
+.overview p:last-child{margin-bottom:0;}
+.overview strong{color:var(--brand);}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+.card{
+  background:var(--panel);border-radius:var(--radius-card);overflow:hidden;border:1px solid var(--line);
+  box-shadow:var(--shadow);display:flex;flex-direction:column;transition:.2s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
+.card-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--panel-alt);}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:.4s;}
+.card:hover .card-img img{transform:scale(1.05);}
+.card-badge{
+  position:absolute;top:10px;left:10px;background:rgba(27,58,47,.88);color:var(--accent);
+  font-size:11px;font-weight:700;padding:3px 9px;border-radius:5px;letter-spacing:.5px;
+}
+.card-body{padding:15px 16px 17px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.card-body h3{margin:0;font-size:16px;color:var(--text);line-height:1.4;font-weight:700;}
+.card-body p{margin:0;font-size:13px;color:var(--text-2);line-height:1.6;flex:1;}
+.tags{display:flex;gap:6px;flex-wrap:wrap;}
+.tag{
+  font-size:11.5px;padding:2px 8px;border-radius:var(--radius-tag);background:var(--panel-alt);
+  color:var(--text-2);border:1px solid var(--line);
+}
+.card-foot{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-3);margin-top:4px;padding-top:10px;border-top:1px dashed var(--line);}
+.card-foot .score{color:var(--brand);font-weight:700;}
+
+/* 最新更新列表 */
+.update-list{background:var(--panel);border-radius:var(--radius-card);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden;}
+.update-item{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:16px;padding:14px 20px;border-bottom:1px solid var(--line);align-items:center;transition:.16s;}
+.update-item:last-child{border-bottom:none;}
+.update-item:hover{background:var(--panel-alt);}
+.update-item time{font-size:12.5px;color:var(--text-3);font-variant-numeric:tabular-nums;}
+.update-item h4{margin:0 0 3px;font-size:15px;color:var(--text);font-weight:600;}
+.update-item p{margin:0;font-size:13px;color:var(--text-2);line-height:1.55;}
+.update-item .tag{white-space:nowrap;}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;}
+.cat-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);padding:18px 16px;
+  transition:.18s;display:flex;flex-direction:column;gap:6px;position:relative;overflow:hidden;
+}
+.cat-card:hover{border-color:var(--brand-light);box-shadow:var(--shadow-hover);transform:translateY(-3px);}
+.cat-card .icon{width:34px;height:34px;border-radius:9px;background:var(--panel-alt);display:flex;align-items:center;justify-content:center;margin-bottom:4px;}
+.cat-card .icon svg{width:19px;height:19px;color:var(--brand);}
+.cat-card h3{margin:0;font-size:15px;color:var(--brand);font-weight:700;}
+.cat-card p{margin:0;font-size:12.5px;color:var(--text-3);line-height:1.5;}
+
+/* 深度解析 */
+.article{
+  background:var(--panel);border-radius:var(--radius-card);border:1px solid var(--line);box-shadow:var(--shadow);
+  padding:30px 34px;
+}
+.article h2{font-size:23px;margin:0 0 6px;color:var(--brand);font-weight:800;}
+.article .lead{font-size:14px;color:var(--text-3);margin:0 0 24px;padding-bottom:20px;border-bottom:1px solid var(--line);line-height:1.7;}
+.article h3{font-size:18px;margin:30px 0 12px;color:var(--brand);font-weight:700;padding-left:13px;position:relative;}
+.article h3::before{content:"";position:absolute;left:0;top:5px;bottom:5px;width:4px;background:var(--accent);border-radius:2px;}
+.article p{margin:0 0 14px;font-size:15px;color:var(--text-2);line-height:1.85;}
+.article ul,.article ol{margin:0 0 16px;padding-left:22px;}
+.article li{font-size:14.5px;color:var(--text-2);line-height:1.8;margin-bottom:6px;}
+.article strong{color:var(--brand);}
+.article .note{
+  background:var(--panel-alt);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 8px 8px 0;
+  font-size:14px;color:var(--text-2);margin:18px 0;line-height:1.75;
+}
+.article table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;}
+.article th,.article td{border:1px solid var(--line);padding:9px 12px;text-align:left;color:var(--text-2);}
+.article th{background:var(--panel-alt);color:var(--brand);font-weight:700;font-size:13.5px;}
+
+/* 体验指南 - 步骤 */
+.steps{display:flex;flex-direction:column;gap:14px;}
+.step{
+  display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px;background:var(--panel);
+  border:1px solid var(--line);border-radius:var(--radius-card);padding:18px 20px;transition:.18s;
+}
+.step:hover{box-shadow:var(--shadow-hover);border-color:var(--brand-light);}
+.step .num{
+  width:44px;height:44px;border-radius:12px;background:var(--brand);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px;font-variant-numeric:tabular-nums;
+}
+.step h3{margin:0 0 5px;font-size:16px;color:var(--text);font-weight:700;}
+.step p{margin:0;font-size:13.5px;color:var(--text-2);line-height:1.7;}
+
+/* FAQ */
+.faq{background:var(--panel);border-radius:var(--radius-card);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden;}
+.faq details{border-bottom:1px solid var(--line);}
+.faq details:last-child{border-bottom:none;}
+.faq summary{
+  padding:17px 22px;font-size:15px;font-weight:600;color:var(--text);cursor:pointer;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;transition:.16s;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary:hover{background:var(--panel-alt);}
+.faq summary::after{
+  content:"+";font-size:20px;color:var(--brand-light);font-weight:400;flex-shrink:0;transition:.2s;
+}
+.faq details[open] summary::after{transform:rotate(45deg);color:var(--accent);}
+.faq .ans{padding:0 22px 18px;font-size:14px;color:var(--text-2);line-height:1.8;}
+
+/* 评论 */
+.comments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+.comment{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);padding:15px 17px;
+  transition:.16s;display:flex;flex-direction:column;gap:8px;
+}
+.comment:hover{box-shadow:var(--shadow);}
+.comment-top{display:flex;align-items:center;gap:10px;}
+.avatar{
+  width:32px;height:32px;border-radius:50%;background:var(--brand-light);color:var(--accent-soft);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;
+}
+.comment-top .name{font-size:13.5px;font-weight:600;color:var(--text);}
+.comment-top time{margin-left:auto;font-size:11.5px;color:var(--text-3);}
+.comment p{margin:0;font-size:13.5px;color:var(--text-2);line-height:1.65;}
+.comment .ctx{font-size:11.5px;color:var(--brand-light);background:var(--panel-alt);padding:2px 8px;border-radius:4px;align-self:flex-start;}
+
+/* 资讯 */
+.news-list{display:flex;flex-direction:column;gap:0;background:var(--panel);border-radius:var(--radius-card);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden;}
+.news-item{display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:18px;padding:18px 22px;border-bottom:1px solid var(--line);align-items:start;transition:.16s;}
+.news-item:last-child{border-bottom:none;}
+.news-item:hover{background:var(--panel-alt);}
+.news-item h3{margin:0 0 5px;font-size:15.5px;color:var(--text);font-weight:700;}
+.news-item p{margin:0;font-size:13px;color:var(--text-2);line-height:1.6;}
+.news-item time{font-size:12px;color:var(--text-3);text-align:right;font-variant-numeric:tabular-nums;}
+
+/* 相关推荐标签 */
+.rec-tags{display:flex;flex-wrap:wrap;gap:10px;}
+.rec-tag{
+  padding:9px 16px;background:var(--panel);border:1px solid var(--line);border-radius:24px;
+  font-size:13.5px;color:var(--text-2);transition:.16s;display:flex;align-items:center;gap:7px;
+}
+.rec-tag:hover{background:var(--brand);color:#fff;border-color:var(--brand);transform:translateY(-2px);}
+.rec-tag small{font-size:11px;color:var(--text-3);}
+.rec-tag:hover small{color:var(--accent-soft);}
+
+/* 榜单/时间线 */
+.timeline{position:relative;padding-left:26px;display:flex;flex-direction:column;gap:18px;}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line);}
+.tl-item{position:relative;}
+.tl-item::before{
+  content:"";position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;
+  background:var(--brand);border:3px solid var(--bg);box-shadow:0 0 0 1px var(--brand);
+}
+.tl-item time{font-size:12px;color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums;}
+.tl-item h4{margin:2px 0 3px;font-size:14.5px;color:var(--text);font-weight:600;}
+.tl-item p{margin:0;font-size:13px;color:var(--text-2);line-height:1.6;}
+
+/* 投稿互动 */
+.submit-panel{
+  background:linear-gradient(135deg,var(--brand) 0%,var(--brand-light) 100%);color:#fff;
+  border-radius:var(--radius-banner);padding:30px 34px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
+}
+.submit-panel h2{margin:0 0 8px;font-size:22px;font-weight:800;}
+.submit-panel p{margin:0;font-size:14px;color:#d0d8cf;max-width:560px;line-height:1.7;}
+.submit-btn{
+  background:var(--accent);color:var(--brand-dark);font-weight:700;padding:13px 28px;border-radius:var(--radius-btn);
+  border:none;font-size:15px;white-space:nowrap;transition:.18s;
+}
+.submit-btn:hover{background:#e5b13c;transform:translateY(-2px);}
+
+/* ---------- 页尾 ---------- */
+.site-footer{background:var(--brand-dark);color:#b8c2b7;margin-top:56px;padding:48px 20px 28px;}
+.footer-inner{max-width:1360px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:36px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.footer-brand svg{width:36px;height:36px;}
+.footer-brand .ft{font-weight:800;font-size:17px;color:#fff;letter-spacing:.5px;}
+.footer-pos{font-size:13.5px;line-height:1.8;color:#9aa89a;max-width:340px;}
+.footer-col h4{font-size:14px;color:var(--accent);margin:0 0 14px;font-weight:700;}
+.footer-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;}
+.footer-col a{font-size:13.5px;color:#b8c2b7;transition:.16s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#7d8a7d;}
+.footer-bottom a{color:#9aa89a;}
+.footer-bottom a:hover{color:var(--accent);}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:24px;bottom:28px;width:46px;height:46px;border-radius:50%;
+  background:var(--brand);color:var(--accent);border:none;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 18px rgba(16,37,30,.3);opacity:0;visibility:hidden;transform:translateY(12px);
+  transition:.25s;z-index:40;
+}
+.to-top.show{opacity:1;visibility:visible;transform:none;}
+.to-top:hover{background:var(--brand-light);}
+
+/* 响应式 */
+@media (max-width:1180px){
+  .layout{grid-template-columns:180px minmax(0,1fr);}
+  .sidebar{display:none;}
+  .card-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .cat-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:30px;padding:44px 20px 48px;}
+  .hero-visual{height:230px;order:-1;}
+  .comments{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:1024px){
+  .main-nav{display:none;}
+  .hamburger{display:flex;}
+  .header-cta{margin-left:auto;}
+}
+@media (max-width:740px){
+  .layout{grid-template-columns:1fr;padding:24px 16px 0;}
+  .channel-nav{position:static;margin-bottom:8px;}
+  .channel-nav h2{margin-bottom:8px;}
+  .channel-nav ul{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:6px;scrollbar-width:none;}
+  .channel-nav ul::-webkit-scrollbar{display:none;}
+  .channel-nav a{white-space:nowrap;padding:7px 12px;font-size:13px;}
+  .channel-nav a span{display:none;}
+  .card-grid{grid-template-columns:1fr;}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .update-item{grid-template-columns:minmax(0,1fr);gap:4px;}
+  .update-item time{font-size:11.5px;}
+  .article{padding:22px 18px;}
+  .news-item{grid-template-columns:1fr;gap:6px;}
+  .news-item time{text-align:left;}
+  .submit-panel{grid-template-columns:1fr;padding:24px 20px;}
+  .hero-meta{gap:20px;}
+  .hero-meta strong{font-size:20px;}
+  .footer-top{grid-template-columns:1fr;gap:26px;}
+  .announce-inner{padding:0 14px;gap:10px;}
+  .announce-track{gap:16px;}
+  .to-top{right:14px;bottom:16px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announce" id="announce">
+  <div class="announce-inner">
+    <span class="announce-brand">控射农牛肌肉gv</span>
+    <div class="announce-track">
+      <span class="announce-item"><span class="announce-badge">新增</span><time datetime="2026-11-08">11月8日</time>《农忙季控射训练配速表》上线</span>
+      <span class="announce-item"><span class="announce-badge">更新</span><time datetime="2026-11-06">11月6日</time>乡村健身房负重架评测补齐</span>
+      <span class="announce-item"><span class="announce-badge">榜单</span>11月增肌动作热度榜已刷新</span>
+    </div>
+  </div>
+</div>
+
+<!-- 页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="logo" aria-label="控射农牛肌肉gv 首页">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1b3a2f"/>
+        <path d="M14 42c6-16 14-22 18-22s12 6 18 22" stroke="#f2c14e" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <circle cx="32" cy="22" r="5" fill="#f2c14e"/>
+      </svg>
+      <span class="logo-text">控射农牛肌肉gv</span>
+    </a>
+    <nav class="main-nav" aria-label="主题导航">
+      <a href="#overview" class="active">领域概览</a>
+      <a href="#featured">精选内容</a>
+      <a href="#updates">最新更新</a>
+      <a href="#categories">分类入口</a>
+      <a href="#deep">深度解析</a>
+      <a href="#guide">体验指南</a>
+      <a href="#faq">常见问答</a>
+      <a href="#comments">用户评论</a>
+      <a href="#news">相关资讯</a>
+      <a href="#recommend">相关推荐</a>
+      <a href="#submit">投稿互动</a>
+    </nav>
+    <button class="header-cta" onclick="document.getElementById('submit').scrollIntoView({behavior:'smooth'})">上传训练记录</button>
+    <button class="hamburger" id="hamburger" aria-label="打开菜单" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- 移动抽屉 -->
+<div class="drawer-mask" id="drawerMask"></div>
+<nav class="drawer" id="drawer" aria-label="移动导航">
+  <button class="drawer-close" id="drawerClose" aria-label="关闭菜单">×</button>
+  <h3>频道导航</h3>
+  <a href="#overview">领域概览</a>
+  <a href="#featured">精选内容</a>
+  <a href="#updates">最新更新</a>
+  <a href="#categories">分类入口</a>
+  <a href="#deep">深度解析</a>
+  <a href="#guide">体验指南</a>
+  <a href="#faq">常见问答</a>
+  <a href="#comments">用户评论</a>
+  <a href="#news">相关资讯</a>
+  <a href="#recommend">相关推荐</a>
+  <a href="#submit">投稿互动</a>
+</nav>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <h1>控射农牛肌肉gv</h1>
+      <p class="hero-desc">汇聚乡村场景下的力量训练方案、控射节奏练习、农忙期增肌食谱与器械实测。从自建负重架到田间恢复训练，记录可复用的训练参数与真实消耗数据。</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">查看精选训练</button>
+        <button class="btn-ghost" onclick="document.getElementById('guide').scrollIntoView({behavior:'smooth'})">阅读体验指南</button>
+      </div>
+      <div class="hero-meta">
+        <div><strong>186</strong>条训练记录</div>
+        <div><strong>24</strong>套器械实测</div>
+        <div><strong>11.08</strong>最近更新</div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 400 320" role="presentation">
+        <defs>
+          <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f2c14e" stop-opacity=".25"/>
+            <stop offset="1" stop-color="#2f5d4a" stop-opacity=".1"/>
+          </linearGradient>
+        </defs>
+        <circle cx="200" cy="160" r="140" fill="url(#hg)"/>
+        <g class="orbit">
+          <circle cx="200" cy="160" r="118" fill="none" stroke="#f2c14e" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="6 10"/>
+          <circle cx="200" cy="42" r="7" fill="#f2c14e"/>
+          <circle cx="318" cy="160" r="5" fill="#f2c14e" fill-opacity=".7"/>
+        </g>
+        <g stroke="#f2c14e" stroke-width="7" stroke-linecap="round" fill="none">
+          <path d="M120 210 L200 120 L280 210"/>
+        </g>
+        <circle cx="200" cy="120" r="16" fill="#f2c14e"/>
+        <rect x="112" y="214" width="176" height="10" rx="5" fill="#f2c14e" fill-opacity=".45"/>
+        <g fill="#e8e6dc" font-size="12" font-family="sans-serif" opacity=".8">
+          <text x="150" y="270">负重 · 配速 · 恢复</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 主布局 -->
+<div class="layout">
+
+  <!-- 左侧频道 -->
+  <aside class="channel-nav" aria-label="频道索引">
+    <h2>频道索引</h2>
+    <ul>
+      <li><a href="#overview" class="current">领域概览<span>01</span></a></li>
+      <li><a href="#featured">精选内容<span>02</span></a></li>
+      <li><a href="#updates">最新更新<span>03</span></a></li>
+      <li><a href="#categories">分类入口<span>04</span></a></li>
+      <li><a href="#deep">深度解析<span>05</span></a></li>
+      <li><a href="#guide">体验指南<span>06</span></a></li>
+      <li><a href="#faq">常见问答<span>07</span></a></li>
+      <li><a href="#comments">用户评论<span>08</span></a></li>
+      <li><a href="#news">相关资讯<span>09</span></a></li>
+      <li><a href="#recommend">相关推荐<span>10</span></a></li>
+      <li><a href="#ranking">动作榜单<span>11</span></a></li>
+      <li><a href="#submit">投稿互动<span>12</span></a></li>
+    </ul>
+  </aside>
+
+  <!-- 主内容 -->
+  <main class="main-col">
+
+    <!-- 1 领域概览 -->
+    <section id="overview" aria-labelledby="ov-title">
+      <div class="sec-head">
+        <div>
+          <h2 id="ov-title">乡村力量训练领域概览</h2>
+          <div class="sub">从田间劳作到系统增肌，记录可复用的训练参数</div>
+        </div>
+      </div>
+      <div class="overview">
+        <p>乡村力量训练把农活里的搬运、蹲起、推拉动作拆成可量化的训练单元。常见方向包括<strong>自建负重架训练</strong>、<strong>农忙期碎片化力量练习</strong>、<strong>控射节奏下的耐力控制</strong>，以及围绕玉米、稻谷装卸衍生的核心稳定性练习。参与者多为白天有体力劳动、晚上用1小时左右补训练量的男性，训练目标集中在增肌与体脂控制。</p>
+        <p>器械选择上，乡村场景偏向低成本方案：水泥配重块、旧轮胎翻转、自制单杠、可调节哑铃。2026年10月至11月，站内记录里出现频率最高的动作是<strong>负重深蹲</strong>、<strong>农夫行走</strong>、<strong>引体向上</strong>与<strong>罗马尼亚硬拉</strong>。围绕“控射”的练习则强调呼吸节奏与组间休息的配合，常见做法是把一次完整动作拆成4秒下放、2秒停顿、1秒推起的控射节奏。</p>
+        <p>值得关注的近期内容集中在三块：一是《农忙季控射训练配速表》，把秋收期间的训练强度按周排开；二是乡村健身房负重架横评，对六款500元以下自制架做了承重测试；三是增肌食谱中替代乳清蛋白的本地食材方案，用鸡蛋、黄豆、花生酱凑够每日蛋白量。</p>
+      </div>
+    </section>
+
+    <!-- 2 精选内容 -->
+    <section id="featured" aria-labelledby="fe-title">
+      <div class="sec-head">
+        <div>
+          <h2 id="fe-title">精选训练与实测内容</h2>
+          <div class="sub">9条带具体参数与实测数据的条目</div>
+        </div>
+        <a href="#recommend" class="more">更多方向 →</a>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/nongniu-squat01/400/300" width="400" height="300" loading="lazy" alt="水泥配重深蹲架训练场景">
+            <span class="card-badge">力量基础</span>
+          </div>
+          <div class="card-body">
+            <h3>水泥配重深蹲：从40kg到100kg的12周记录</h3>
+            <p>用废弃水泥块浇筑成20kg标准块，配合自制木架完成渐进超负荷。记录每周训练容量与深蹲1RM变化，第8周出现平台期后改用5×5方案突破。</p>
+            <div class="tags"><span class="tag">负重深蹲</span><span class="tag">渐进超负荷</span><span class="tag">自建器械</span></div>
+            <div class="card-foot"><span>更新 11-07</span><span class="score">★ 4.8</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/nongniu-tempo02/400/300" width="400" height="300" loading="lazy" alt="控射节奏训练计时器与训练笔记">
+            <span class="card-badge">控射节奏</span>
+          </div>
+          <div class="card-body">
+            <h3>4-2-1控射节奏：推举动作的呼吸与配速拆解</h3>
+            <p>把推举拆成4秒下放、2秒底部停顿、1秒推起，配合鼻吸口呼。实测心率从静息68升到训练峰值142，组间休息控制在90秒内，训练密度比常规组高约两成。</p>
+            <div class="tags"><span class="tag">控射节奏</span><span class="tag">呼吸法</span><span class="tag">推举</span></div>
+            <div class="card-foot"><span>更新 11-05</span><span class="score">★ 4.6</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/nongniu-harvest03/400/300" width="400" height="300" loading="lazy" alt="秋收农忙期间田间训练与恢复">
+            <span class="card-badge">农忙训练</span>
+          </div>
+          <div class="card-body">
+            <h3>秋收期碎片训练：每天25分钟保住肌肉量</h3>
+            <p>针对早5点到晚7点都在田里的作息，把训练压缩成早晚各12分钟。内容为徒手深蹲、俯卧撑、弹力带划船三动作循环，连续三周体重稳定、卧推未掉重量。</p>
+            <div class="tags"><span class="tag">碎片训练</span><span class="tag">农忙期</span><span class="tag">维持训练</span></div>
+            <div class="card-foot"><span>更新 11-03</span><span class="score">★ 4.7</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/nongniu-rack04/400/300" width="400" height="300" loading="lazy" alt="自制负重架承重测试现场">
+            <span class="card-badge">器械实测</span>
+          </div>
+          <div class="card-body">
+            <h3>六款500元以内自制负重架承重横评</h3>
+            <p>用沙袋逐级加载到150kg，记录横梁形变、焊点开裂与底座位移。方钢加木板的组合在135kg时出现轻微挠度，圆管焊接款在120kg时焊点出现裂纹。</p>
+            <div class="tags"><span class="tag">负重架</span><span class="tag">承重测试</span><span class="tag">自制器械</span></div>
+            <div class="card-foot"><span>更新 11-06</span><span class="score">★ 4.5</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/nongniu-protein05/400/300" width="400" height="300" loading="lazy" alt="鸡蛋黄豆花生酱等本地增肌食材">
+            <span class="card-badge">增肌食谱</span>
+          </div>
+          <div class="card-body">
+            <h3>不用乳清蛋白：本地食材凑够每日140g蛋白</h3>
+            <p>鸡蛋、黄豆、花生酱、豆腐皮组合，按每公斤体重1.8g蛋白计算。给出三餐配比和采购成本，日均花费约18元，比乳清蛋白方案低约四成。</p>
+            <div class="tags"><span class="tag">增肌食谱</span><span class="tag">蛋白摄入</span><span class="tag">低成本</span></div>
+            <div class="card-foot"><span>更新 11-02</span><span class="score">★ 4.4</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/nongniu-farmer06/400/300" width="400" height="300" loading="lazy" alt="农夫行走训练使用水桶与沙袋">
+            <span class="card-badge">核心训练</span>
+          </div>
+          <div class="card-body">
+            <h3>水桶农夫行走：单侧负重对核心稳定的影响</h3>
+            <p>用装满水的塑料桶做单侧负重行走，30米一组。对比双侧负重，单侧行走时躯干侧屈角度增加约9度，对腹斜肌刺激更明显，但要注意两侧轮换。</p>
+            <div class="tags"><span class="tag">农夫行走</span><span class="tag">核心稳定</span><span class="tag">单侧负重</span></div>
+            <div class="card-foot"><span>更新 10-30</span><span class="score">★ 4.3</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/nongniu-pullup07/400/300" width="400" height="300" loading="lazy" alt="自制单杠引体向上训练">
+            <span class="card-badge">背部训练</span>
+          </div>
+          <div class="card-body">
+            <h3>自制单杠引体向上：从0到12个的8周计划</h3>
+            <p>用镀锌水管固定在院墙横梁上，配合弹力带辅助。计划分为离心、辅助、自重三个阶段，第8周完成12个标准引体，记录每次训练的握距与肩胛收紧程度。</p>
+            <div class="tags"><span class="tag">引体向上</span><span class="tag">自制单杠</span><span class="tag">背部训练</span></div>
+            <div class="card-foot"><span>更新 10-28</span><span class="score">★ 4.6</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/nongniu-rdl08/400/300" width="400" height="300" loading="lazy" alt="罗马尼亚硬拉训练动作与杠铃">
+            <span class="card-badge">后链训练</span>
+          </div>
+          <div class="card-body">
+            <h3>罗马尼亚硬拉：腘绳肌拉伸感与配重选择</h3>
+            <p>针对乡村训练者常见的腘绳肌薄弱，给出RDL动作要点：膝盖微屈、髋部后移、杠铃贴腿。用水泥杠铃片配置，建议起始重量为体重的40%。</p>
+            <div class="tags"><span class="tag">罗马尼亚硬拉</span><span class="tag">腘绳肌</span><span class="tag">后链</span></div>
+            <div class="card-foot"><span>更新 10-26</span><span class="score">★ 4.5</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/nongniu-recovery09/400/300" width="400" height="300" loading="lazy" alt="训练后拉伸与恢复训练场景">
+            <span class="card-badge">恢复训练</span>
+          </div>
+          <div class="card-body">
+            <h3>田间恢复训练：泡沫轴替代与拉伸顺序</h3>
+            <p>没有泡沫轴时用装满稻谷的布袋滚动放松，配合静态拉伸。给出训练后15分钟恢复流程，重点是髋屈肌、胸小肌与小腿三头肌的放松顺序。</p>
+            <div class="tags"><span class="tag">恢复训练</span><span class="tag">拉伸</span><span class="tag">泡沫轴替代</span></div>
+            <div class="card-foot"><span>更新 10-24</span><span class="score">★ 4.2</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3 最新更新 -->
+    <section id="updates" aria-labelledby="up-title">
+      <div class="sec-head">
+        <div>
+          <h2 id="up-title">最新更新与训练动态</h2>
+          <div class="sub">11月8日前后新增的10条记录</div>
+        </div>
+      </div>
+      <div class="update-list">
+        <div class="update-item">
+          <time datetime="2026-11-08">11-08</time>
+          <div><h4>《农忙季控射训练配速表》上线</h4><p>按秋收作息把一周训练分成力量日、控射日与恢复日，附每组配速与休息时长。</p></div>
+          <span class="tag">配速表</span>
+        </div>
+        <div class="update-item">
+          <time datetime="2026-11-07">11-07</time>
+          <div><h4>水泥配重深蹲记录更新到第12周</h4><p>深蹲1RM从82kg提升到100kg，补充平台期改用5×5后的训练容量数据。</p></div>
+          <span class="tag">深蹲</span>
+        </div>
+        <div class="update-item">
+          <time datetime="2026-11-06">11-06</time>
+          <div><h4>负重架横评补齐150kg加载测试</h4><p>方钢木板组合在135kg出现挠度，圆管焊接款焊点裂纹照片与位移数据已补入。</p></div>
+          <span class="tag">器械</span>
+        </div>
+        <div class="update-item">
+          <time datetime="2026-11-05">11-05</time>
+          <div><h4>4-2-1控射节奏推举实测数据</h4><p>记录10组推举的心率曲线，训练密度较常规组提升约22%，附组间休息建议。</p></div>
+          <span class="tag">控射</span>
+        </div>
+        <div class="update-item">
+          <time datetime="2026-11-03">11-03</time>
+          <div><h4>秋收碎片训练三周体重跟踪</h4><p>连续21天早晚各12分钟，体重从74.2kg稳定在74.5kg，卧推重量未下降。</p></div>
+          <span class="tag">碎片训练</span>
+        </div>
+        <div class="update-item">
+          <time datetime="2026-11-02">11-02</time>
+          <div><h4>低成本增肌食谱成本核算更新</h4><p>鸡蛋与黄豆价格按11月市场价重算，日均蛋白成本从19元降到18元。</p></div>
+          <span class="tag">食谱</span>
+        </div>
+        <div class="update-item">
+          <time datetime="2026-10-31">10-31</time>
+          <div><h4>单侧农夫行走躯干角度对比</h4><p>单侧与双侧负重各做6组，单侧行走时躯干侧屈角度平均增加9度。</p></div>
+          <span class="tag">农夫行走</span>
+        </div>
+        <div class="update-item">
+          <time datetime="2026-10-29">10-29</time>
+          <div><h4>自制单杠引体计划进入第三阶段</h4><p>弹力带辅助组数减少，自重组从4个提升到7个，记录握距与肩胛收紧细节。</p></div>
+          <span class="tag">引体</span>
+        </div>
+        <div class="update-item">
+          <time datetime="2026-10-27">10-27</time>
+          <div><h4>RDL动作要点补充髋部轨迹图</h4><p>新增髋部后移轨迹与杠铃贴腿位置标注，起始重量建议按体重40%配置。</p></div>
+          <span class="tag">RDL</span>
+        </div>
+        <div class="update-item">
+          <time datetime="2026-10-25">10-25</time>
+          <div><h4>田间恢复训练拉伸顺序修订</h4><p>把小腿三头肌放松提到髋屈肌之前，依据是三组训练后的主观紧绷评分变化。</p></div>
+          <span class="tag">恢复</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 分类入口 -->
+    <section id="categories" aria-labelledby="cat-title">
+      <div class="sec-head">
+        <div>
+          <h2 id="cat-title">按训练方向找内容</h2>
+          <div class="sub">8个可搜索的具体类别</div>
+        </div>
+      </div>
+      <div class="cat-grid">
+        <a class="cat-card" href="#featured">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6v12M18 6v12M6 12h12"/></svg></div>
+          <h3>负重深蹲训练</h3>
+          <p>配重块、木架、渐进超负荷方案</p>
+        </a>
+        <a class="cat-card" href="#deep">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div>
+          <h3>控射节奏练习</h3>
+          <p>4-2-1配速、呼吸法、组间休息</p>
+        </a>
+        <a class="cat-card" href="#featured">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="8" width="16" height="10" rx="2"/><path d="M8 8V6h8v2"/></svg></div>
+          <h3>自制器械实测</h3>
+          <p>负重架、单杠、水泥配重承重测试</p>
+        </a>
+        <a class="cat-card" href="#guide">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 8l7-5 7 5"/></svg></div>
+          <h3>农忙期训练</h3>
+          <p>碎片时间、维持训练、秋收作息安排</p>
+        </a>
+        <a class="cat-card" href="#featured">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18c4-8 12-8 16 0"/><circle cx="12" cy="7" r="3"/></svg></div>
+          <h3>增肌食谱</h3>
+          <p>本地食材、蛋白配比、低成本方案</p>
+        </a>
+        <a class="cat-card" href="#ranking">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16M7 20V10M12 20V4M17 20v-7"/></svg></div>
+          <h3>核心与后链</h3>
+          <p>农夫行走、RDL、腹斜肌稳定训练</p>
+        </a>
+        <a class="cat-card" href="#featured">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5v14"/></svg></div>
+          <h3>背部训练</h3>
+          <p>引体向上、划船、自制单杠计划</p>
+        </a>
+        <a class="cat-card" href="#comments">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 1 1-3.5-6.6"/><path d="M21 4l-9 8-3-3"/></svg></div>
+          <h3>恢复与拉伸</h3>
+          <p>训练后放松、泡沫轴替代、拉伸顺序</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5 深度解析 -->
+    <section id="deep" aria-labelledby="deep-title">
+      <article class="article">
+        <h2 id="deep-title">控射节奏在乡村力量训练中的实际差异</h2>
+        <p class="lead">同样的负重深蹲，4-2-1节奏与常规节奏在肌肉张力时间、组间恢复和训练容量上的差别，决定了它更适合哪类训练者。</p>
+
+        <h3>节奏参数不是装饰：4-2-1的张力时间账</h3>
+        <p>以100kg深蹲做8次为例，常规节奏下放2秒、推起1秒，单组张力时间约24秒；换成4秒下放、2秒底部停顿、1秒推起，单组张力时间拉长到56秒，是前者的2.3倍。张力时间变长直接抬高代谢压力，但也会让同等负重的完成次数下降。10月28日的一组对照记录里，同一位训练者常规节奏完成8次，控射节奏只能完成5次，总容量从800kg降到500kg。</p>
+        <p>这就带出一个可被反驳的判断：控射节奏更适合作为<strong>辅助刺激</strong>，而不是替代主组。把主组留给常规节奏冲容量，控射节奏放在第二动作或孤立动作上，才能兼顾强度与容量。反过来，如果训练目标是增肌而非力量，控射节奏放在主组也说得通，代价是总容量下降，需要用更多组数补回来。</p>
+
+        <h3>水泥配重的精度问题：1RM测算偏差有多大</h3>
+        <p>自制水泥块标称20kg，实际称重往往在19.2kg到21.5kg之间浮动。10月30日对12块自制配重称重，平均偏差+0.8kg，最大偏差+1.5kg。用标称重量算1RM，误差会随片数放大：总负重100kg时实际可能是104kg，测算出的1RM就偏高约4%。</p>
+        <div class="note">核对方式：把每块配重单独过秤，在块身用记号笔标实际重量，训练日志按实际重量记录。这一步做完，1RM测算偏差能压到1%以内。</div>
+        <p>对比商业杠铃片，铸铁片的标称误差通常在±0.5%以内，水泥块做不到这个精度。乡村场景下这不算大问题，但做力量周期计划时，配重误差会掩盖真实的进步幅度。连续三周深蹲重量没变，可能只是换了偏差更大的配重块。</p>
+
+        <h3>农忙期训练频率：维持与增长的临界点</h3>
+        <p>秋收期间每天体力消耗大，训练频率从每周4次降到2次是常见选择。10月的三周跟踪记录显示，每周2次全身训练、每次25分钟，足以维持卧推与深蹲重量；降到每周1次后，第3周卧推重量下降约5%。这条临界线因人而异，但对有基础训练量的人，每周2次是维持肌肉量的下限。</p>
+        <ul>
+          <li>每周2次：深蹲、卧推、划船各3组，重量维持不变，容量降三成。</li>
+          <li>每周1次：只能延缓下降，三周内出现可测量的力量流失。</li>
+          <li>每天12分钟：适合作为补充，单独使用不足以维持下肢力量。</li>
+        </ul>
+
+        <h3>控射训练的信息层级：哪些说法能核对</h3>
+        <p>围绕控射节奏的讨论里，信息混杂程度高于其他训练话题。可以按来源拆成四层：</p>
+        <table>
+          <tr><th>信息层级</th><th>具体表现</th><th>可核对程度</th></tr>
+          <tr><td>已公开事实</td><td>训练者自己记录的配速、组数、心率</td><td>高，有原始数据</td></tr>
+          <tr><td>当事人回应</td><td>训练者在评论区补充的动作细节</td><td>中，需交叉比对</td></tr>
+          <tr><td>媒体转述</td><td>二手账号转发的“控射增肌法”</td><td>低，常缺配速参数</td></tr>
+          <tr><td>网友推测</td><td>“控射能替代有氧”一类说法</td><td>极低，无数据支撑</td></tr>
+        </table>
+        <p>判断一条控射说法是否可信，看它有没有给出三项参数：下放秒数、底部停顿秒数、组间休息秒数。三项齐全，至少可以复现；缺任何一项，基本只能当经验分享看。这条标准同样适用于增肌食谱和器械评测——给出具体数字的条目，复现成功率明显更高。</p>
+      </article>
+    </section>
+
+    <!-- 6 体验指南 -->
+    <section id="guide" aria-labelledby="guide-title">
+      <div class="sec-head">
+        <div>
+          <h2 id="guide-title">训练内容的消费顺序与判断依据</h2>
+          <div class="sub">5步决定先看什么、怎么比较</div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <h3>先确认自己的训练阶段</h3>
+            <p>零基础看动作模式教学，有半年以上训练量再看周期计划。跳过动作模式直接上控射节奏，动作变形风险高，深蹲膝盖内扣是最常见的问题。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <h3>用配重误差筛掉不可复现的条目</h3>
+            <p>条目里写“深蹲100kg”却没说明配重是否称重，数据可信度打折。优先看标注了实际称重、训练日期和组数的记录，这类条目复现成功率更高。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <h3>比较同类条目的训练容量</h3>
+            <p>两个深蹲计划都声称12周提升20kg，看总容量曲线：一个从每周3000kg涨到5000kg，另一个一直在3500kg徘徊，前者更可能是真实进步。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div>
+            <h3>控射节奏放在辅助动作上试</h3>
+            <p>先用孤立动作（弯举、侧平举）体验4-2-1节奏，适应呼吸配合后再移到复合动作。直接在主项上用控射节奏，前两周容易出现头晕和组间恢复不足。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">5</div>
+          <div>
+            <h3>按农忙节奏调整计划密度</h3>
+            <p>秋收、春耕期间把每周4次降到2次，保留深蹲、卧推、划船三个主项。恢复日安排拉伸与轻负荷行走，别在体力劳动日叠加高强度训练。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 FAQ -->
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="sec-head">
+        <div>
+          <h2 id="faq-title">控射与乡村训练常见问答</h2>
+          <div class="sub">6个高频搜索问题的具体回答</div>
+        </div>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>控射节奏训练和普通节奏训练，增肌效果差多少？</summary>
+          <div class="ans">差别主要在总容量与代谢压力。同等负重下，4-2-1节奏单组完成次数少约三成，但张力时间翻倍。2026年10月的对照记录里，8周控射组肌肉围度增长与常规组接近，力量增长略低。想兼顾两者，主项用常规节奏，辅助动作上控射节奏。</div>
+        </details>
+        <details>
+          <summary>水泥配重块做深蹲，怎么保证重量准确？</summary>
+          <div class="ans">每块单独过秤，用记号笔标实际重量，训练日志按实际值记录。12块自制配重的称重结果显示平均偏差+0.8kg，最大+1.5kg。不称重直接用标称值，1RM测算可能偏高4%左右，力量周期的进步幅度会被误差掩盖。</div>
+        </details>
+        <details>
+          <summary>秋收期间每天干活很累，还要不要练？</summary>
+          <div class="ans">每周2次、每次25分钟的全身训练足以维持力量，10月的三周跟踪里卧推和深蹲重量都没有下降。降到每周1次后第3周卧推掉约5%。训练安排在体力劳动较轻的时段，主项做深蹲、卧推、划船各3组即可，不必追求容量。</div>
+        </details>
+        <details>
+          <summary>自制单杠引体向上，从0个开始怎么练？</summary>
+          <div class="ans">分三阶段：先做离心引体，跳上去用5秒缓慢下放，每组3到5次；再用弹力带辅助完成标准动作；最后过渡到自重。8周计划里第8周完成12个标准引体的训练者，前4周都在做离心和辅助组，没有直接硬拉自重。</div>
+        </details>
+        <details>
+          <summary>不用乳清蛋白，本地食材怎么凑够每日蛋白？</summary>
+          <div class="ans">按每公斤体重1.8g蛋白计算，70kg训练者每天约126g。鸡蛋6个约36g，黄豆100g约35g，豆腐皮100g约44g，花生酱两勺约8g，合计约123g。日均采购成本约18元，比乳清蛋白方案低四成，注意黄豆提前泡发减少胀气。</div>
+        </details>
+        <details>
+          <summary>罗马尼亚硬拉和普通硬拉，乡村训练者该先练哪个？</summary>
+          <div class="ans">先练罗马尼亚硬拉。RDL对下背压力小，动作轨迹更容易在自制器械上复现，膝盖微屈、髋部后移、杠铃贴腿三个要点掌握后，再过渡到从地面起的普通硬拉。起始重量建议按体重40%配置，腘绳肌拉伸感明显但不出现腰部代偿。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8 用户评论 -->
+    <section id="comments" aria-labelledby="cm-title">
+      <div class="sec-head">
+        <div>
+          <h2 id="cm-title">训练者评论区</h2>
+          <div class="sub">16条来自训练记录下的真实反馈</div>
+        </div>
+      </div>
+      <div class="comments">
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">老</div><span class="name">老陈练腿</span><time>11-08</time></div>
+          <p>水泥块称重那步太对了。我之前一直按标称20kg算，实际称出来21.3kg，难怪深蹲重量老是卡着不动。</p>
+          <span class="ctx">水泥配重深蹲</span>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">田</div><span class="name">田埂上的杠铃</span><time>11-08</time></div>
+          <p>4-2-1推举试了两周，头晕是真的，后来把组间休息从60秒拉到90秒才好点。</p>
+          <span class="ctx">控射节奏</span>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">阿</div><span class="name">阿强收玉米</span><time>11-07</time></div>
+          <p>秋收那三周我一天只睡5小时，还能保住卧推重量，碎片训练确实有用。</p>
+          <span class="ctx">农忙期训练</span>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">木</div><span class="name">木架焊工小李</span><time>11-07</time></div>
+          <p>圆管焊接款120kg焊点裂，我信。自己焊的架子加到110kg横梁就开始响了，后来加了斜撑才稳。</p>
+          <span class="ctx">负重架横评</span>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">豆</div><span class="name">豆腐皮爱好者</span><time>11-06</time></div>
+          <p>黄豆100g蛋白35g没错，但胀气也是真的，泡发12小时加换水能好不少。</p>
+          <span class="ctx">增肌食谱</span>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">单</div><span class="name">单杠挂树上</span><time>11-06</time></div>
+          <p>离心引体那阶段我做了三周，第四周突然能拉4个了，之前硬拉一个都费劲。</p>
+          <span class="ctx">引体向上</span>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">水</div><span class="name">水桶农夫</span><time>11-05</time></div>
+          <p>单侧行走确实累，但我觉得比双侧难在握力，不是核心。你们握力跟得上吗？</p>
+          <span class="ctx">农夫行走</span>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">R</div><span class="name">RDL新手村</span><time>11-05</time></div>
+          <p>体重40%起始，我70kg用了28kg，做完腘绳肌第二天酸得下不了楼梯，感觉可以再轻点。</p>
+          <span class="ctx">罗马尼亚硬拉</span>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">稻</div><span class="name">稻谷袋泡沫轴</span><time>11-04</time></div>
+          <p>用稻谷袋滚大腿前侧，比买的泡沫轴硬，疼但有效。就是袋子容易破，得套两层。</p>
+          <span class="ctx">恢复训练</span>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">深</div><span class="name">深蹲平台期</span><time>11-04</time></div>
+          <p>5×5突破平台期我也试了，第9周从95kg到100kg，但第10周又卡住，可能得换周期了。</p>
+          <span class="ctx">负重深蹲</span>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">小</div><span class="name">小麦田边</span><time>11-03</time></div>
+          <p>配速表那个力量日安排得挺满，我按它练了一周，第三天腿就抬不起来了，得减量。</p>
+          <span class="ctx">配速表</span>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">铁</div><span class="name">铁皮水桶</span><time>11-03</time></div>
+          <p>控射节奏我一般放在弯举上，肱二头肌泵感确实比常规组强，主项还是老老实实做常规。</p>
+          <span class="ctx">控射节奏</span>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">花</div><span class="name">花生酱两勺</span><time>11-02</time></div>
+          <p>18块一天蛋白凑够，比买蛋白粉省多了，就是花生酱热量高，减脂期得算着吃。</p>
+          <span class="ctx">增肌食谱</span>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">院</div><span class="name">院墙横梁</span><time>11-01</time></div>
+          <p>镀锌水管做单杠，用了半年没问题，就是冬天手冷，得缠个布条。</p>
+          <span class="ctx">自制单杠</span>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">风</div><span class="name">风里来雨里去</span><time>10-31</time></div>
+          <p>最近下雨没法练，就在家做俯卧撑，感觉也还行。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><div class="avatar">图</div><span class="name">图省事的老王</span><time>10-30</time></div>
+          <p>看了半天还是没搞懂控射节奏到底该配多重的重量，文章里要是能直接给个重量区间就好了。</p>
+          <span class="ctx">控射节奏</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 相关资讯 -->
+    <section id="news" aria-labelledby="news-title">
+      <div class="sec-head">
+        <div>
+          <h2 id="news-title">近期训练资讯</h2>
+          <div class="sub">6条带具体时间与当事方的动态</div>
+        </div>
+      </div>
+      <div class="news-list">
+        <div class="news-item">
+          <div><h3>11月8日控射训练配速表更新，加入秋收后恢复周</h3><p>新增的恢复周把训练量降到平时的六成，安排两次轻负荷行走与一次全身拉伸，适用于连续三周高强度训练后的调整期。</p></div>
+          <time datetime="2026-11-08">11-08</time>
+        </div>
+        <div class="news-item">
+          <div><h3>负重架承重测试补测150kg，两款自制架出现形变</h3><p>方钢木板组合加载到135kg时横梁挠度达到8mm，圆管焊接款在120kg时焊点出现1.2mm裂纹，测试方建议自制架加装斜撑。</p></div>
+          <time datetime="2026-11-06">11-06</time>
+        </div>
+        <div class="news-item">
+          <div><h3>11月鸡蛋价格回落，低成本增肌食谱成本下调</h3><p>本地市场鸡蛋均价从每斤5.2元降到4.8元，按每天6个鸡蛋计算，月蛋白采购成本减少约22元，食谱配比同步调整。</p></div>
+          <time datetime="2026-11-02">11-02</time>
+        </div>
+        <div class="news-item">
+          <div><h3>单侧农夫行走对比实验完成，躯干侧屈增加9度</h3><p>实验用30米行走各6组，单侧负重时躯干侧屈角度平均增加9度，测试者建议两侧轮换并控制单次行走距离在40米内。</p></div>
+          <time datetime="2026-10-31">10-31</time>
+        </div>
+        <div class="news-item">
+          <div><h3>自制单杠引体8周计划结项，12人完成测试</h3><p>参与的12名训练者中9人完成12个标准引体，平均用时7.6周，未完成的3人主要卡在握力不足与肩胛控制两个环节。</p></div>
+          <time datetime="2026-10-28">10-28</time>
+        </div>
+        <div class="news-item">
+          <div><h3>RDL起始重量建议修订，从体重45%下调到40%</h3><p>依据10月26日的训练反馈，45%起始重量下腰部代偿比例偏高，下调到40%后腘绳肌拉伸感更明显，动作稳定性提升。</p></div>
+          <time datetime="2026-10-26">10-26</time>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 相关推荐 -->
+    <section id="recommend" aria-labelledby="rec-title">
+      <div class="sec-head">
+        <div>
+          <h2 id="rec-title">按训练需求找方向</h2>
+          <div class="sub">8个具体内容方向</div>
+        </div>
+      </div>
+      <div class="rec-tags">
+        <a class="rec-tag" href="#featured">水泥配重制作教程 <small>器械</small></a>
+        <a class="rec-tag" href="#deep">4-2-1节奏配速表 <small>控射</small></a>
+        <a class="rec-tag" href="#featured">秋收期碎片训练 <small>农忙</small></a>
+        <a class="rec-tag" href="#featured">单侧农夫行走 <small>核心</small></a>
+        <a class="rec-tag" href="#guide">引体离心训练 <small>背部</small></a>
+        <a class="rec-tag" href="#featured">本地食材蛋白配比 <small>食谱</small></a>
+        <a class="rec-tag" href="#featured">RDL髋部轨迹 <small>后链</small></a>
+        <a class="rec-tag" href="#comments">稻谷袋放松法 <small>恢复</small></a>
+      </div>
+    </section>
+
+    <!-- 11 动作榜单 -->
+    <section id="ranking" aria-labelledby="rank-title">
+      <div class="sec-head">
+        <div>
+          <h2 id="rank-title">11月训练动作热度榜</h2>
+          <div class="sub">按站内记录频次与收藏量排序</div>
+        </div>
+      </div>
+      <div class="side-card">
+        <ol class="hot-list">
+          <li><a href="#featured"><span class="rank">1</span>负重深蹲（水泥配重版）<span class="meta">128次记录</span></a></li>
+          <li><a href="#featured"><span class="rank">2</span>农夫行走（单侧水桶）<span class="meta">96次记录</span></a></li>
+          <li><a href="#featured"><span class="rank">3</span>引体向上（自制单杠）<span class="meta">87次记录</span></a></li>
+          <li><a href="#featured"><span class="rank">4</span>罗马尼亚硬拉<span class="meta">73次记录</span></a></li>
+          <li><a href="#deep"><span class="rank">5</span>4-2-1控射推举<span class="meta">61次记录</span></a></li>
+          <li><a href="#featured"><span class="rank">6</span>弹力带划船<span class="meta">54次记录</span></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 12 投稿互动 -->
+    <section id="submit" aria-labelledby="sub-title">
+      <div class="submit-panel">
+        <div>
+          <h2 id="sub-title">上传你的训练记录</h2>
+          <p>把配重称重、组数、配速和训练日期一起写清楚，附上器械照片。经核对后纳入精选内容，供其他训练者复现对比。</p>
+        </div>
+        <button class="submit-btn" onclick="alert('投稿入口为示例演示，暂未开放提交。')">上传训练记录</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右侧辅助栏 -->
+  <aside class="sidebar" aria-label="辅助信息">
+    <div class="side-card">
+      <h3>站内查找</h3>
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="search" id="siteSearch" placeholder="搜索动作或条目名称" aria-label="搜索站内内容">
+      </div>
+      <div class="search-empty" id="searchEmpty">没有找到匹配条目，换个关键词试试。</div>
+    </div>
+
+    <div class="side-card">
+      <h3>今日训练提示</h3>
+      <div class="tl-item" style="padding-left:0;">
+        <time>11-08 · 力量日</time>
+        <h4 style="font-size:14px;">深蹲 5×5 @82kg</h4>
+        <p style="font-size:12.5px;color:var(--text-2);margin:0;">组间休息120秒，配重按实际称重记录。</p>
+      </div>
+    </div>
+
+    <div class="side-card" id="ranking-aside">
+      <h3>训练动作热度</h3>
+      <ol class="hot-list">
+        <li><a href="#featured"><span class="rank">1</span>负重深蹲<span class="meta">128</span></a></li>
+        <li><a href="#featured"><span class="rank">2</span>农夫行走<span class="meta">96</span></a></li>
+        <li><a href="#featured"><span class="rank">3</span>引体向上<span class="meta">87</span></a></li>
+        <li><a href="#featured"><span class="rank">4</span>罗马尼亚硬拉<span class="meta">73</span></a></li>
+        <li><a href="#deep"><span class="rank">5</span>控射推举<span class="meta">61</span></a></li>
+        <li><a href="#featured"><span class="rank">6</span>弹力带划船<span class="meta">54</span></a></li>
+      </ol>
+    </div>
+
+    <div class="side-card">
+      <h3>近期更新</h3>
+      <div class="timeline">
+        <div class="tl-item">
+          <time>11月8日</time>
+          <h4>农忙季配速表</h4>
+          <p>力量日、控射日、恢复日三档安排。</p>
+        </div>
+        <div class="tl-item">
+          <time>11月6日</time>
+          <h4>负重架横评补测</h4>
+          <p>150kg加载测试数据补齐。</p>
+        </div>
+        <div class="tl-item">
+          <time>11月2日</time>
+          <h4>增肌食谱成本更新</h4>
+          <p>鸡蛋价格回落，日均成本降到18元。</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2f5d4a"/>
+            <path d="M14 42c6-16 14-22 18-22s12 6 18 22" stroke="#f2c14e" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <circle cx="32" cy="22" r="5" fill="#f2c14e"/>
+          </svg>
+          <span class="ft">控射农牛肌肉gv</span>
+        </div>
+        <p class="footer-pos">记录跨度从2026年10月24日到11月8日，覆盖负重深蹲、控射节奏、自制器械、增肌食谱与恢复训练五类条目，更新节奏为每周2到3次，农忙期保持每两天一条训练日志。</p>
+      </div>
+      <div class="footer-col">
+        <h4>训练方向</h4>
+        <ul>
+          <li><a href="#featured">负重深蹲</a></li>
+          <li><a href="#deep">控射节奏</a></li>
+          <li><a href="#featured">核心与后链</a></li>
+          <li><a href="#featured">背部训练</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>实用内容</h4>
+        <ul>
+          <li><a href="#featured">器械实测</a></li>
+          <li><a href="#featured">增肌食谱</a></li>
+          <li><a href="#guide">体验指南</a></li>
+          <li><a href="#faq">常见问答</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>参与互动</h4>
+        <ul>
+          <li><a href="#submit">上传训练记录</a></li>
+          <li><a href="#comments">用户评论</a></li>
+          <li><a href="#ranking">动作榜单</a></li>
+          <li><a href="#news">近期资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>本页内容为训练记录示例，配重、心率、蛋白配比等数据来自站内条目整理。</span>
+      <span>© 2026 控射农牛肌肉gv · 内容聚合示例</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  // 回到顶部
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > window.innerHeight * 0.8){ toTop.classList.add('show'); }
+    else{ toTop.classList.remove('show'); }
+  }, {passive:true});
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // 抽屉菜单
+  var hamburger = document.getElementById('hamburger');
+  var drawer = document.getElementById('drawer');
+  var mask = document.getElementById('drawerMask');
+  var closeBtn = document.getElementById('drawerClose');
+
+  function openDrawer(){
+    drawer.classList.add('show');
+    mask.classList.add('show');
+    hamburger.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
+    closeBtn.focus();
+  }
+  function closeDrawer(){
+    drawer.classList.remove('show');
+    mask.classList.remove('show');
+    hamburger.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+    hamburger.focus();
+  }
+  hamburger.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  mask.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && drawer.classList.contains('show')){ closeDrawer(); }
+  });
+  drawer.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeDrawer);
+  });
+
+  // 本地搜索
+  var searchInput = document.getElementById('siteSearch');
+  var searchEmpty = document.getElementById('searchEmpty');
+  function clearSearch(){
+    document.querySelectorAll('.card, .update-item, .news-item, .comment, .cat-card, .rec-tag, .step, .faq details').forEach(function(el){
+      el.style.display = '';
+    });
+    searchEmpty.classList.remove('show');
+  }
+  searchInput.addEventListener('input', function(){
+    var q = searchInput.value.trim().toLowerCase();
+    if(!q){ clearSearch(); return; }
+    var targets = document.querySelectorAll('.card, .update-item, .news-item, .comment, .cat-card, .rec-tag, .step, .faq details');
+    var hits = 0;
+    targets.forEach(function(el){
+      var text = el.textContent.toLowerCase();
+      if(text.indexOf(q) !== -1){ el.style.display = ''; hits++; }
+      else{ el.style.display = 'none'; }
+    });
+    if(hits === 0){ searchEmpty.classList.add('show'); }
+    else{ searchEmpty.classList.remove('show'); }
+  });
+
+  // 频道高亮
+  var sections = document.querySelectorAll('main section[id]');
+  var navLinks = document.querySelectorAll('.channel-nav a');
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var id = entry.target.id;
+        navLinks.forEach(function(link){
+          link.classList.toggle('current', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, {rootMargin:'-40% 0px -50% 0px'});
+  sections.forEach(function(s){ observer.observe(s); });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "控射农牛肌肉gv",
+  "description": "聚合乡村力量训练、控射节奏练习、自制器械实测与低成本增肌食谱的内容站点。",
+  "inLanguage": "zh-CN",
+  "mainEntity": {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "控射节奏训练和普通节奏训练，增肌效果差多少？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "差别主要在总容量与代谢压力。同等负重下4-2-1节奏单组完成次数少约三成，但张力时间翻倍。10月对照记录中8周控射组围度增长与常规组接近，力量增长略低。建议主项用常规节奏，辅助动作上控射节奏。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "水泥配重块做深蹲，怎么保证重量准确？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "每块单独过秤并标注实际重量。12块自制配重称重显示平均偏差+0.8kg，最大+1.5kg。不称重直接按标称值记录，1RM测算可能偏高约4%。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "秋收期间每天干活很累，还要不要练？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "每周2次、每次25分钟的全身训练足以维持力量。10月三周跟踪中卧推和深蹲重量未下降，降到每周1次后第3周卧推掉约5%。主项做深蹲、卧推、划船各3组即可。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "自制单杠引体向上，从0个开始怎么练？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "分三阶段：先做离心引体，5秒缓慢下放每组3到5次；再用弹力带辅助完成标准动作；最后过渡到自重。8周计划第8周完成12个标准引体者，前4周都在做离心和辅助组。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "不用乳清蛋白，本地食材怎么凑够每日蛋白？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "70kg训练者每天约126g蛋白。鸡蛋6个约36g，黄豆100g约35g，豆腐皮100g约44g，花生酱两勺约8g，合计约123g，日均成本约18元，比乳清蛋白方案低四成。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "罗马尼亚硬拉和普通硬拉，乡村训练者该先练哪个？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "先练罗马尼亚硬拉。RDL对下背压力小，轨迹更容易在自制器械上复现。掌握膝盖微屈、髋部后移、杠铃贴腿三个要点后再过渡到普通硬拉，起始重量按体重40%配置。"
+        }
+      }
+    ]
+  }
+}
+</script>
+
+</body>
+  </html>
