@@ -1,0 +1,1665 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>兔崽baby-tuzaibaby每日大赛 - 每日创作赛与参赛作品聚合</title>
+  <meta name="description" content="兔崽baby-tuzaibaby每日大赛聚合每日创作赛题、参赛作品、规则解读与社区互动。2026年11月8日更新，适合关注轻量创作挑战与同人二创的参赛者和观众查阅。">
+  <meta name="keywords" content="兔崽baby-tuzaibaby每日大赛">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f3d9c6'/%3E%3Cpath d='M20 16c0-6 4-10 10-10s10 4 10 10' fill='none' stroke='%23b4542e' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='38' r='14' fill='%23b4542e'/%3E%3Ccircle cx='26' cy='35' r='2.6' fill='%23fff7ef'/%3E%3Ccircle cx='38' cy='35' r='2.6' fill='%23fff7ef'/%3E%3Cpath d='M28 42c2 2 6 2 8 0' fill='none' stroke='%23fff7ef' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --brand: #b4542e;
+      --brand-light: #f3d9c6;
+      --brand-soft: #fdf2ea;
+      --brand-deep: #7a3418;
+      --bg: #fbf8f4;
+      --panel: #ffffff;
+      --ink: #2a211b;
+      --ink-2: #6b5a4f;
+      --ink-3: #9a877b;
+      --line: #eadfd5;
+      --radius-card: 14px;
+      --radius-btn: 8px;
+      --radius-tag: 6px;
+      --radius-banner: 18px;
+      --shadow: 0 2px 10px rgba(80, 45, 25, 0.06);
+      --shadow-hover: 0 6px 20px rgba(80, 45, 25, 0.12);
+      --announce-h: 38px;
+      --header-h: 64px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--brand-deep); text-decoration: none; }
+    a:hover { color: var(--brand); }
+    img { display: block; max-width: 100%; height: auto; }
+    button { font-family: inherit; cursor: pointer; }
+    h1, h2, h3, h4 { line-height: 1.35; margin: 0; font-weight: 700; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 0 0 12px; padding-left: 20px; }
+    li { margin-bottom: 6px; }
+
+    :focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+
+    .skip-link {
+      position: absolute; left: -999px; top: 0;
+      background: var(--brand); color: #fff; padding: 8px 14px; z-index: 200;
+      border-radius: 0 0 var(--radius-btn) 0;
+    }
+    .skip-link:focus { left: 0; }
+
+    /* 吸顶公告条 */
+    .announce {
+      position: sticky; top: 0; z-index: 60;
+      height: var(--announce-h);
+      background: linear-gradient(90deg, var(--brand-deep), var(--brand));
+      color: #fff7ef;
+      display: flex; align-items: center;
+      font-size: 13px;
+      overflow: hidden;
+    }
+    .announce-inner {
+      max-width: 1320px; margin: 0 auto; padding: 0 16px;
+      display: flex; align-items: center; gap: 18px; width: 100%;
+      white-space: nowrap; overflow: hidden;
+    }
+    .announce-brand {
+      font-weight: 700; letter-spacing: 0.3px; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .announce-brand .dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #ffd9a8;
+      box-shadow: 0 0 0 3px rgba(255, 217, 168, .25);
+    }
+    .announce-list {
+      display: flex; gap: 26px; overflow: hidden; text-overflow: ellipsis;
+    }
+    .announce-list span { opacity: .95; }
+    .announce-list b { color: #ffe6c7; font-weight: 600; }
+
+    /* 吸顶页头 */
+    .site-header {
+      position: sticky; top: var(--announce-h); z-index: 50;
+      height: var(--header-h);
+      background: rgba(251, 248, 244, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-inner {
+      max-width: 1320px; margin: 0 auto; padding: 0 16px;
+      height: 100%; display: flex; align-items: center; gap: 20px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+    }
+    .logo svg { width: 36px; height: 36px; flex-shrink: 0; }
+    .logo-text {
+      font-size: 17px; font-weight: 800; color: var(--brand-deep);
+      letter-spacing: 0.2px; white-space: nowrap;
+    }
+    .main-nav {
+      display: flex; align-items: center; gap: 4px; flex: 1; min-width: 0;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .main-nav::-webkit-scrollbar { display: none; }
+    .main-nav a {
+      padding: 7px 11px; border-radius: var(--radius-btn);
+      font-size: 14px; color: var(--ink-2); white-space: nowrap;
+      transition: background .18s, color .18s;
+    }
+    .main-nav a:hover, .main-nav a:focus-visible {
+      background: var(--brand-soft); color: var(--brand-deep);
+    }
+    .header-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .search-box {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 999px; padding: 4px 4px 4px 12px;
+    }
+    .search-box input {
+      border: 0; background: transparent; outline: none;
+      font-size: 13px; width: 130px; color: var(--ink);
+    }
+    .search-box input::placeholder { color: var(--ink-3); }
+    .search-box button {
+      border: 0; background: var(--brand); color: #fff;
+      border-radius: 999px; padding: 5px 13px; font-size: 13px;
+      transition: background .18s;
+    }
+    .search-box button:hover { background: var(--brand-deep); }
+    .btn-submit {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--brand-soft); color: var(--brand-deep);
+      border: 1px solid var(--brand-light); border-radius: var(--radius-btn);
+      padding: 7px 13px; font-size: 13.5px; font-weight: 600;
+      white-space: nowrap; transition: background .18s, box-shadow .18s;
+    }
+    .btn-submit:hover { background: var(--brand-light); box-shadow: var(--shadow); }
+
+    .hamburger {
+      display: none; border: 1px solid var(--line); background: var(--panel);
+      border-radius: var(--radius-btn); width: 38px; height: 38px;
+      align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block; width: 18px; height: 2px; background: var(--ink-2);
+      position: relative; transition: background .18s;
+    }
+    .hamburger span::before, .hamburger span::after {
+      content: ""; position: absolute; left: 0; width: 18px; height: 2px;
+      background: var(--ink-2); transition: transform .18s, top .18s;
+    }
+    .hamburger span::before { top: -6px; }
+    .hamburger span::after { top: 6px; }
+
+    /* 移动端抽屉 */
+    .drawer-mask {
+      position: fixed; inset: 0; background: rgba(42, 33, 27, .45);
+      z-index: 90; opacity: 0; pointer-events: none; transition: opacity .2s;
+    }
+    .drawer {
+      position: fixed; top: 0; right: 0; bottom: 0; width: min(82vw, 320px);
+      background: var(--panel); z-index: 100; transform: translateX(100%);
+      transition: transform .24s ease; display: flex; flex-direction: column;
+      box-shadow: -8px 0 30px rgba(0,0,0,.12);
+    }
+    .drawer.open { transform: translateX(0); }
+    .drawer-mask.show { opacity: 1; pointer-events: auto; }
+    .drawer-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px; border-bottom: 1px solid var(--line);
+    }
+    .drawer-head strong { color: var(--brand-deep); font-size: 15px; }
+    .drawer-close {
+      border: 0; background: var(--brand-soft); color: var(--brand-deep);
+      width: 32px; height: 32px; border-radius: 50%; font-size: 18px;
+      line-height: 1;
+    }
+    .drawer-nav { padding: 10px 8px; overflow-y: auto; }
+    .drawer-nav a {
+      display: block; padding: 11px 14px; border-radius: var(--radius-btn);
+      font-size: 14.5px; color: var(--ink-2);
+    }
+    .drawer-nav a:hover, .drawer-nav a:focus-visible { background: var(--brand-soft); color: var(--brand-deep); }
+    .drawer-foot { margin-top: auto; padding: 16px; border-top: 1px solid var(--line); }
+    .drawer-foot .btn-submit { width: 100%; justify-content: center; }
+
+    /* 首屏 */
+    .hero {
+      position: relative; overflow: hidden;
+      background:
+        radial-gradient(1200px 380px at 82% -8%, rgba(243, 217, 198, .75), transparent 62%),
+        radial-gradient(700px 300px at 6% 110%, rgba(180, 84, 46, .10), transparent 60%),
+        var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-inner {
+      max-width: 1320px; margin: 0 auto; padding: 46px 16px 40px;
+      display: grid; grid-template-columns: 1.15fr .85fr; gap: 36px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 600; color: var(--brand-deep);
+      background: var(--panel); border: 1px solid var(--brand-light);
+      padding: 5px 13px; border-radius: 999px; margin-bottom: 16px;
+      box-shadow: var(--shadow);
+    }
+    .hero-tag i {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--brand);
+      animation: pulse 2.6s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(180, 84, 46, .35); }
+      50% { box-shadow: 0 0 0 6px rgba(180, 84, 46, 0); }
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      color: var(--brand-deep); letter-spacing: 0.2px;
+      margin-bottom: 14px;
+    }
+    .hero-desc {
+      font-size: 15.5px; color: var(--ink-2); max-width: 560px;
+      margin-bottom: 22px;
+    }
+    .hero-desc strong { color: var(--brand-deep); font-weight: 600; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .btn-primary, .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: var(--radius-btn); padding: 11px 20px;
+      font-size: 14.5px; font-weight: 600; transition: transform .18s, box-shadow .18s, background .18s;
+    }
+    .btn-primary {
+      background: var(--brand); color: #fff; border: 1px solid var(--brand);
+      box-shadow: 0 4px 14px rgba(180, 84, 46, .22);
+    }
+    .btn-primary:hover { background: var(--brand-deep); transform: translateY(-2px); color: #fff; }
+    .btn-ghost {
+      background: var(--panel); color: var(--brand-deep); border: 1px solid var(--line);
+    }
+    .btn-ghost:hover { border-color: var(--brand-light); box-shadow: var(--shadow); transform: translateY(-2px); }
+    .hero-stats {
+      display: flex; flex-wrap: wrap; gap: 26px;
+      padding-top: 18px; border-top: 1px dashed var(--line);
+    }
+    .hero-stats div { display: flex; flex-direction: column; }
+    .hero-stats b { font-size: 20px; color: var(--brand-deep); line-height: 1.2; }
+    .hero-stats span { font-size: 12.5px; color: var(--ink-3); }
+
+    .hero-visual {
+      position: relative; min-height: 300px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-visual .blob {
+      position: absolute; width: 250px; height: 250px; border-radius: 46% 54% 58% 42% / 52% 44% 56% 48%;
+      background: linear-gradient(140deg, var(--brand-light), #fbe9dc);
+      filter: blur(2px); opacity: .85;
+    }
+    .hero-visual .blob.b2 {
+      width: 180px; height: 180px; border-radius: 50% 50% 42% 58% / 46% 56% 44% 54%;
+      background: linear-gradient(200deg, #f6cfae, #f3d9c6);
+      right: 6%; top: 10%; opacity: .7;
+    }
+    .hero-card {
+      position: relative; z-index: 2; width: 100%; max-width: 330px;
+      background: var(--panel); border-radius: var(--radius-banner);
+      box-shadow: var(--shadow-hover); border: 1px solid var(--line);
+      padding: 18px; transform: rotate(-2deg);
+    }
+    .hero-card-head {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .hero-card-head span { font-size: 12px; color: var(--ink-3); }
+    .hero-card-head strong { font-size: 13px; color: var(--brand-deep); background: var(--brand-soft); padding: 3px 9px; border-radius: 999px; }
+    .hero-card-title { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .hero-card-meta { font-size: 12.5px; color: var(--ink-3); margin-bottom: 14px; }
+    .hero-card-bars { display: grid; gap: 9px; }
+    .hero-card-bars div {
+      display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--ink-2);
+    }
+    .hero-card-bars .bar {
+      flex: 1; height: 8px; border-radius: 99px; background: var(--brand-soft); overflow: hidden;
+    }
+    .hero-card-bars .bar i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--brand), #e08d5f); }
+
+    /* 主布局 */
+    .layout {
+      max-width: 1320px; margin: 0 auto; padding: 34px 16px 56px;
+      display: grid; grid-template-columns: 178px minmax(0, 1fr) 252px; gap: 28px;
+      align-items: start;
+    }
+    .channel-index {
+      position: sticky; top: calc(var(--announce-h) + var(--header-h) + 18px);
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: var(--radius-card); padding: 14px 10px; box-shadow: var(--shadow);
+    }
+    .channel-index h2 {
+      font-size: 13px; color: var(--ink-3); font-weight: 600;
+      padding: 0 8px 8px; letter-spacing: .4px;
+    }
+    .channel-index a {
+      display: flex; align-items: center; justify-content: space-between; gap: 6px;
+      padding: 8px 10px; border-radius: var(--radius-btn); font-size: 13.5px;
+      color: var(--ink-2); transition: background .16s, color .16s;
+    }
+    .channel-index a:hover, .channel-index a:focus-visible { background: var(--brand-soft); color: var(--brand-deep); }
+    .channel-index a.active { background: var(--brand-soft); color: var(--brand-deep); font-weight: 600; }
+    .channel-index a em {
+      font-style: normal; font-size: 11px; color: var(--ink-3);
+      background: var(--bg); padding: 1px 7px; border-radius: 99px;
+    }
+
+    .main-col { min-width: 0; }
+    .side-col { min-width: 0; display: grid; gap: 20px; }
+
+    .section {
+      margin-bottom: 40px;
+      scroll-margin-top: calc(var(--announce-h) + var(--header-h) + 16px);
+    }
+    .section:last-child { margin-bottom: 0; }
+    .section-head { margin-bottom: 16px; }
+    .section-head .kicker {
+      font-size: 12px; font-weight: 700; letter-spacing: 1.2px;
+      color: var(--brand); text-transform: uppercase; display: block; margin-bottom: 4px;
+    }
+    .section-head h2 {
+      font-size: 21px; color: var(--ink); display: flex; align-items: center; gap: 10px;
+    }
+    .section-head h2 .cnt {
+      font-size: 12px; font-weight: 500; color: var(--ink-3);
+      background: var(--panel); border: 1px solid var(--line); padding: 1px 9px; border-radius: 99px;
+    }
+    .section-lead { font-size: 14px; color: var(--ink-2); margin-top: 6px; max-width: 760px; }
+
+    /* 概览 */
+    .overview {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: var(--radius-card); padding: 22px; box-shadow: var(--shadow);
+    }
+    .overview p { font-size: 14.5px; color: var(--ink-2); }
+    .overview p:last-child { margin-bottom: 0; }
+    .overview strong { color: var(--brand-deep); }
+
+    /* 精选卡片 */
+    .card-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px;
+    }
+    .card {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: var(--radius-card); overflow: hidden;
+      box-shadow: var(--shadow); display: flex; flex-direction: column;
+      transition: transform .18s, box-shadow .18s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .card-thumb { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--brand-soft); }
+    .card-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+    .card:hover .card-thumb img { transform: scale(1.04); }
+    .card-type {
+      position: absolute; left: 10px; top: 10px;
+      background: rgba(255, 247, 239, .94); color: var(--brand-deep);
+      font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: 99px;
+    }
+    .card-body { padding: 13px 14px 14px; display: flex; flex-direction: column; flex: 1; }
+    .card-title { font-size: 14.5px; font-weight: 700; margin-bottom: 6px; color: var(--ink); }
+    .card-title a { color: inherit; }
+    .card-title a:hover { color: var(--brand); }
+    .card-desc { font-size: 12.5px; color: var(--ink-2); margin-bottom: 10px; flex: 1; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+    .tag {
+      font-size: 11px; color: var(--brand-deep); background: var(--brand-soft);
+      padding: 2px 8px; border-radius: var(--radius-tag);
+    }
+    .card-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 11.5px; color: var(--ink-3); padding-top: 9px; border-top: 1px dashed var(--line);
+    }
+    .heat { color: var(--brand); font-weight: 600; }
+
+    /* 更新列表 */
+    .update-list {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow);
+    }
+    .update-item {
+      display: flex; gap: 14px; padding: 14px 18px;
+      border-bottom: 1px solid var(--line); align-items: flex-start;
+      transition: background .16s;
+    }
+    .update-item:last-child { border-bottom: 0; }
+    .update-item:hover { background: var(--brand-soft); }
+    .update-date {
+      flex-shrink: 0; font-size: 12px; color: var(--ink-3);
+      font-variant-numeric: tabular-nums; padding-top: 2px; width: 52px;
+    }
+    .update-main { min-width: 0; }
+    .update-main strong { font-size: 14px; color: var(--ink); display: block; margin-bottom: 2px; }
+    .update-main p { font-size: 12.8px; color: var(--ink-2); margin: 0; }
+
+    /* 分类 */
+    .cat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .cat-item {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: var(--radius-btn); padding: 13px 12px;
+      display: flex; flex-direction: column; gap: 3px;
+      transition: border-color .16s, box-shadow .16s, transform .16s;
+    }
+    .cat-item:hover { border-color: var(--brand-light); box-shadow: var(--shadow); transform: translateY(-2px); }
+    .cat-item strong { font-size: 13.5px; color: var(--brand-deep); }
+    .cat-item span { font-size: 11.5px; color: var(--ink-3); }
+
+    /* 深度解析 */
+    .deep {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: var(--radius-card); padding: 26px; box-shadow: var(--shadow);
+    }
+    .deep h3 {
+      font-size: 17px; color: var(--brand-deep); margin: 22px 0 10px;
+      padding-left: 12px; border-left: 4px solid var(--brand);
+    }
+    .deep h3:first-of-type { margin-top: 0; }
+    .deep p { font-size: 14.5px; color: var(--ink-2); }
+    .deep strong { color: var(--ink); }
+    .deep .callout {
+      background: var(--brand-soft); border-radius: var(--radius-btn);
+      padding: 14px 16px; font-size: 13.5px; color: var(--brand-deep);
+      margin: 14px 0; border: 1px solid var(--brand-light);
+    }
+    .rule-table {
+      width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0 16px;
+    }
+    .rule-table th, .rule-table td {
+      border: 1px solid var(--line); padding: 9px 11px; text-align: left; vertical-align: top;
+    }
+    .rule-table th { background: var(--brand-soft); color: var(--brand-deep); font-weight: 600; }
+    .rule-table td { color: var(--ink-2); }
+
+    /* 指南步骤 */
+    .steps { display: grid; gap: 12px; counter-reset: step; }
+    .step {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: var(--radius-card); padding: 16px 18px 16px 58px;
+      position: relative; box-shadow: var(--shadow);
+    }
+    .step::before {
+      counter-increment: step; content: counter(step);
+      position: absolute; left: 16px; top: 15px;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--brand); color: #fff; font-size: 14px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step strong { display: block; font-size: 14.5px; margin-bottom: 4px; color: var(--ink); }
+    .step p { font-size: 13.2px; color: var(--ink-2); margin: 0; }
+
+    /* FAQ */
+    .faq-list { display: grid; gap: 10px; }
+    details.faq {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: var(--radius-card); padding: 0 18px; box-shadow: var(--shadow);
+    }
+    details.faq summary {
+      list-style: none; cursor: pointer; padding: 14px 0;
+      font-size: 14.5px; font-weight: 600; color: var(--ink);
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    details.faq summary::-webkit-details-marker { display: none; }
+    details.faq summary::after {
+      content: "+"; font-size: 20px; color: var(--brand); font-weight: 400;
+      transition: transform .18s; flex-shrink: 0;
+    }
+    details.faq[open] summary::after { content: "−"; }
+    details.faq .faq-body {
+      padding: 0 0 16px; font-size: 13.5px; color: var(--ink-2);
+      border-top: 1px dashed var(--line); padding-top: 12px;
+    }
+
+    /* 评论 */
+    .comment-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .comment {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: var(--radius-card); padding: 14px 16px; box-shadow: var(--shadow);
+    }
+    .comment-head { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
+    .avatar {
+      width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12.5px; font-weight: 700; color: #fff;
+    }
+    .comment-head b { font-size: 13px; color: var(--ink); }
+    .comment-head span { font-size: 11px; color: var(--ink-3); margin-left: auto; }
+    .comment p { font-size: 13px; color: var(--ink-2); margin: 0; }
+    .comment p em { color: var(--brand-deep); font-style: normal; }
+
+    /* 资讯 */
+    .news-list { display: grid; gap: 14px; }
+    .news-item {
+      display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px;
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow);
+      transition: transform .16s, box-shadow .16s;
+    }
+    .news-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .news-item img { width: 120px; height: 100%; min-height: 100px; object-fit: cover; }
+    .news-body { padding: 13px 16px 13px 0; }
+    .news-body strong { font-size: 14.5px; display: block; margin-bottom: 3px; }
+    .news-body strong a { color: var(--ink); }
+    .news-body strong a:hover { color: var(--brand); }
+    .news-body time { font-size: 11.5px; color: var(--ink-3); display: block; margin-bottom: 5px; }
+    .news-body p { font-size: 12.8px; color: var(--ink-2); margin: 0; }
+
+    /* 推荐标签 */
+    .rec-tags { display: flex; flex-wrap: wrap; gap: 9px; }
+    .rec-tags a {
+      background: var(--panel); border: 1px solid var(--line);
+      padding: 8px 14px; border-radius: 999px; font-size: 13px; color: var(--ink-2);
+      transition: background .16s, border-color .16s, color .16s;
+    }
+    .rec-tags a:hover { background: var(--brand-soft); border-color: var(--brand-light); color: var(--brand-deep); }
+
+    /* 榜单 */
+    .rank-list {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: var(--radius-card); padding: 6px 18px; box-shadow: var(--shadow);
+    }
+    .rank-item {
+      display: flex; align-items: center; gap: 12px; padding: 11px 0;
+      border-bottom: 1px solid var(--line); font-size: 13.5px;
+    }
+    .rank-item:last-child { border-bottom: 0; }
+    .rank-no {
+      width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; background: var(--bg); color: var(--ink-3);
+    }
+    .rank-item:nth-child(1) .rank-no { background: var(--brand); color: #fff; }
+    .rank-item:nth-child(2) .rank-no { background: #e08d5f; color: #fff; }
+    .rank-item:nth-child(3) .rank-no { background: var(--brand-light); color: var(--brand-deep); }
+    .rank-item .r-title { flex: 1; min-width: 0; color: var(--ink); }
+    .rank-item .r-title small { display: block; font-size: 11px; color: var(--ink-3); }
+    .rank-item .r-heat { font-size: 12px; color: var(--brand); font-weight: 600; }
+
+    /* 侧栏 */
+    .side-panel {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: var(--radius-card); padding: 16px; box-shadow: var(--shadow);
+    }
+    .side-panel h3 {
+      font-size: 14.5px; color: var(--ink); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .side-panel h3::before {
+      content: ""; width: 4px; height: 15px; border-radius: 2px; background: var(--brand);
+    }
+    .hot-list { list-style: none; padding: 0; margin: 0; }
+    .hot-list li {
+      display: flex; gap: 9px; font-size: 13px; padding: 8px 0;
+      border-bottom: 1px dashed var(--line); color: var(--ink-2);
+    }
+    .hot-list li:last-child { border-bottom: 0; }
+    .hot-list li b { color: var(--brand); font-weight: 700; flex-shrink: 0; }
+    .hot-list li a { color: var(--ink-2); }
+    .hot-list li a:hover { color: var(--brand); }
+
+    .side-cta {
+      background: linear-gradient(150deg, var(--brand-deep), var(--brand));
+      color: #fff7ef; border: 0;
+    }
+    .side-cta h3 { color: #fff7ef; }
+    .side-cta h3::before { background: #ffd9a8; }
+    .side-cta p { font-size: 12.8px; color: #ffe6cf; margin-bottom: 12px; }
+    .side-cta .btn-submit {
+      background: #fff7ef; color: var(--brand-deep); border-color: transparent;
+      width: 100%; justify-content: center;
+    }
+    .side-cta .btn-submit:hover { background: #ffe6cf; }
+
+    .side-note { font-size: 12px; color: var(--ink-3); line-height: 1.65; }
+
+    /* 页尾 */
+    .site-footer {
+      background: #2a211b; color: #cdbfb4; padding: 44px 16px 26px;
+      margin-top: 10px;
+    }
+    .footer-inner { max-width: 1320px; margin: 0 auto; }
+    .footer-top {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 30px;
+      padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .footer-brand svg { width: 32px; height: 32px; }
+    .footer-brand strong { color: #fff7ef; font-size: 16px; }
+    .footer-desc { font-size: 13px; line-height: 1.75; color: #a99a8f; max-width: 360px; }
+    .footer-col h4 { font-size: 13.5px; color: #fff7ef; margin-bottom: 12px; font-weight: 600; }
+    .footer-col a {
+      display: block; font-size: 13px; color: #a99a8f; padding: 4px 0;
+    }
+    .footer-col a:hover { color: #ffe6c7; }
+    .footer-bottom {
+      display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between;
+      padding-top: 20px; font-size: 12px; color: #8a7a6f;
+    }
+
+    /* 回顶 */
+    #backTop {
+      position: fixed; right: 22px; bottom: 26px; z-index: 40;
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1px solid var(--line); background: var(--panel); color: var(--brand-deep);
+      box-shadow: var(--shadow-hover); font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transform: translateY(8px);
+      transition: opacity .2s, transform .2s;
+    }
+    #backTop.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+    .no-result {
+      display: none; background: var(--panel); border: 1px dashed var(--brand-light);
+      border-radius: var(--radius-card); padding: 22px; text-align: center;
+      color: var(--ink-2); font-size: 14px;
+    }
+    .no-result.show { display: block; }
+
+    @media (max-width: 1120px) {
+      .layout { grid-template-columns: 168px minmax(0, 1fr); }
+      .side-col { grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .side-col .side-panel { margin: 0; }
+    }
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 26px; }
+      .hero-visual { min-height: 240px; order: -1; }
+      .hero-card { transform: rotate(0); max-width: 300px; }
+      .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cat-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .comment-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .main-nav { display: none; }
+      .hamburger { display: flex; }
+      .search-box input { width: 96px; }
+    }
+    @media (max-width: 860px) {
+      .layout { grid-template-columns: 1fr; }
+      .channel-index { display: none; }
+      .side-col { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 740px) {
+      .announce-list { gap: 18px; }
+      .announce-list span:nth-child(3) { display: none; }
+      .header-inner { gap: 10px; }
+      .logo-text { font-size: 15px; }
+      .search-box { display: none; }
+      .hero-inner { padding: 30px 16px 28px; }
+      .hero-stats { gap: 18px; }
+      .hero-stats b { font-size: 17px; }
+      .layout { padding: 26px 16px 44px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .cat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .side-col { grid-template-columns: 1fr; }
+      .news-item { grid-template-columns: 96px minmax(0, 1fr); }
+      .news-item img { width: 96px; }
+      .footer-top { grid-template-columns: 1fr; gap: 22px; }
+      .deep { padding: 18px; }
+      .step { padding-left: 52px; }
+      .step::before { left: 12px; }
+      #backTop { right: 14px; bottom: 16px; }
+      .rule-table { font-size: 12px; }
+      .rule-table th, .rule-table td { padding: 7px 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- 吸顶公告条 -->
+<div class="announce" role="region" aria-label="更新公告">
+  <div class="announce-inner">
+    <span class="announce-brand"><span class="dot"></span>兔崽baby-tuzaibaby每日大赛</span>
+    <div class="announce-list">
+      <span><b>11月8日</b> 赛题「光影拼贴」开赛，截稿 23:30</span>
+      <span><b>11月7日</b> 新增参赛作品 46 件</span>
+      <span><b>11月6日</b> 第五期「旧物新生」评选结果公布</span>
+    </div>
+  </div>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/#top" aria-label="兔崽baby-tuzaibaby每日大赛 首页">
+      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <rect width="64" height="64" rx="14" fill="#f3d9c6"/>
+        <path d="M20 17c0-7 5-11 12-11s12 4 12 11" fill="none" stroke="#b4542e" stroke-width="4.5" stroke-linecap="round"/>
+        <circle cx="32" cy="39" r="15" fill="#b4542e"/>
+        <circle cx="26" cy="36" r="2.8" fill="#fff7ef"/>
+        <circle cx="38" cy="36" r="2.8" fill="#fff7ef"/>
+        <path d="M28 43c2.2 2.4 5.8 2.4 8 0" fill="none" stroke="#fff7ef" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="23" cy="44" r="3" fill="#f3d9c6" opacity=".55"/>
+        <circle cx="41" cy="44" r="3" fill="#f3d9c6" opacity=".55"/>
+      </svg>
+      <span class="logo-text">兔崽baby-tuzaibaby每日大赛</span>
+    </a>
+
+    <nav class="main-nav" aria-label="主题导航">
+      <a href="/#overview">赛况概览</a>
+      <a href="/#picks">今日精选</a>
+      <a href="/#updates">更新动态</a>
+      <a href="/#categories">赛道分类</a>
+      <a href="/#deep">规则深读</a>
+      <a href="/#guide">参与路径</a>
+      <a href="/#faq">常见问答</a>
+      <a href="/#comments">同好评论</a>
+      <a href="/#news">相关资讯</a>
+      <a href="/#rank">作品榜</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-box" role="search">
+        <input id="searchInput" type="search" placeholder="搜作品/赛道" aria-label="搜索站内作品或赛道">
+        <button type="button" id="searchBtn">查找</button>
+      </div>
+      <a class="btn-submit" href="/#submit">投稿参赛</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false" aria-controls="drawer">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 移动端抽屉 -->
+<div class="drawer-mask" id="drawerMask" aria-hidden="true"></div>
+<aside class="drawer" id="drawer" aria-label="移动端导航" aria-hidden="true">
+  <div class="drawer-head">
+    <strong>兔崽baby-tuzaibaby每日大赛</strong>
+    <button class="drawer-close" id="drawerClose" aria-label="关闭菜单">×</button>
+  </div>
+  <nav class="drawer-nav" aria-label="移动端主题导航">
+    <a href="/#overview">赛况概览</a>
+    <a href="/#picks">今日精选</a>
+    <a href="/#updates">更新动态</a>
+    <a href="/#categories">赛道分类</a>
+    <a href="/#deep">规则深读</a>
+    <a href="/#guide">参与路径</a>
+    <a href="/#faq">常见问答</a>
+    <a href="/#comments">同好评论</a>
+    <a href="/#news">相关资讯</a>
+    <a href="/#recs">相关推荐</a>
+    <a href="/#rank">作品榜</a>
+  </nav>
+  <div class="drawer-foot">
+    <a class="btn-submit" href="/#submit">投稿参赛</a>
+  </div>
+</aside>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag"><i></i>第 217 期 · 每日 23:30 截稿</span>
+      <h1>兔崽baby-tuzaibaby每日大赛</h1>
+      <p class="hero-desc">
+        每天一道轻量命题，围绕<strong>光影拼贴、旧物新生、微缩场景、角色速写</strong>等方向提交单幅或九宫格作品。这里汇总当天赛题、评分细则、入选作品与同好反馈，适合想练手速的创作者和想找灵感参考的观众。
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="/#picks">看今日精选作品</a>
+        <a class="btn-ghost" href="/#deep">先读评分规则</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>217</b><span>已完赛期数</span></div>
+        <div><b>46</b><span>今日新增投稿</span></div>
+        <div><b>8</b><span>常规赛道</span></div>
+        <div><b>11月8日</b><span>最近更新</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <span class="blob"></span>
+      <span class="blob b2"></span>
+      <div class="hero-card">
+        <div class="hero-card-head">
+          <span>今日命题</span>
+          <strong>光影拼贴</strong>
+        </div>
+        <div class="hero-card-title">第 217 期 · 用 3 个光源讲一段夜景</div>
+        <div class="hero-card-meta">截稿 23:30 · 已收到 46 件 · 评委 3 人</div>
+        <div class="hero-card-bars">
+          <div><span>构图</span><span class="bar"><i style="width:82%"></i></span></div>
+          <div><span>光影层次</span><span class="bar"><i style="width:68%"></i></span></div>
+          <div><span>叙事完整</span><span class="bar"><i style="width:74%"></i></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 主布局：三栏门户 -->
+<div class="layout">
+
+  <!-- 左频道索引 -->
+  <aside class="channel-index" aria-label="频道索引">
+    <h2>频道</h2>
+    <a href="/#overview" class="active">赛况概览 <em>01</em></a>
+    <a href="/#picks">今日精选 <em>02</em></a>
+    <a href="/#updates">更新动态 <em>03</em></a>
+    <a href="/#categories">赛道分类 <em>04</em></a>
+    <a href="/#deep">规则深读 <em>05</em></a>
+    <a href="/#guide">参与路径 <em>06</em></a>
+    <a href="/#faq">常见问答 <em>07</em></a>
+    <a href="/#comments">同好评论 <em>08</em></a>
+    <a href="/#news">相关资讯 <em>09</em></a>
+    <a href="/#recs">相关推荐 <em>10</em></a>
+    <a href="/#rank">作品榜 <em>11</em></a>
+    <a href="/#submit">投稿入口 <em>12</em></a>
+  </aside>
+
+  <!-- 主内容区 -->
+  <main class="main-col" id="main">
+
+    <!-- 01 主题领域概览 -->
+    <section class="section" id="overview">
+      <div class="section-head">
+        <span class="kicker">Field Notes</span>
+        <h2>轻量创作挑战的日常版图</h2>
+        <p class="section-lead">每日命题赛通常在 24 小时内完成从出题到截稿的循环，作品形态集中在单图与短序列。</p>
+      </div>
+      <div class="overview">
+        <p>
+          每日命题赛的节奏和常规征稿不同：早上 9 点公布题目，晚上 23:30 截稿，次日中午公布入选名单。第 217 期（2026 年 11 月 8 日）的题目是「光影拼贴」，要求用三处以上光源表现同一处夜景，允许后期，但需在投稿描述中标注光源位置。截至当天 18:00，已有 46 件作品进入审核池，其中 12 件来自连续参赛超过 30 天的作者。
+        </p>
+        <p>
+          当前内容方向可以拆成四块：<strong>命题速写</strong>（单张完成）、<strong>九宫格叙事</strong>（用多格讲一个短情节）、<strong>改造企划</strong>（把旧物或旧设定重新处理）、<strong>角色表情包</strong>（同一角色的多情绪练习）。11 月 6 日结束的「旧物新生」第五期收到 61 件作品，最终入选 9 件，入选率 14.8%，其中三件使用金属零件拼贴，两件把过期杂志内页裁成条状重新编织。
+        </p>
+        <p>
+          观众端的需求也在变化。从 10 月 28 日到 11 月 7 日的站内点击看，教程拆解类内容的平均停留时长是作品展示类的 1.7 倍，说明不少人把每日赛当作学习样本，而不是单纯刷图。第 216 期的评委笔记提到，构图得分差距主要来自主体与背景的明度差是否控制在 3 档以内，这条判断被 14 位参赛者在投稿描述里直接引用。
+        </p>
+      </div>
+    </section>
+
+    <!-- 02 精选内容推荐 -->
+    <section class="section" id="picks">
+      <div class="section-head">
+        <span class="kicker">Today's Picks</span>
+        <h2>11 月 8 日精选参赛作品</h2>
+        <p class="section-lead">从 46 件当日投稿中挑出 6 件，按赛道差异排列，每件附上具体看点与当前热度。</p>
+      </div>
+      <div class="card-grid" id="pickGrid">
+        <article class="card" data-search="光影拼贴 夜景 霓虹 光源 速写">
+          <div class="card-thumb">
+            <span class="card-type">命题速写</span>
+            <img src="https://picsum.photos/seed/tuzaibaby-light01/400/300" width="400" height="300" loading="lazy" alt="霓虹灯下的便利店门前夜景拼贴作品">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="/#picks">便利店门口的第三盏灯</a></h3>
+            <p class="card-desc">作者用冷白灯箱、暖黄路灯和手机屏幕光搭出三层明暗，收银台玻璃上的反光被刻意留成斜线。投稿描述写明了三处光源坐标，评论区有 6 人追问反光角度。</p>
+            <div class="tag-row"><span class="tag">夜景</span><span class="tag">光源标注</span><span class="tag">单图</span></div>
+            <div class="card-meta"><span>作者：阿葵不困</span><span class="heat">热度 1,240</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-search="九宫格 叙事 地铁 通勤 短情节">
+          <div class="card-thumb">
+            <span class="card-type">九宫格叙事</span>
+            <img src="https://picsum.photos/seed/tuzaibaby-metro02/400/300" width="400" height="300" loading="lazy" alt="地铁通勤主题九宫格分镜作品">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="/#picks">末班地铁的九分钟</a></h3>
+            <p class="card-desc">九格分别对应列车进站到关门的九个时间点，每格只改一处颜色。第 7 格用空车厢反射带出时间跳切，是本期九宫格赛道里唯一把叙事拆成时间轴的作品。</p>
+            <div class="tag-row"><span class="tag">时间轴</span><span class="tag">通勤</span><span class="tag">分镜</span></div>
+            <div class="card-meta"><span>作者：站台冷风</span><span class="heat">热度 1,080</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-search="旧物新生 改造 杂志 拼贴 编织">
+          <div class="card-thumb">
+            <span class="card-type">改造企划</span>
+            <img src="https://picsum.photos/seed/tuzaibaby-magazine03/400/300" width="400" height="300" loading="lazy" alt="过期杂志内页裁条编织的拼贴改造作品">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="/#picks">把 2019 年的杂志裁成雨</a></h3>
+            <p class="card-desc">用过期时尚杂志内页切出 1.5 厘米宽的纸条，按蓝灰到暖橙的色序贴在旧纸板上，形成斜向雨幕。作者在描述里贴了裁切前后的对比图，并注明纸张克重导致边缘卷曲。</p>
+            <div class="tag-row"><span class="tag">旧物改造</span><span class="tag">纸张克重</span><span class="tag">色序</span></div>
+            <div class="card-meta"><span>作者：纸屑收容所</span><span class="heat">热度 960</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-search="角色速写 表情包 兔子 情绪 四格">
+          <div class="card-thumb">
+            <span class="card-type">角色速写</span>
+            <img src="https://picsum.photos/seed/tuzaibaby-rabbit04/400/300" width="400" height="300" loading="lazy" alt="兔子角色四种情绪速写练习">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="/#picks">一只兔子的四种下班状态</a></h3>
+            <p class="card-desc">四格分别画瘫坐、扒门、盯冰箱和裹毯子，耳部角度每次都差 10 度左右。角色粉在评论里认出这是第 198 期出现过的「加班兔」变体，作者确认是同一角色延续。</p>
+            <div class="tag-row"><span class="tag">情绪练习</span><span class="tag">角色延续</span><span class="tag">四格</span></div>
+            <div class="card-meta"><span>作者：兔耳打结</span><span class="heat">热度 890</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-search="微缩场景 纸模型 天台 水塔 灯光">
+          <div class="card-thumb">
+            <span class="card-type">命题速写</span>
+            <img src="https://picsum.photos/seed/tuzaibaby-rooftop05/400/300" width="400" height="300" loading="lazy" alt="纸模型搭建的天台水塔微缩场景">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="/#picks">天台水塔的纸模型夜灯</a></h3>
+            <p class="card-desc">用 2 毫米灰纸板搭出 1:48 的水塔与水箱，内部藏了一颗暖白 LED。拍摄时关了房间主灯，只留模型内部光，背景用黑色卡纸压暗，光源标注写了「单点 + 反射」。 </p>
+            <div class="tag-row"><span class="tag">微缩模型</span><span class="tag">纸板</span><span class="tag">单点光</span></div>
+            <div class="card-meta"><span>作者：塔吊不转</span><span class="heat">热度 820</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-search="光影拼贴 手电 走廊 长曝光 实验">
+          <div class="card-thumb">
+            <span class="card-type">改造企划</span>
+            <img src="https://picsum.photos/seed/tuzaibaby-corridor06/400/300" width="400" height="300" loading="lazy" alt="手电筒在走廊长曝光形成的光绘轨迹">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="/#picks">手电筒在走廊画了 12 秒</a></h3>
+            <p class="card-desc">用手机长曝光 12 秒，手持电筒沿墙面画折线，中途两次停顿形成亮斑。作者把失败的前 4 张也放进了投稿描述，并注明「第三次才控制住手抖」，这条失败记录反而被评委标了星。</p>
+            <div class="tag-row"><span class="tag">长曝光</span><span class="tag">光绘</span><span class="tag">失败记录</span></div>
+            <div class="card-meta"><span>作者：走廊尽头</span><span class="heat">热度 760</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="no-result" id="pickNoResult">没有匹配的作品，试试「光影」「九宫格」「旧物」等关键词。</div>
+    </section>
+
+    <!-- 03 最新更新 -->
+    <section class="section" id="updates">
+      <div class="section-head">
+        <span class="kicker">Live Feed</span>
+        <h2>近三日更新与截稿动态</h2>
+        <p class="section-lead">按时间倒序记录赛题发布、投稿数量变化和评选进度，条目日期均在 11 月 6 日至 8 日之间。</p>
+      </div>
+      <div class="update-list">
+        <div class="update-item">
+          <span class="update-date">11月8日</span>
+          <div class="update-main">
+            <strong>第 217 期「光影拼贴」18:00 投稿池达 46 件</strong>
+            <p>比第 216 期同时段多 9 件，其中九宫格叙事占 11 件。评委「木口」在 17:20 发布短评，提醒光源标注需写清主光与补光位置。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11月7日</span>
+          <div class="update-main">
+            <strong>第五期「旧物新生」入选名单公布，9 件入选</strong>
+            <p>61 件投稿中选出 9 件，入选作者里有 4 位是首次进入日榜。评委笔记提到「材料来源可追溯」是本期新增的加分项。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11月7日</span>
+          <div class="update-main">
+            <strong>第 216 期「窗口」评审结束，最高分 87.5</strong>
+            <p>最高分作品《二楼窗台的猫和晾衣杆》在构图项拿到 29 分（满分 30），扣分集中在背景电线处理。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11月6日</span>
+          <div class="update-main">
+            <strong>新增「材料来源」填写栏，11 月 6 日起生效</strong>
+            <p>投稿表单新增一栏，要求改造类作品注明原材料获取渠道。首日 61 件投稿中有 43 件完整填写。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11月6日</span>
+          <div class="update-main">
+            <strong>第 214 期「水面」复评结束，2 件作品调整名次</strong>
+            <p>原第 4 名《雨后的井盖》因补交拍摄参数，复评后升至第 3；原第 3 名降至第 4，分差 1.2 分。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11月7日</span>
+          <div class="update-main">
+            <strong>角色速写赛道新增「同一角色连续 7 天」成就标记</strong>
+            <p>连续 7 天提交同一角色速写的作者，作品卡片会显示连续天数。截至 11 月 7 日，已有 6 位作者达成。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11月8日</span>
+          <div class="update-main">
+            <strong>今日 23:30 截稿，逾期投稿转入次日展示池</strong>
+            <p>系统会在 23:25 和 23:28 各提醒一次。昨日有 4 件作品在 23:29 提交，审核时间相应延后至次日 9:00。</p>
+          </div>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11月6日</span>
+          <div class="update-main">
+            <strong>「旧物新生」第五期作品《铁皮盒的第二层》获评委特别提名</strong>
+            <p>作品用生锈铁皮盒内衬做底，把旧邮票裁成碎片重新拼成地图。评委「阿七」在评语里写了「材料叙事完整」。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 分类入口 -->
+    <section class="section" id="categories">
+      <div class="section-head">
+        <span class="kicker">Categories</span>
+        <h2>按赛道与材料找作品</h2>
+        <p class="section-lead">八个分类对应日常命题的常见方向，点击可跳转至对应作品集合或赛道说明。</p>
+      </div>
+      <div class="cat-grid">
+        <a class="cat-item" href="/#picks"><strong>光影拼贴</strong><span>长曝光 / 光绘 / 多光源</span></a>
+        <a class="cat-item" href="/#picks"><strong>九宫格叙事</strong><span>分镜 / 时间轴 / 短情节</span></a>
+        <a class="cat-item" href="/#picks"><strong>旧物新生</strong><span>改造 / 回收材料 / 再设计</span></a>
+        <a class="cat-item" href="/#picks"><strong>角色速写</strong><span>表情 / 动态 / 角色延续</span></a>
+        <a class="cat-item" href="/#picks"><strong>微缩场景</strong><span>纸模型 / 黏土 / 小比例搭建</span></a>
+        <a class="cat-item" href="/#picks"><strong>单色练习</strong><span>黑白 / 单色阶 / 明度控制</span></a>
+        <a class="cat-item" href="/#picks"><strong>城市切片</strong><span>街角 / 招牌 / 公共空间</span></a>
+        <a class="cat-item" href="/#picks"><strong>自然物记录</strong><span>叶材 / 石头 / 季节样本</span></a>
+      </div>
+    </section>
+
+    <!-- 05 深度解析 -->
+    <section class="section" id="deep">
+      <div class="section-head">
+        <span class="kicker">Deep Read</span>
+        <h2>每日命题赛的评分逻辑与常见误判</h2>
+        <p class="section-lead">以第 214 至 217 期公示的评分表为样本，拆解四个评分项的实际权重与争议点。</p>
+      </div>
+      <div class="deep">
+        <h3>构图分与「主体呼吸感」的具体算法</h3>
+        <p>
+          第 217 期评分表把构图拆成三项：主体位置、留白比例、视线引导，各 10 分。评委「木口」在 11 月 8 日 17:20 的短评里写，主体距画面边缘小于画面短边的 8% 时，扣 1 至 2 分。这条规则来自第 214 期的复评记录：原第 3 名《雨后的井盖》因为井盖边缘几乎贴住画面下缘，构图项被扣 2.5 分，复评补交拍摄参数后仍未恢复，最终以 1.2 分之差排第 4。
+        </p>
+        <p>
+          留白比例的判断更依赖赛道。九宫格叙事赛道里，单格留白低于 15% 通常被认为「信息过载」，但第 215 期入选作品《电梯里的第 11 层》有 4 格留白低于 10%，评委给出的理由是「拥挤感是情节需要」。这说明规则并非统一阈值，而是看留白是否承担叙事功能。
+        </p>
+        <div class="callout">
+          可核对的变化：11 月 6 日起，改造类作品新增「材料来源」填写栏，未填写者构图分不受影响，但会在「完成度」项备注。首日 61 件投稿中 43 件完整填写，18 件未填，未填作品中有 3 件进入入选名单，占比 16.7%，与整体入选率 14.8% 接近。
+        </div>
+
+        <h3>光影层次：从「亮」到「有依据的亮」</h3>
+        <p>
+          光影项 20 分，是四项中权重最高的一项。评委笔记里反复出现「光源可追溯」：主光方向、补光位置、反光面材质，至少写清两项才进入 16 分以上区间。第 217 期已有 12 件作品在描述里标注了光源坐标，其中 7 件使用「主光 + 反射」结构。
+        </p>
+        <p>
+          一个具体的争议样本来自第 216 期。《二楼窗台的猫和晾衣杆》在光影项拿到 17 分，作者写的是「下午 4 点，窗朝西，猫在晾衣杆投影里」。评委「阿七」在评语中认为投影边缘太干净，怀疑补光，作者补交了手机原片参数（ISO 100、f/1.8、1/250s）后维持原分。同一期另一件作品《台灯下的试卷》因为只写「暖光」而未标方向，光影项停在 13 分。
+        </p>
+        <table class="rule-table">
+          <caption style="caption-side: top; text-align:left; font-size:12px; color:var(--ink-3); padding-bottom:6px;">第 217 期评分项与常见扣分点（据站内公示表整理）</caption>
+          <thead>
+            <tr><th>评分项</th><th>分值</th><th>常见扣分点</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>构图</td><td>30</td><td>主体贴边、留白与叙事无关、视线引导断裂</td></tr>
+            <tr><td>光影</td><td>20</td><td>未标光源方向、反光面材质缺失、亮部过曝无细节</td></tr>
+            <tr><td>叙事完整</td><td>25</td><td>九宫格缺起承转合、单图信息不足以支撑标题</td></tr>
+            <tr><td>完成度</td><td>25</td><td>改造类未填材料来源、裁切边缘毛糙、色序跳跃无过渡</td></tr>
+          </tbody>
+        </table>
+
+        <h3>九宫格叙事的时间压缩问题</h3>
+        <p>
+          九宫格赛道在第 217 期收到 11 件投稿，比第 216 期多 3 件。问题集中在时间压缩：9 格要讲完一个短情节，平均每格承担 2 至 3 秒的叙事时长。第 215 期入选作品《电梯里的第 11 层》用第 4、5、6 格连续表现电梯门开合，每格只改门缝宽度，观众能直接读出「等电梯」的动作。
+        </p>
+        <p>
+          反例是第 217 期一件未入选作品《公园长椅的 9 个瞬间》，9 格分别对应 9 个不同时段，但缺少同一主体的连续动作，评委在备注里写「像 9 张独立速写，不像一个故事」。这条评语后来被 4 位参赛者引用到自己的投稿描述里，说明规则在参赛者之间形成了可见的参考链。
+        </p>
+
+        <h3>改造类的材料叙事与「来源缺口」</h3>
+        <p>
+          「旧物新生」第五期（11 月 6 日截止）的 61 件投稿中，有 18 件未填写材料来源，其中 3 件仍进入入选名单，但完成度项平均低 2.1 分。评委「阿七」在 11 月 7 日的评语里把「材料来源可追溯」列为加分项，理由是旧物改造的说服力来自材料本身的时间痕迹，比如铁皮盒的锈迹分布、杂志内页的出版日期。
+        </p>
+        <p>
+          《铁皮盒的第二层》之所以拿到特别提名，关键在描述里写清了铁皮盒的获取渠道（搬家时从旧货市场购入，原用于装五金件）和盒底压痕的具体位置。这些信息让「改造」不再是视觉层面的拼贴，而有了可核对的前史。相比之下，同期另一件作品只写「旧纸板」，材料来源缺失，在完成度项被扣 3 分。
+        </p>
+      </div>
+    </section>
+
+    <!-- 06 体验指南 -->
+    <section class="section" id="guide">
+      <div class="section-head">
+        <span class="kicker">How to Watch &amp; Join</span>
+        <h2>看作品与参赛的顺序建议</h2>
+        <p class="section-lead">按投入时间从少到多排列，先看评分公示，再看入选作品，最后决定是否动笔。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <strong>先看当日评分公示表</strong>
+          <p>第 217 期的公示表在 17:00 左右更新，包含构图、光影、叙事、完成度四项的分值分布。看完能大致判断本期评委偏重哪一项，比如光影项平均分低于 14 分时，说明多数作品在光源标注上失分。</p>
+        </div>
+        <div class="step">
+          <strong>按赛道分开看入选作品，不要混着刷</strong>
+          <p>九宫格叙事和单图速写的评价标准不同。第 216 期九宫格入选 4 件，单图入选 5 件，混看容易把「单图留白多」误当成通用优点。</p>
+        </div>
+        <div class="step">
+          <strong>读投稿描述里的光源标注与材料来源</strong>
+          <p>这两栏是区分「看起来不错」和「经得起复评」的关键。第 214 期复评时，补交拍摄参数的《雨后的井盖》从第 4 升到第 3，而另一件未补交的作品维持原分。</p>
+        </div>
+        <div class="step">
+          <strong>比较同类条目的连续期数表现</strong>
+          <p>同一个作者连续 3 期投稿时，看他的构图分是否稳定。第 213 至 215 期，作者「纸屑收容所」的构图分从 21 升到 26，光影分基本持平，说明进步集中在画面组织而非打光。</p>
+        </div>
+        <div class="step">
+          <strong>决定参赛前，先确认截稿时间与材料成本</strong>
+          <p>每日赛截稿 23:30，改造类作品如果材料获取需要出门购买，通常来不及。第 216 期有 3 件作品因材料未到位改为单图速写赛道，最终 1 件入选。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 FAQ -->
+    <section class="section" id="faq">
+      <div class="section-head">
+        <span class="kicker">FAQ</span>
+        <h2>参赛与评审常见问题</h2>
+        <p class="section-lead">六个问题对应截稿、评分、材料、赛道切换与复评流程。</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq">
+          <summary>每日赛的截稿时间为什么定在 23:30，而不是 24:00？</summary>
+          <div class="faq-body">
+            23:30 截稿给审核留出 30 分钟缓冲。第 216 期有 4 件作品在 23:29 提交，审核时间相应延后到次日 9:00。23:25 和 23:28 系统各提醒一次，逾期投稿转入次日展示池，不参与当天的评分。
+          </div>
+        </details>
+        <details class="faq">
+          <summary>光影项里「光源可追溯」具体要写清哪几项？</summary>
+          <div class="faq-body">
+            主光方向、补光位置、反光面材质，至少写清两项。第 217 期有 12 件作品标注了光源坐标，其中 7 件使用「主光 + 反射」结构。只写「暖光」「冷光」而不写方向的作品，光影项通常停在 13 分左右（满分 20）。
+          </div>
+        </details>
+        <details class="faq">
+          <summary>改造类作品的材料来源一栏，不填会怎样？</summary>
+          <div class="faq-body">
+            不填不会直接扣构图分，但完成度项会备注。11 月 6 日首日 61 件投稿中 18 件未填，其中 3 件入选，占比 16.7%。未填作品在完成度项平均低 2.1 分，第 214 期至 216 期的样本同样呈现这个差值。
+          </div>
+        </details>
+        <details class="faq">
+          <summary>九宫格叙事赛道，单格留白低于 10% 一定会被扣分吗？</summary>
+          <div class="faq-body">
+            不一定。第 215 期《电梯里的第 11 层》有 4 格留白低于 10%，评委给出的理由是「拥挤感是情节需要」。判定的关键是留白是否承担叙事功能，而不是套用固定阈值。
+          </div>
+        </details>
+        <details class="faq">
+          <summary>复评时补交拍摄参数，名次一定能升吗？</summary>
+          <div class="faq-body">
+            不一定。第 214 期《雨后的井盖》补交参数后从第 4 升到第 3，分差 1.2 分；同期的《台灯下的试卷》未补交光源方向，维持原分。复评只针对已提交材料重新核对，不重新打分。
+          </div>
+        </details>
+        <details class="faq">
+          <summary>连续参赛的「同一角色 7 天」标记怎么算？</summary>
+          <div class="faq-body">
+            从 11 月 7 日起，连续 7 天提交同一角色速写的作者会获得标记，作品卡片显示连续天数。截至 11 月 7 日已有 6 位作者达成，中断一天即重新计数。标记不影响评分，只用于作品列表展示。
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 08 用户评论 -->
+    <section class="section" id="comments">
+      <div class="section-head">
+        <span class="kicker">Community</span>
+        <h2>参赛者与观众的随手记录</h2>
+        <p class="section-lead">16 条来自站内作品评论区的摘录，保留口语和半截话，昵称已做简化。</p>
+      </div>
+      <div class="comment-grid">
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#b4542e">葵</span><b>阿葵不困</b><span>11月8日</span>
+          </div>
+          <p>第三盏灯那个反光我调了快四十分钟，最后发现是手机屏幕亮度太高把玻璃上的斜线冲淡了。降两档才出来。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#7a3418">站</span><b>站台冷风</b><span>11月8日</span>
+          </div>
+          <p>九宫格第 7 格那个空车厢反射，我第一眼看成穿帮了，后来才明白是时间跳切。这招挺险的。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#c77b4a">纸</span><b>纸屑收容所</b><span>11月7日</span>
+          </div>
+          <p>杂志纸裁条之后边缘会卷，压了一晚上书才勉强平。克重太低的纸不建议这么玩。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#9a5a36">兔</span><b>兔耳打结</b><span>11月8日</span>
+          </div>
+          <p>加班兔居然还有人记得，第 198 期那版我画得特别糙，这次重画耳部角度才对上。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#b4542e">塔</span><b>塔吊不转</b><span>11月8日</span>
+          </div>
+          <p>1:48 的水塔搭了三个晚上，灰纸板切斜角的时候崩了两次，最后用白胶补的。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#7a3418">走</span><b>走廊尽头</b><span>11月8日</span>
+          </div>
+          <p>失败那 4 张其实比成片有意思，手抖的轨迹更像随机线条。评委标星可能是这个原因。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#c77b4a">木</span><b>木口</b><span>11月7日</span>
+          </div>
+          <p>光源坐标写了两项以上的，光影分基本没低于 16。这条不是规则，是这期看下来的体感。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#9a5a36">阿</span><b>阿七</b><span>11月7日</span>
+          </div>
+          <p>铁皮盒那个盒底压痕的位置写得很准，这种细节比多贴十张素材有用。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#b4542e">井</span><b>井盖没盖</b><span>11月6日</span>
+          </div>
+          <p>《雨后的井盖》补参数之后升了一名，但我觉得构图本身还是偏挤，贴边问题没解决。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#7a3418">电</span><b>电梯第11层</b><span>11月5日</span>
+          </div>
+          <p>四格留白低于 10% 那段评委解释我看了两遍，原来拥挤感也能算叙事。学到了。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#c77b4a">过</span><b>过期胶卷</b><span>11月8日</span>
+          </div>
+          <p>今天光线没调好，拍废了。明天再战。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#9a5a36">长</span><b>长椅没人</b><span>11月6日</span>
+          </div>
+          <p>那组公园长椅确实像九张独立速写，缺同一主体的连续动作。评委说得没错。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#b4542e">夜</span><b>夜班收银</b><span>11月8日</span>
+          </div>
+          <p>便利店那件作品的暖黄路灯色温偏了，实际更白。不过反光斜线处理得真好。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#7a3418">胶</span><b>胶带不够了</b><span>11月7日</span>
+          </div>
+          <p>改造类那个材料来源栏真的有用，我照着填了旧货市场摊位的编号，感觉像给作品留了身份证。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#c77b4a">随</span><b>随手拍砖</b><span>11月4日</span>
+          </div>
+          <p>最近几期九宫格越来越像连续剧分镜了，单图赛道反而更耐看。个人偏好，勿杠。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head">
+            <span class="avatar" style="background:#9a5a36">纸</span><b>纸板不够</b><span>11月8日</span>
+          </div>
+          <p>今天灰纸板用完了，拿外卖盒凑了一下，切面全是毛边。明天补材料再来。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 相关资讯 -->
+    <section class="section" id="news">
+      <div class="section-head">
+        <span class="kicker">News</span>
+        <h2>近一周赛制与作品动态</h2>
+        <p class="section-lead">六条资讯涵盖规则调整、复评结果和材料趋势，摘要补充标题未含的时间或数字。</p>
+      </div>
+      <div class="news-list">
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/tuzaibaby-news01/600/400" width="600" height="400" loading="lazy" alt="投稿表单新增材料来源填写栏的界面示意">
+          <div class="news-body">
+            <strong><a href="/#news">投稿表单新增「材料来源」栏，11月6日生效</a></strong>
+            <time>2026-11-06</time>
+            <p>首日 61 件投稿中 43 件完整填写，占比 70.5%。未填作品中有 3 件进入第五期入选名单，评委在完成度项备注「来源待核」。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/tuzaibaby-news02/600/400" width="600" height="400" loading="lazy" alt="旧物新生第五期入选作品拼贴">
+          <div class="news-body">
+            <strong><a href="/#news">「旧物新生」第五期入选 9 件，入选率 14.8%</a></strong>
+            <time>2026-11-07</time>
+            <p>61 件投稿中选出 9 件，其中 4 位作者首次进入日榜。评委笔记提到金属零件拼贴 3 件、杂志内页编织 2 件，材料集中度高于前四期。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/tuzaibaby-news03/600/400" width="600" height="400" loading="lazy" alt="第216期窗口主题最高分作品窗台场景">
+          <div class="news-body">
+            <strong><a href="/#news">第216期「窗口」评审结束，最高分 87.5</a></strong>
+            <time>2026-11-07</time>
+            <p>《二楼窗台的猫和晾衣杆》构图项 29 分，扣分集中在背景电线处理。作者补交原片参数后维持原分，第二名分差 4.2 分。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/tuzaibaby-news04/600/400" width="600" height="400" loading="lazy" alt="第214期复评名次调整示意">
+          <div class="news-body">
+            <strong><a href="/#news">第214期复评：2 件作品调整名次，分差 1.2</a></strong>
+            <time>2026-11-06</time>
+            <p>《雨后的井盖》补交拍摄参数后从第 4 升至第 3，原第 3 名降至第 4。复评只核对已提交材料，不重新打分，结果 11 月 6 日 15:00 公示。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/tuzaibaby-news05/600/400" width="600" height="400" loading="lazy" alt="角色速写连续7天成就标记页面">
+          <div class="news-body">
+            <strong><a href="/#news">角色速写赛道上线连续 7 天标记，6 人达成</a></strong>
+            <time>2026-11-07</time>
+            <p>标记从 11 月 7 日起显示在作品卡片，中断一天重新计数。达成者中有 2 位同时参与九宫格叙事赛道，双赛道并行投稿。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/tuzaibaby-news06/600/400" width="600" height="400" loading="lazy" alt="第217期光影拼贴截稿提醒">
+          <div class="news-body">
+            <strong><a href="/#news">第217期「光影拼贴」截稿提醒，23:30 截止</a></strong>
+            <time>2026-11-08</time>
+            <p>截至 18:00 已收到 46 件，九宫格叙事 11 件。23:25 和 23:28 各提醒一次，逾期投稿转入次日展示池，不参与当天评分。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10 相关推荐 -->
+    <section class="section" id="recs">
+      <div class="section-head">
+        <span class="kicker">Related</span>
+        <h2>相关方向与具体条目索引</h2>
+        <p class="section-lead">七个可直接搜索的方向词或条目名，覆盖材料、赛道和具体作品。</p>
+      </div>
+      <div class="rec-tags">
+        <a href="/#picks">旧物新生第五期入选作品</a>
+        <a href="/#picks">长曝光光绘参数</a>
+        <a href="/#picks">九宫格时间跳切</a>
+        <a href="/#picks">灰纸板微缩水塔</a>
+        <a href="/#picks">角色连续 7 天标记</a>
+        <a href="/#picks">杂志内页裁条编织</a>
+        <a href="/#picks">单色练习明度阶</a>
+      </div>
+    </section>
+
+    <!-- 11 补充板块：作品榜 + 投稿入口 -->
+    <section class="section" id="rank">
+      <div class="section-head">
+        <span class="kicker">Leaderboard</span>
+        <h2>近七日作品热度榜</h2>
+        <p class="section-lead">按 11 月 2 日至 11 月 8 日的站内浏览与收藏加权统计，前十名如下。</p>
+      </div>
+      <div class="rank-list">
+        <div class="rank-item"><span class="rank-no">1</span><span class="r-title">便利店门口的第三盏灯<small>命题速写 · 11月8日</small></span><span class="r-heat">1,240</span></div>
+        <div class="rank-item"><span class="rank-no">2</span><span class="r-title">末班地铁的九分钟<small>九宫格叙事 · 11月8日</small></span><span class="r-heat">1,080</span></div>
+        <div class="rank-item"><span class="rank-no">3</span><span class="r-title">把 2019 年的杂志裁成雨<small>改造企划 · 11月8日</small></span><span class="r-heat">960</span></div>
+        <div class="rank-item"><span class="rank-no">4</span><span class="r-title">一只兔子的四种下班状态<small>角色速写 · 11月8日</small></span><span class="r-heat">890</span></div>
+        <div class="rank-item"><span class="rank-no">5</span><span class="r-title">天台水塔的纸模型夜灯<small>命题速写 · 11月8日</small></span><span class="r-heat">820</span></div>
+        <div class="rank-item"><span class="rank-no">6</span><span class="r-title">手电筒在走廊画了 12 秒<small>改造企划 · 11月8日</small></span><span class="r-heat">760</span></div>
+        <div class="rank-item"><span class="rank-no">7</span><span class="r-title">二楼窗台的猫和晾衣杆<small>第216期 · 11月7日</small></span><span class="r-heat">710</span></div>
+        <div class="rank-item"><span class="rank-no">8</span><span class="r-title">铁皮盒的第二层<small>旧物新生 · 11月6日</small></span><span class="r-heat">680</span></div>
+        <div class="rank-item"><span class="rank-no">9</span><span class="r-title">电梯里的第 11 层<small>九宫格叙事 · 11月5日</small></span><span class="r-heat">640</span></div>
+        <div class="rank-item"><span class="rank-no">10</span><span class="r-title">雨后的井盖<small>第214期复评 · 11月6日</small></span><span class="r-heat">590</span></div>
+      </div>
+
+      <div class="side-panel" id="submit" style="margin-top:22px; scroll-margin-top: calc(var(--announce-h) + var(--header-h) + 16px);">
+        <h3>投稿与互动入口</h3>
+        <p style="font-size:13.5px; color:var(--ink-2);">
+          每日赛当日 9:00 公布命题，23:30 截稿。投稿时需选择赛道、填写光源标注或材料来源，并附 40 字以上说明。站内支持作品收藏、评论与连续参赛标记。
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+          <a class="btn-primary" href="/#picks" style="padding:9px 16px; font-size:13.5px;">查看今日命题作品</a>
+          <a class="btn-ghost" href="/#faq" style="padding:9px 16px; font-size:13.5px;">阅读投稿规则</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右侧辅助栏 -->
+  <aside class="side-col" aria-label="辅助信息">
+    <div class="side-panel">
+      <h3>今日赛题速览</h3>
+      <ul class="hot-list">
+        <li><b>217</b><a href="/#picks">光影拼贴 · 3 处以上光源</a></li>
+        <li><b>216</b><a href="/#news">窗口 · 已结束</a></li>
+        <li><b>215</b><a href="/#news">电梯 · 已结束</a></li>
+        <li><b>214</b><a href="/#news">水面 · 复评结束</a></li>
+        <li><b>213</b><a href="/#news">台阶 · 已结束</a></li>
+      </ul>
+    </div>
+
+    <div class="side-panel side-cta">
+      <h3>连续参赛记录</h3>
+      <p>截至 11 月 8 日，连续参赛 30 天以上作者 12 位；连续 7 天同一角色速写标记达成 6 人。</p>
+      <a class="btn-submit" href="/#submit">查看投稿入口</a>
+    </div>
+
+    <div class="side-panel">
+      <h3>站内速报</h3>
+      <ul class="hot-list">
+        <li><b>11/8</b><a href="/#updates">46 件投稿进入审核池</a></li>
+        <li><b>11/7</b><a href="/#updates">旧物新生第五期入选 9 件</a></li>
+        <li><b>11/6</b><a href="/#updates">材料来源栏首日填写率 70.5%</a></li>
+        <li><b>11/6</b><a href="/#updates">第214期复评调整 2 件名次</a></li>
+      </ul>
+    </div>
+
+    <div class="side-panel">
+      <h3>关于这里</h3>
+      <p class="side-note">
+        页面汇总每日创作赛的命题、入选作品与规则讨论，条目更新集中在每天 17:00 至 23:30。作品与评论均为站内示例内容，用于展示赛制结构。
+      </p>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" style="width:32px;height:32px;">
+            <rect width="64" height="64" rx="14" fill="#b4542e"/>
+            <path d="M20 17c0-7 5-11 12-11s12 4 12 11" fill="none" stroke="#f3d9c6" stroke-width="4.5" stroke-linecap="round"/>
+            <circle cx="32" cy="39" r="15" fill="#f3d9c6"/>
+            <circle cx="26" cy="36" r="2.8" fill="#b4542e"/>
+            <circle cx="38" cy="36" r="2.8" fill="#b4542e"/>
+            <path d="M28 43c2.2 2.4 5.8 2.4 8 0" fill="none" stroke="#b4542e" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+          <strong>兔崽baby-tuzaibaby每日大赛</strong>
+        </div>
+        <p class="footer-desc">
+          覆盖 2026 年 9 月至 11 月的每日命题记录，条目类型包括赛题发布、入选作品、复评结果与材料改造案例。每日 17:00 更新当日期赛况，23:30 截稿后转入次日评审计。
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>赛题与作品</h4>
+        <a href="/#picks">今日精选</a>
+        <a href="/#updates">更新动态</a>
+        <a href="/#categories">赛道分类</a>
+        <a href="/#rank">作品热度榜</a>
+      </div>
+      <div class="footer-col">
+        <h4>规则与参与</h4>
+        <a href="/#deep">评分逻辑</a>
+        <a href="/#guide">参与路径</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#submit">投稿入口</a>
+      </div>
+      <div class="footer-col">
+        <h4>社区与记录</h4>
+        <a href="/#comments">同好评论</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#recs">相关推荐</a>
+        <a href="/#overview">赛况概览</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>页面内容含示例条目，用于展示每日命题赛的信息结构。最近更新：2026-11-08 18:00</span>
+      <span>兔崽baby-tuzaibaby每日大赛 · 内容聚合示例</span>
+    </div>
+  </div>
+</footer>
+
+<button id="backTop" aria-label="回到顶部">↑</button>
+
+<script>
+(function () {
+  "use strict";
+
+  /* 移动端抽屉 */
+  var drawer = document.getElementById("drawer");
+  var mask = document.getElementById("drawerMask");
+  var burger = document.getElementById("hamburgerBtn");
+  var closeBtn = document.getElementById("drawerClose");
+
+  function openDrawer() {
+    drawer.classList.add("open");
+    mask.classList.add("show");
+    drawer.setAttribute("aria-hidden", "false");
+    burger.setAttribute("aria-expanded", "true");
+    mask.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+  function closeDrawer() {
+    drawer.classList.remove("open");
+    mask.classList.remove("show");
+    drawer.setAttribute("aria-hidden", "true");
+    burger.setAttribute("aria-expanded", "false");
+    mask.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  if (burger) burger.addEventListener("click", openDrawer);
+  if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+  if (mask) mask.addEventListener("click", closeDrawer);
+
+  document.querySelectorAll(".drawer-nav a").forEach(function (a) {
+    a.addEventListener("click", closeDrawer);
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && drawer.classList.contains("open")) {
+      closeDrawer();
+      if (burger) burger.focus();
+    }
+  });
+
+  /* 搜索筛选 */
+  var searchInput = document.getElementById("searchInput");
+  var searchBtn = document.getElementById("searchBtn");
+  var pickGrid = document.getElementById("pickGrid");
+  var pickNoResult = document.getElementById("pickNoResult");
+
+  function doSearch() {
+    if (!searchInput || !pickGrid) return;
+    var q = searchInput.value.trim().toLowerCase();
+    var cards = pickGrid.querySelectorAll(".card");
+    var visible = 0;
+    cards.forEach(function (card) {
+      var text = (card.getAttribute("data-search") || "") + " " + card.textContent.toLowerCase();
+      var match = q === "" || text.indexOf(q) !== -1;
+      card.style.display = match ? "" : "none";
+      if (match) visible++;
+    });
+    if (pickNoResult) {
+      pickNoResult.classList.toggle("show", q !== "" && visible === 0);
+    }
+  }
+
+  if (searchBtn) searchBtn.addEventListener("click", doSearch);
+  if (searchInput) {
+    searchInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        doSearch();
+      }
+    });
+    searchInput.addEventListener("input", function () {
+      if (searchInput.value.trim() === "") doSearch();
+    });
+  }
+
+  /* 回到顶部 */
+  var backTop = document.getElementById("backTop");
+  function onScroll() {
+    if (!backTop) return;
+    if (window.scrollY > window.innerHeight * 0.9) {
+      backTop.classList.add("show");
+    } else {
+      backTop.classList.remove("show");
+    }
+    updateActiveChannel();
+  }
+  if (backTop) {
+    backTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  /* 频道高亮 */
+  var channelLinks = document.querySelectorAll(".channel-index a");
+  var sections = [];
+  channelLinks.forEach(function (link) {
+    var id = link.getAttribute("href").replace("/#", "");
+    var sec = document.getElementById(id);
+    if (sec) sections.push({ id: id, el: sec, link: link });
+  });
+
+  function updateActiveChannel() {
+    if (!sections.length) return;
+    var offset = 130;
+    var scrollPos = window.scrollY + offset;
+    var active = sections[0];
+    sections.forEach(function (s) {
+      if (s.el.offsetTop <= scrollPos) active = s;
+    });
+    channelLinks.forEach(function (l) { l.classList.remove("active"); });
+    if (active && active.link) active.link.classList.add("active");
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("load", onScroll);
+  onScroll();
+
+  /* 平滑锚点偏移已由 CSS scroll-margin-top 处理 */
+})();
+</script>
+
+<!-- WebSite 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "兔崽baby-tuzaibaby每日大赛",
+  "description": "兔崽baby-tuzaibaby每日大赛聚合每日创作赛题、参赛作品、规则解读与社区互动。2026年11月8日更新，适合关注轻量创作挑战与同人二创的参赛者和观众查阅。",
+  "inLanguage": "zh-CN",
+  "dateModified": "2026-11-08"
+}
+</script>
+
+<!-- FAQPage 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "每日赛的截稿时间为什么定在 23:30，而不是 24:00？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "23:30 截稿给审核留出 30 分钟缓冲。第 216 期有 4 件作品在 23:29 提交，审核时间相应延后到次日 9:00。23:25 和 23:28 系统各提醒一次，逾期投稿转入次日展示池，不参与当天的评分。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "光影项里「光源可追溯」具体要写清哪几项？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "主光方向、补光位置、反光面材质，至少写清两项。第 217 期有 12 件作品标注了光源坐标，其中 7 件使用「主光 + 反射」结构。只写「暖光」「冷光」而不写方向的作品，光影项通常停在 13 分左右（满分 20）。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "改造类作品的材料来源一栏，不填会怎样？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不填不会直接扣构图分，但完成度项会备注。11 月 6 日首日 61 件投稿中 18 件未填，其中 3 件入选，占比 16.7%。未填作品在完成度项平均低 2.1 分，第 214 期至 216 期的样本同样呈现这个差值。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "九宫格叙事赛道，单格留白低于 10% 一定会被扣分吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不一定。第 215 期《电梯里的第 11 层》有 4 格留白低于 10%，评委给出的理由是「拥挤感是情节需要」。判定的关键是留白是否承担叙事功能，而不是套用固定阈值。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "复评时补交拍摄参数，名次一定能升吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不一定。第 214 期《雨后的井盖》补交参数后从第 4 升到第 3，分差 1.2 分；同期的《台灯下的试卷》未补交光源方向，维持原分。复评只针对已提交材料重新核对，不重新打分。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "连续参赛的「同一角色 7 天」标记怎么算？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "从 11 月 7 日起，连续 7 天提交同一角色速写的作者会获得标记，作品卡片显示连续天数。截至 11 月 7 日已有 6 位作者达成，中断一天即重新计数。标记不影响评分，只用于作品列表展示。"
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+  </html>
