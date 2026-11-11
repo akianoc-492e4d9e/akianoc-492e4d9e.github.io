@@ -1,0 +1,1307 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>集芳閣云搜 - 影视资源聚合与检索</title>
+<meta name="description" content="集芳閣云搜聚合影视剧集、动漫番剧、纪录片与综艺等网络资源索引，提供分类筛选、热榜追踪、深度解析与体验指南，适合剧迷与资源收藏者查阅。">
+<meta name="keywords" content="集芳閣云搜">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232c1e46'/%3E%3Ccircle cx='26' cy='28' r='13' fill='none' stroke='%23e8b65a' stroke-width='4'/%3E%3Cpath d='M36 38l14 14' stroke='%23e8b65a' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --main:#2c1e46;
+  --main-light:#4b3570;
+  --main-dark:#1c1230;
+  --accent:#e8b65a;
+  --accent-light:#f3d492;
+  --bg:#f6f3ee;
+  --panel:#ffffff;
+  --text:#2b2535;
+  --text-2:#5c5468;
+  --text-3:#8b8397;
+  --line:#e4ded6;
+  --line-2:#f0ebe4;
+  --radius-card:14px;
+  --radius-btn:8px;
+  --radius-tag:6px;
+  --radius-banner:20px;
+  --shadow:0 2px 10px rgba(44,30,70,.06);
+  --shadow-hover:0 8px 24px rgba(44,30,70,.13);
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+ul,ol{list-style:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ===== 吸顶公告条 ===== */
+.announce-bar{
+  position:sticky;top:0;z-index:120;
+  background:linear-gradient(90deg,var(--main-dark),var(--main-light));
+  color:#f2ecdf;font-size:13px;padding:7px 0;
+}
+.announce-inner{max-width:1340px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.announce-brand{font-weight:700;color:var(--accent);letter-spacing:.5px;white-space:nowrap}
+.announce-track{display:flex;gap:22px;flex-wrap:wrap;font-size:12.5px;color:#d8d0e4}
+.announce-track b{color:var(--accent-light);font-weight:600}
+.announce-track span{white-space:nowrap}
+
+/* ===== 吸顶页头 ===== */
+.site-header{
+  position:sticky;top:34px;z-index:110;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:1340px;margin:0 auto;padding:0 20px;
+  display:flex;align-items:center;gap:26px;min-height:66px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand svg{width:36px;height:36px;flex-shrink:0}
+.brand-text{font-size:19px;font-weight:800;color:var(--main);letter-spacing:.5px;white-space:nowrap}
+.brand-text em{font-style:normal;color:var(--accent);font-size:13px;font-weight:600;margin-left:4px;letter-spacing:0}
+.main-nav{display:flex;gap:4px;flex-wrap:wrap;align-items:center;flex:1}
+.main-nav a{
+  font-size:14px;color:var(--text-2);padding:7px 12px;border-radius:var(--radius-btn);
+  transition:background .2s,color .2s;white-space:nowrap;
+}
+.main-nav a:hover{background:var(--main-light);color:#fff}
+.header-actions{display:flex;align-items:center;gap:10px;margin-left:auto}
+.search-box{display:flex;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:22px;padding:4px 6px 4px 14px;gap:6px;transition:border .2s}
+.search-box:focus-within{border-color:var(--accent)}
+.search-box input{border:0;background:transparent;font-size:13px;width:136px;color:var(--text);outline:none;font-family:inherit}
+.search-box input::placeholder{color:var(--text-3)}
+.search-box button{background:var(--main);color:#fff;border:0;border-radius:16px;padding:5px 13px;font-size:12.5px;transition:background .2s}
+.search-box button:hover{background:var(--main-light)}
+.hamburger{display:none;background:var(--main);border:0;border-radius:var(--radius-btn);padding:8px 11px;color:#fff;font-size:17px;line-height:1}
+
+/* ===== 首屏 ===== */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 84% 18%,rgba(232,182,90,.22),transparent 42%),
+    radial-gradient(circle at 12% 82%,rgba(75,53,112,.55),transparent 55%),
+    linear-gradient(135deg,var(--main-dark) 0%,var(--main) 58%,#3a2a5c 100%);
+  color:#f3eee5;
+}
+.hero-inner{
+  max-width:1340px;margin:0 auto;padding:54px 20px 46px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;
+  position:relative;z-index:2;
+}
+.hero h1{
+  font-size:40px;font-weight:800;letter-spacing:2px;line-height:1.25;margin-bottom:16px;
+  color:#fff;
+  text-shadow:0 2px 18px rgba(0,0,0,.28);
+}
+.hero h1 span{color:var(--accent)}
+.hero-desc{font-size:15.5px;color:#d4cbe0;max-width:560px;line-height:1.85;margin-bottom:22px}
+.hero-tags{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:26px}
+.hero-tags a{
+  font-size:13px;padding:6px 15px;border-radius:20px;
+  border:1px solid rgba(232,182,90,.45);color:var(--accent-light);
+  transition:background .2s,color .2s;
+}
+.hero-tags a:hover{background:var(--accent);color:var(--main-dark);border-color:var(--accent)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-primary{
+  display:inline-block;background:var(--accent);color:var(--main-dark);
+  font-weight:700;font-size:14.5px;padding:11px 28px;border-radius:var(--radius-btn);
+  transition:transform .2s,box-shadow .2s;box-shadow:0 4px 16px rgba(232,182,90,.3);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,182,90,.42)}
+.btn-ghost{
+  display:inline-block;border:1px solid rgba(243,212,146,.5);color:var(--accent-light);
+  font-size:14px;padding:10px 22px;border-radius:var(--radius-btn);transition:background .2s;
+}
+.btn-ghost:hover{background:rgba(232,182,90,.14)}
+.hero-visual{position:relative;min-height:280px;display:flex;align-items:center;justify-content:center}
+.hero-visual svg{width:100%;max-width:400px;height:auto;filter:drop-shadow(0 14px 34px rgba(0,0,0,.32))}
+.hero-visual .float-dot{animation:floatY 5s ease-in-out infinite}
+.hero-visual .float-dot.d2{animation-delay:1.4s}
+.hero-visual .float-dot.d3{animation-delay:2.6s}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.hero-stats{
+  display:flex;gap:26px;margin-top:30px;flex-wrap:wrap;
+  border-top:1px solid rgba(232,182,90,.2);padding-top:18px;max-width:520px;
+}
+.hero-stats div{font-size:12.5px;color:#b8accb}
+.hero-stats b{display:block;font-size:19px;color:var(--accent-light);font-weight:700;line-height:1.3}
+
+/* ===== 主容器 ===== */
+.main-wrap{max-width:1340px;margin:0 auto;padding:0 20px 60px;display:grid;grid-template-columns:168px minmax(0,1fr) 248px;gap:28px;align-items:start}
+/* 左侧频道索引 */
+.channel-nav{
+  position:sticky;top:112px;background:var(--panel);border-radius:var(--radius-card);
+  box-shadow:var(--shadow);padding:16px 10px;border:1px solid var(--line-2);
+}
+.channel-title{font-size:12px;font-weight:700;color:var(--text-3);letter-spacing:1.5px;padding:0 10px 10px;text-transform:uppercase}
+.channel-nav ul li a{
+  display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--text-2);
+  padding:8px 10px;border-radius:7px;transition:background .18s,color .18s;
+}
+.channel-nav ul li a::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--line);flex-shrink:0;transition:background .18s}
+.channel-nav ul li a:hover{background:var(--bg);color:var(--main)}
+.channel-nav ul li a:hover::before{background:var(--accent)}
+.channel-nav ul li a.active{background:var(--main);color:#fff;font-weight:600}
+.channel-nav ul li a.active::before{background:var(--accent)}
+
+/* 中主内容 */
+.content-main{min-width:0}
+.sec{margin-bottom:44px;scroll-margin-top:118px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.sec-head h2{font-size:21px;font-weight:800;color:var(--main);letter-spacing:.4px;line-height:1.35}
+.sec-head h2 small{font-size:12px;font-weight:500;color:var(--text-3);margin-left:8px;letter-spacing:0}
+.sec-head .more-link{font-size:13px;color:var(--main-light);border-bottom:1px dashed var(--line);padding-bottom:2px;transition:color .2s}
+.sec-head .more-link:hover{color:var(--accent)}
+
+/* ---- 领域概览 ---- */
+.overview-box{
+  background:var(--panel);border-radius:var(--radius-card);padding:26px 28px;
+  box-shadow:var(--shadow);border-left:4px solid var(--accent);line-height:1.9;
+}
+.overview-box p{color:var(--text-2);margin-bottom:12px;font-size:14.5px}
+.overview-box p:last-child{margin-bottom:0}
+.overview-box b{color:var(--main);font-weight:700}
+
+/* ---- 精选卡片 ---- */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{
+  background:var(--panel);border-radius:var(--radius-card);overflow:hidden;
+  box-shadow:var(--shadow);border:1px solid var(--line-2);
+  display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+.card-thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--main-dark)}
+.card-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .card-thumb img{transform:scale(1.04)}
+.card-badge{
+  position:absolute;top:9px;left:9px;background:rgba(28,18,48,.82);color:var(--accent-light);
+  font-size:11px;padding:3px 9px;border-radius:5px;font-weight:600;letter-spacing:.4px;
+}
+.card-rate{
+  position:absolute;bottom:9px;right:9px;background:var(--accent);color:var(--main-dark);
+  font-size:12px;font-weight:800;padding:3px 8px;border-radius:5px;
+}
+.card-body{padding:14px 15px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-body h3{font-size:15px;font-weight:700;color:var(--main);line-height:1.4}
+.card-body h3:hover{color:var(--main-light)}
+.card-tags{display:flex;gap:5px;flex-wrap:wrap}
+.card-tags span{font-size:11px;color:var(--main-light);background:var(--bg);padding:2px 8px;border-radius:var(--radius-tag);border:1px solid var(--line-2)}
+.card-ptext{font-size:12.8px;color:var(--text-2);line-height:1.65;flex:1}
+.card-meta{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--text-3);border-top:1px dashed var(--line-2);padding-top:9px;margin-top:auto}
+.card-meta .heat{color:var(--accent);font-weight:700}
+
+/* ---- 最新更新 ---- */
+.update-list{background:var(--panel);border-radius:var(--radius-card);box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--line-2)}
+.update-item{
+  display:flex;gap:14px;padding:13px 18px;border-bottom:1px solid var(--line-2);
+  align-items:flex-start;transition:background .16s;
+}
+.update-item:last-child{border-bottom:0}
+.update-item:hover{background:var(--bg)}
+.update-date{font-size:11.5px;color:var(--text-3);white-space:nowrap;min-width:52px;padding-top:3px;font-weight:600}
+.update-content{flex:1;min-width:0}
+.update-content h4{font-size:14px;font-weight:700;color:var(--main);margin-bottom:2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.update-content h4 .tag-new{font-size:10.5px;background:var(--accent);color:var(--main-dark);padding:1px 6px;border-radius:4px;font-weight:700;letter-spacing:.4px}
+.update-content p{font-size:12.5px;color:var(--text-2);line-height:1.55}
+
+/* ---- 分类入口 ---- */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cat-item{
+  background:var(--panel);border-radius:11px;padding:16px 14px;text-align:center;
+  border:1px solid var(--line-2);box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s,border-color .2s;
+  display:block;
+}
+.cat-item:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:var(--accent)}
+.cat-item .cat-icon{font-size:21px;margin-bottom:6px;display:block;line-height:1}
+.cat-item strong{display:block;font-size:13.5px;color:var(--main);font-weight:700;margin-bottom:2px}
+.cat-item em{font-style:normal;font-size:11px;color:var(--text-3)}
+
+/* ---- 深度解析 ---- */
+.deep-read{
+  background:var(--panel);border-radius:var(--radius-card);padding:30px 32px;
+  box-shadow:var(--shadow);border:1px solid var(--line-2);
+}
+.deep-read h3{font-size:17px;font-weight:800;color:var(--main);margin:22px 0 9px;padding-left:12px;border-left:3px solid var(--accent);line-height:1.4}
+.deep-read h3:first-child{margin-top:0}
+.deep-read p{font-size:14px;color:var(--text-2);line-height:1.9;margin-bottom:11px}
+.deep-read ul{margin:6px 0 14px 4px}
+.deep-read ul li{font-size:13.8px;color:var(--text-2);line-height:1.8;padding-left:18px;position:relative;margin-bottom:5px}
+.deep-read ul li::before{content:"▸";position:absolute;left:0;color:var(--accent);font-size:12px;top:2px}
+.deep-read .verdict{background:var(--bg);border-radius:9px;padding:14px 16px;font-size:13.5px;color:var(--main);border-left:3px solid var(--main-light);margin:14px 0}
+.deep-read .verdict b{color:var(--main-dark)}
+
+/* ---- 体验指南 ---- */
+.guide-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.guide-step{
+  background:var(--panel);border-radius:11px;padding:18px 18px 16px;border:1px solid var(--line-2);
+  box-shadow:var(--shadow);position:relative;
+}
+.guide-step .step-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;background:var(--main);color:var(--accent-light);
+  font-size:13px;font-weight:800;margin-bottom:9px;
+}
+.guide-step h4{font-size:14.5px;font-weight:700;color:var(--main);margin-bottom:5px;line-height:1.4}
+.guide-step p{font-size:12.8px;color:var(--text-2);line-height:1.7}
+
+/* ---- FAQ ---- */
+.faq-wrap{background:var(--panel);border-radius:var(--radius-card);box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--line-2)}
+details{border-bottom:1px solid var(--line-2)}
+details:last-child{border-bottom:0}
+summary{
+  padding:15px 20px;font-size:14px;font-weight:600;color:var(--main);
+  cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  transition:background .16s;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";color:var(--accent);font-size:16px;font-weight:700;flex-shrink:0;transition:transform .2s}
+details[open] summary::after{content:"－"}
+summary:hover{background:var(--bg)}
+.faq-answer{padding:0 20px 17px;font-size:13.3px;color:var(--text-2);line-height:1.85}
+.faq-answer b{color:var(--main)}
+
+/* ---- 用户评论 ---- */
+.comment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.comment-item{
+  background:var(--panel);border-radius:11px;padding:14px 16px;border:1px solid var(--line-2);
+  box-shadow:var(--shadow);display:flex;gap:11px;
+}
+.avatar{
+  width:34px;height:34px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff;
+}
+.comment-body{min-width:0;flex:1}
+.comment-body .uname{font-size:12.5px;font-weight:700;color:var(--main);margin-bottom:3px;display:flex;gap:8px;align-items:center}
+.comment-body .uname time{font-weight:400;color:var(--text-3);font-size:11px}
+.comment-body p{font-size:12.8px;color:var(--text-2);line-height:1.65}
+
+/* ---- 相关资讯 ---- */
+.news-list{display:flex;flex-direction:column;gap:12px}
+.news-item{
+  background:var(--panel);border-radius:11px;padding:16px 18px;border:1px solid var(--line-2);
+  box-shadow:var(--shadow);display:flex;gap:16px;align-items:flex-start;transition:box-shadow .2s;
+}
+.news-item:hover{box-shadow:var(--shadow-hover)}
+.news-thumb{width:88px;height:66px;border-radius:8px;overflow:hidden;flex-shrink:0}
+.news-thumb img{width:100%;height:100%;object-fit:cover}
+.news-body{flex:1;min-width:0}
+.news-body h4{font-size:14px;font-weight:700;color:var(--main);margin-bottom:4px;line-height:1.45}
+.news-body h4:hover{color:var(--main-light)}
+.news-body .news-meta{font-size:11.5px;color:var(--text-3);margin-bottom:5px}
+.news-body p{font-size:12.6px;color:var(--text-2);line-height:1.6}
+
+/* ---- 相关推荐 ---- */
+.rec-tags{display:flex;flex-wrap:wrap;gap:9px}
+.rec-tags a{
+  font-size:13px;padding:7px 15px;border-radius:20px;background:var(--panel);
+  border:1px solid var(--line);color:var(--text-2);transition:all .2s;
+}
+.rec-tags a:hover{border-color:var(--accent);color:var(--main);background:#fff;box-shadow:var(--shadow)}
+
+/* ---- 热门榜单 ---- */
+.hot-rank{background:var(--panel);border-radius:var(--radius-card);box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--line-2)}
+.rank-item{display:flex;gap:13px;padding:12px 18px;border-bottom:1px solid var(--line-2);align-items:center;transition:background .16s}
+.rank-item:last-child{border-bottom:0}
+.rank-item:hover{background:var(--bg)}
+.rank-num{
+  width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;
+  font-size:12.5px;font-weight:800;flex-shrink:0;background:var(--bg);color:var(--text-3);
+}
+.rank-item:nth-child(1) .rank-num{background:var(--accent);color:var(--main-dark)}
+.rank-item:nth-child(2) .rank-num{background:var(--accent-light);color:var(--main)}
+.rank-item:nth-child(3) .rank-num{background:#d9c9a8;color:var(--main)}
+.rank-info{flex:1;min-width:0}
+.rank-info h4{font-size:13.5px;font-weight:700;color:var(--main);margin-bottom:1px}
+.rank-info p{font-size:11.5px;color:var(--text-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-score{font-size:13px;font-weight:800;color:var(--accent);flex-shrink:0}
+
+/* ---- 投稿互动 ---- */
+.submit-panel{
+  background:linear-gradient(120deg,var(--main),var(--main-light));
+  border-radius:var(--radius-banner);padding:28px 30px;color:#efe8dc;
+  display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;
+}
+.submit-panel h3{font-size:18px;font-weight:800;color:#fff;margin-bottom:7px;letter-spacing:.5px}
+.submit-panel p{font-size:13px;color:#cfc3dc;line-height:1.7;max-width:560px}
+.submit-panel .btn-primary{white-space:nowrap}
+
+/* ===== 右辅助栏 ===== */
+.aside-col{display:flex;flex-direction:column;gap:22px;position:sticky;top:112px}
+.aside-card{background:var(--panel);border-radius:var(--radius-card);box-shadow:var(--shadow);padding:17px 16px;border:1px solid var(--line-2)}
+.aside-card h3{font-size:14px;font-weight:800;color:var(--main);margin-bottom:13px;padding-bottom:9px;border-bottom:2px solid var(--line-2);display:flex;align-items:center;gap:7px}
+.aside-card h3::before{content:"";width:3px;height:14px;border-radius:2px;background:var(--accent)}
+.aside-list li{padding:8px 0;border-bottom:1px dashed var(--line-2);display:flex;gap:9px;align-items:flex-start}
+.aside-list li:last-child{border-bottom:0;padding-bottom:0}
+.aside-list .idx{font-size:11px;font-weight:800;color:var(--accent);min-width:16px;padding-top:2px}
+.aside-list .txt{font-size:12.6px;color:var(--text-2);line-height:1.5}
+.aside-list .txt strong{display:block;color:var(--main);font-weight:600;font-size:12.8px;margin-bottom:1px}
+.aside-list .txt em{font-style:normal;font-size:11px;color:var(--text-3)}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:7px}
+.tag-cloud a{font-size:12px;padding:4px 11px;border-radius:14px;background:var(--bg);color:var(--text-2);border:1px solid var(--line-2);transition:all .18s}
+.tag-cloud a:hover{background:var(--main);color:#fff;border-color:var(--main)}
+
+/* ===== 页尾 ===== */
+.site-footer{background:var(--main-dark);color:#b9aecb;padding:44px 0 26px;margin-top:20px}
+.footer-inner{max-width:1340px;margin:0 auto;padding:0 20px}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+.footer-brand .brand-text{color:#fff;font-size:18px;margin-bottom:10px;display:block}
+.footer-brand p{font-size:12.8px;line-height:1.85;color:#9d90b4;max-width:300px}
+.footer-col h4{font-size:13px;font-weight:700;color:var(--accent-light);margin-bottom:12px;letter-spacing:.5px}
+.footer-col a{display:block;font-size:12.5px;color:#a99cc0;padding:3px 0;transition:color .18s}
+.footer-col a:hover{color:var(--accent-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.09);padding-top:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12px;color:#7d7096}
+.footer-bottom .update-note{color:#9d90b4}
+.footer-bottom .update-note b{color:var(--accent-light)}
+
+/* ===== 回到顶部 ===== */
+#backTop{
+  position:fixed;right:22px;bottom:26px;z-index:90;
+  width:44px;height:44px;border-radius:50%;border:0;
+  background:var(--main);color:var(--accent-light);font-size:19px;
+  box-shadow:0 6px 20px rgba(28,18,48,.28);display:none;align-items:center;justify-content:center;
+  transition:transform .2s,background .2s;
+}
+#backTop:hover{transform:translateY(-3px);background:var(--main-light)}
+#backTop.show{display:flex}
+
+/* ===== 遮罩 ===== */
+.overlay{position:fixed;inset:0;background:rgba(20,12,34,.55);z-index:105;display:none}
+.overlay.show{display:block}
+
+/* ===== 响应式 ===== */
+@media (max-width:1120px){
+  .main-wrap{grid-template-columns:160px minmax(0,1fr)}
+  .aside-col{display:none}
+  .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:28px;padding:40px 20px 36px}
+  .hero-visual{min-height:auto;max-width:380px;margin:0 auto}
+  .hero h1{font-size:33px}
+  .main-wrap{grid-template-columns:1fr}
+  .channel-nav{display:none}
+  .main-nav{display:none}
+  .hamburger{display:block}
+  .header-inner{gap:14px}
+  .search-box input{width:110px}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .comment-grid{grid-template-columns:1fr}
+  .guide-steps{grid-template-columns:1fr}
+  .deep-read{padding:24px 20px}
+  .submit-panel{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .main-nav.mobile-open{
+    display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
+    background:#fff;padding:14px 20px 20px;box-shadow:var(--shadow-hover);
+    gap:3px;border-bottom:1px solid var(--line);z-index:115;
+  }
+  .main-nav.mobile-open a{width:100%;padding:10px 12px}
+}
+@media (max-width:740px){
+  .announce-inner{gap:6px}
+  .announce-track{gap:10px;font-size:11.5px}
+  .site-header{top:36px}
+  .header-inner{min-height:58px;padding:0 14px}
+  .brand-text{font-size:16px}
+  .brand svg{width:30px;height:30px}
+  .search-box{display:none}
+  .hero h1{font-size:27px;letter-spacing:1px}
+  .hero-desc{font-size:13.5px}
+  .hero-stats{gap:18px}
+  .hero-stats b{font-size:16px}
+  .main-wrap{padding:0 14px 44px}
+  .card-grid{grid-template-columns:1fr}
+  .sec{margin-bottom:34px}
+  .sec-head h2{font-size:18px}
+  .overview-box,.deep-read{padding:20px 17px}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .update-item{padding:11px 13px;gap:10px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:22px}
+  .footer-inner{padding:0 14px}
+  .submit-panel{padding:22px 18px}
+  #backTop{right:14px;bottom:16px;width:40px;height:40px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announce-bar" id="announceBar">
+  <div class="announce-inner">
+    <span class="announce-brand">集芳閣云搜</span>
+    <div class="announce-track">
+      <span><b>11-07</b> 新增「繁花·沪语版」4K 片源索引</span>
+      <span><b>11-06</b> 纪录片频道收录《山河故人·幕后》条目</span>
+      <span><b>11-05</b> 动漫番剧板块更新《时光代理人》第三季</span>
+    </div>
+  </div>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/#hero" aria-label="集芳閣云搜首页">
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2c1e46"/>
+        <circle cx="26" cy="28" r="12.5" stroke="#e8b65a" stroke-width="4"/>
+        <path d="M36 38l13 13" stroke="#e8b65a" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="26" cy="28" r="4.5" fill="#e8b65a" opacity=".55"/>
+      </svg>
+      <span class="brand-text">集芳閣云搜<em>云索引</em></span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="主题导航">
+      <a href="/#overview">领域概览</a>
+      <a href="/#featured">精选推荐</a>
+      <a href="/#updates">更新速递</a>
+      <a href="/#categories">分类检索</a>
+      <a href="/#deepread">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#ranking">热门榜单</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-box" role="search">
+        <input type="search" id="searchInput" placeholder="搜条目 / 类型 / 标签" aria-label="站内内容搜索">
+        <button type="button" id="searchBtn">搜索</button>
+      </div>
+      <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false" aria-controls="mainNav">☰</button>
+    </div>
+  </div>
+</header>
+<div class="overlay" id="overlay"></div>
+
+<main>
+  <!-- 首屏 -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>集芳閣云搜</h1>
+        <p class="hero-desc">汇聚影视剧集、动漫番剧、纪录片与综艺晚会的云盘索引与条目导航。按类型、年份、画质与字幕组筛选，追踪每周更新节奏，收藏值得反复看的片单。</p>
+        <div class="hero-tags">
+          <a href="/#featured">4K 修复版</a>
+          <a href="/#featured">悬疑剧集</a>
+          <a href="/#featured">国产动画</a>
+          <a href="/#featured">人文纪录片</a>
+          <a href="/#updates">本周新更</a>
+        </div>
+        <div class="hero-cta">
+          <a class="btn-primary" href="/#featured">浏览精选条目</a>
+          <a class="btn-ghost" href="/#guide">查看体验指南</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>2,860+</b>已收录条目</div>
+          <div><b>48</b>本周新增</div>
+          <div><b>12</b>垂类频道</div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 400 300" fill="none">
+          <defs>
+            <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#e8b65a" stop-opacity=".9"/>
+              <stop offset="1" stop-color="#e8b65a" stop-opacity=".15"/>
+            </linearGradient>
+            <linearGradient id="gB" x1="1" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f3d492" stop-opacity=".5"/>
+              <stop offset="1" stop-color="#4b3570" stop-opacity=".05"/>
+            </linearGradient>
+          </defs>
+          <rect x="20" y="40" width="360" height="210" rx="16" fill="#3a2a5c" opacity=".5"/>
+          <circle cx="200" cy="145" r="82" stroke="url(#gA)" stroke-width="1.5" opacity=".7"/>
+          <circle cx="200" cy="145" r="54" stroke="url(#gA)" stroke-width="1" opacity=".45"/>
+          <path d="M172 145l22-38 22 38-22 38z" fill="none" stroke="#e8b65a" stroke-width="1.6" opacity=".8"/>
+          <rect x="52" y="76" width="94" height="60" rx="7" fill="url(#gB)" stroke="#e8b65a" stroke-opacity=".3"/>
+          <rect x="262" y="80" width="88" height="56" rx="7" fill="url(#gB)" stroke="#e8b65a" stroke-opacity=".3"/>
+          <rect x="66" y="182" width="72" height="44" rx="6" fill="#4b3570" opacity=".55"/>
+          <rect x="272" y="186" width="72" height="44" rx="6" fill="#4b3570" opacity=".55"/>
+          <g class="float-dot"><circle cx="118" cy="150" r="4" fill="#e8b65a"/></g>
+          <g class="float-dot d2"><circle cx="292" cy="160" r="3.4" fill="#f3d492"/></g>
+          <g class="float-dot d3"><circle cx="200" cy="58" r="3" fill="#e8b65a" opacity=".8"/></g>
+          <path d="M60 250h280" stroke="#e8b65a" stroke-opacity=".2" stroke-width="1" stroke-dasharray="4 6"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主内容区 -->
+  <div class="main-wrap">
+
+    <!-- 左侧频道索引 -->
+    <aside class="channel-nav" aria-label="内容频道索引">
+      <div class="channel-title">频道索引</div>
+      <ul>
+        <li><a href="/#overview" class="active">领域概览</a></li>
+        <li><a href="/#featured">精选内容</a></li>
+        <li><a href="/#updates">更新速递</a></li>
+        <li><a href="/#categories">分类入口</a></li>
+        <li><a href="/#deepread">深度解析</a></li>
+        <li><a href="/#guide">体验指南</a></li>
+        <li><a href="/#faq">常见问题</a></li>
+        <li><a href="/#comments">用户评论</a></li>
+        <li><a href="/#news">相关资讯</a></li>
+        <li><a href="/#recommend">相关推荐</a></li>
+        <li><a href="/#ranking">热门榜单</a></li>
+        <li><a href="/#contribute">投稿交流</a></li>
+      </ul>
+    </aside>
+
+    <!-- 中间主内容 -->
+    <div class="content-main">
+
+      <!-- 1. 领域概览 -->
+      <section class="sec" id="overview">
+        <div class="sec-head"><h2>影视资源聚合<small>领域概览</small></h2></div>
+        <div class="overview-box">
+          <p>集芳閣云搜覆盖的条目大致分为五类：<b>剧集</b>（国产剧、美剧、韩剧、日剧）、<b>动漫番剧</b>（国产动画与日本新番）、<b>纪录片</b>（自然、历史、人文三大方向）、<b>综艺晚会</b>（卫视综艺与平台自制）以及<b>经典修复</b>（老片 4K 重制与修复版）。每类条目的索引维度不同——剧集看分发平台与字幕组，番剧看更新周期与生肉/熟肉，纪录片看制片方与旁白版本，修复片看修复来源与帧率。</p>
+          <p>当前值得关注的方向集中在三块：一是国产悬疑剧的系列化产出，2026 年 10 月之后已有《雾港》《回声岛》两部进入热度榜；二是日本十月新番的熟肉进度差异，同一部作品不同字幕组的更新时间差可达 36 小时；三是央视与 BBC 联合制片的人文纪录片陆续上线 4K 版，清晰度较 2024 年版本提升一档。</p>
+          <p>云盘索引的检索逻辑与在线播放不同——看的是<b>文件名规范度、字幕封装方式与分卷结构</b>。一个条目值得收藏，往往取决于是否有稳定的发布组跟进，而非首集画质多高。</p>
+        </div>
+      </section>
+
+      <!-- 2. 精选内容推荐 -->
+      <section class="sec" id="featured">
+        <div class="sec-head">
+          <h2>精选条目推荐<small>编辑选筛 · 11 月 7 日更新</small></h2>
+          <a class="more-link" href="/#ranking">查看热度榜 →</a>
+        </div>
+        <div class="card-grid">
+
+          <article class="card" data-search="雾港 悬疑 国产剧 4K">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/wugang01/400/300" alt="《雾港》剧集海报——雨夜港口场景" width="400" height="300" loading="lazy">
+              <span class="card-badge">国产剧</span><span class="card-rate">9.1</span>
+            </div>
+            <div class="card-body">
+              <h3>雾港</h3>
+              <div class="card-tags"><span>悬疑</span><span>12集</span><span>4K</span></div>
+              <p class="card-ptext">以海港小城连环失踪案切入，双线叙事到第 6 集才交汇。4K 版第 3 集夜戏噪点控制比 1080P 版干净，夜景细节可辨。</p>
+              <div class="card-meta"><span>热度 <b class="heat">9.6万</b></span><span>11-05 更新</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="时光代理人 第三季 动画 番剧">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/timeagent3/400/300" alt="《时光代理人》第三季动画场景——时钟与相片" width="400" height="300" loading="lazy">
+              <span class="card-badge">国产动画</span><span class="card-rate">8.8</span>
+            </div>
+            <div class="card-body">
+              <h3>时光代理人 第三季</h3>
+              <div class="card-tags"><span>悬疑</span><span>奇幻</span><span>周更</span></div>
+              <p class="card-ptext">本季把时间循环范围缩小到一条老街，单集信息量密度提高，但第 4 集作画有轻微崩坏。B站源与腾讯源正片时间轴相差 12 秒。</p>
+              <div class="card-meta"><span>热度 <b class="heat">7.2万</b></span><span>11-04 更新</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="山河故人 幕后 纪录片 4K">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/shanhe01/400/300" alt="《山河故人·幕后》纪录片画面——剧组在山间取景" width="400" height="300" loading="lazy">
+              <span class="card-badge">纪录片</span><span class="card-rate">9.3</span>
+            </div>
+            <div class="card-body">
+              <h3>山河故人·幕后</h3>
+              <div class="card-tags"><span>人文</span><span>6集</span><span>4K HDR</span></div>
+              <p class="card-ptext">记录一支纪录片团队在西南山区拍摄 8 个月的过程。第 2 集关于雨季转场调度，是近年少见的幕后拍摄方法论素材。</p>
+              <div class="card-meta"><span>热度 <b class="heat">5.4万</b></span><span>11-06 上新</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="繁花 沪语版 剧集 修复">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/fanhua01/400/300" alt="《繁花》沪语版剧照——上海夜景与霓虹" width="400" height="300" loading="lazy">
+              <span class="card-badge">经典修复</span><span class="card-rate">9.5</span>
+            </div>
+            <div class="card-body">
+              <h3>繁花·沪语版</h3>
+              <div class="card-tags"><span>年代</span><span>沪语原声</span><span>4K</span></div>
+              <p class="card-ptext">沪语原声与普通话版台词密度差异明显，黄河路场景的方言包袱几乎无法翻译。4K 版码率 28Mbps，比首播版高约 40%。</p>
+              <div class="card-meta"><span>热度 <b class="heat">8.8万</b></span><span>11-07 上新</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="回声岛 悬疑 剧集 迷雾剧场">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/huishengdao/400/300" alt="《回声岛》剧照——海岛灯塔与阴天" width="400" height="300" loading="lazy">
+              <span class="card-badge">国产剧</span><span class="card-rate">8.4</span>
+            </div>
+            <div class="card-body">
+              <h3>回声岛</h3>
+              <div class="card-tags"><span>悬疑</span><span>10集</span><span>迷雾剧场</span></div>
+              <p class="card-ptext">海岛背景的封闭空间悬疑，前 4 集节奏偏慢，第 5 集反转后信息补全度较高。适合喜欢《雾港》同类型的观众接续观看。</p>
+              <div class="card-meta"><span>热度 <b class="heat">6.1万</b></span><span>11-02 完结</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="葬送的芙莉莲 日番 十月新番">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/frieren01/400/300" alt="《葬送的芙莉莲》动画场景——草原与魔法光效" width="400" height="300" loading="lazy">
+              <span class="card-badge">日本新番</span><span class="card-rate">9.2</span>
+            </div>
+            <div class="card-body">
+              <h3>葬送的芙莉莲 第二季</h3>
+              <div class="card-tags"><span>奇幻</span><span>十月番</span><span>周更</span></div>
+              <p class="card-ptext">第二季进入一级魔法使考试篇，作画资源集中在前 3 集。不同字幕组的专有名词译法差异，建议同一组追完全季。</p>
+              <div class="card-meta"><span>热度 <b class="heat">7.9万</b></span><span>11-03 更新</span></div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 3. 最新更新 -->
+      <section class="sec" id="updates">
+        <div class="sec-head"><h2>更新速递<small>11 月 1 日 — 11 月 7 日</small></h2></div>
+        <div class="update-list">
+          <div class="update-item">
+            <span class="update-date">11-07</span>
+            <div class="update-content">
+              <h4>繁花·沪语版 4K <span class="tag-new">NEW</span></h4>
+              <p>全 30 集沪语原声 4K 封装版上线，单集平均 3.8GB，附简繁双语字幕。</p>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11-06</span>
+            <div class="update-content">
+              <h4>山河故人·幕后 第 3 集</h4>
+              <p>更新至第 3 集「雨季转场」，时长 48 分钟，含导演现场收音版本。</p>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11-06</span>
+            <div class="update-content">
+              <h4>葬送的芙莉莲 第二季 第 6 集</h4>
+              <p>生肉于 11-06 01:30 释出，熟肉最快 11-06 18:00 由「诸神字幕组」发布。</p>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11-05</span>
+            <div class="update-content">
+              <h4>雾港 第 9-10 集</h4>
+              <p>两集连更，第 10 集片尾彩蛋含第二季线索，时长额外 2 分 15 秒。</p>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11-04</span>
+            <div class="update-content">
+              <h4>时光代理人 第三季 第 5 集</h4>
+              <p>B站版与腾讯版正片时间轴相差 12 秒，第 5 集作画监督更换信息已标注。</p>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11-03</span>
+            <div class="update-content">
+              <h4>声生不息·大湾区季 第 4 期</h4>
+              <p>4K 源码版更新，含未播出彩排片段 11 分钟，以附加文件夹形式提供。</p>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11-02</span>
+            <div class="update-content">
+              <h4>回声岛 全 10 集完结</h4>
+              <p>大结局上线，迷雾剧场同步放出 22 分钟制作特辑，含案件时间线梳理。</p>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11-01</span>
+            <div class="update-content">
+              <h4>蓝色星球·极地篇 中配版</h4>
+              <p>央视配音版上线，与 BBC 原声版并行提供，旁白文本差异约 8 处。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section class="sec" id="categories">
+        <div class="sec-head"><h2>按类型检索<small>点击进入对应分类</small></h2></div>
+        <div class="cat-grid">
+          <a class="cat-item" href="/#featured">
+            <span class="cat-icon">🎬</span>
+            <strong>国产剧集</strong>
+            <em>悬疑 / 年代 / 都市</em>
+          </a>
+          <a class="cat-item" href="/#featured">
+            <span class="cat-icon">🌏</span>
+            <strong>海外剧集</strong>
+            <em>美剧 / 韩剧 / 日剧</em>
+          </a>
+          <a class="cat-item" href="/#featured">
+            <span class="cat-icon">🌸</span>
+            <strong>日本新番</strong>
+            <em>十月番 / 续作 / 剧场版</em>
+          </a>
+          <a class="cat-item" href="/#featured">
+            <span class="cat-icon">🐉</span>
+            <strong>国产动画</strong>
+            <em>连载 / 番外 / 短片</em>
+          </a>
+          <a class="cat-item" href="/#featured">
+            <span class="cat-icon">🏔</span>
+            <strong>人文纪录片</strong>
+            <em>历史 / 自然 / 社会</em>
+          </a>
+          <a class="cat-item" href="/#featured">
+            <span class="cat-icon">🎤</span>
+            <strong>综艺晚会</strong>
+            <em>音乐 / 真人秀 / 晚会</em>
+          </a>
+          <a class="cat-item" href="/#featured">
+            <span class="cat-icon">🎞</span>
+            <strong>经典修复</strong>
+            <em>4K / 老片 / 重制</em>
+          </a>
+          <a class="cat-item" href="/#featured">
+            <span class="cat-icon">🎭</span>
+            <strong>舞台影像</strong>
+            <em>话剧 / 音乐剧 / 歌剧</em>
+          </a>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析 -->
+      <section class="sec" id="deepread">
+        <div class="sec-head"><h2>云盘资源版本差异解析<small>深度解析</small></h2></div>
+        <div class="deep-read">
+          <h3>同一部剧的「4K版」可能差三个档次</h3>
+          <p>以《繁花》为例，2026 年 10 月之后流通的版本至少分三种：流媒体平台直接拉取的 4K 版（码率约 16Mbps）、爱好者从蓝光原盘重编码的 4K 版（码率 28Mbps）、以及用 AI 超分把 1080P 拉升到 4K 的版本（码率约 9Mbps）。三者文件名都带「4K」字样，实际观感差距明显——AI 超分版在雨夜场景会出现明显的涂抹感，黄河路霓虹灯的边缘光晕不自然。</p>
+          <p>判断依据主要看三项：<b>文件体积、编码器标识、音轨规格</b>。30 集体量的剧集，真 4K 重编码版单集普遍在 3.5GB 以上，超分版通常不到 1.5GB；编码器一栏写 x265 10bit 的，比写 H.264 的可靠性高一档；音轨为 DTS-HD 或 TrueHD 的，基本可排除超分版。这三项在文件名或 mediainfo 里都能查到，不需要下载正片。</p>
+
+          <h3>字幕组更迭对追剧节奏的影响</h3>
+          <p>日本十月新番的熟肉进度差异，本质是字幕组排班问题。以《葬送的芙莉莲》第二季为例，第 6 集生肉 11-06 01:30 释出后，「诸神字幕组」在 18:00 发布熟肉，「喵萌奶茶屋」到 11-07 上午才出。差出 16 个小时，对追更观众来说就是能不能在周末看完一集的区别。</p>
+          <p>更值得留意的是译名一致性。同一部番的前后集如果换组，专有名词可能从「一级魔法使考试」变成「一级魔法师考核」，检索时容易漏掉条目。比较稳妥的做法是：开季第一集先确认字幕组，整季跟着同一组走；中途换组时，在收藏夹里标注切换集数。</p>
+
+          <h3>修复版值不值得收，看修复来源而不是分辨率</h3>
+          <p>老片修复版的分辨率数字（2K/4K）参考价值有限，关键在修复来源是「扫描底片」还是「放大老母带」。2026 年 9 月上线的一批港片修复版里，《秋天的童话》4K 版来自底片 4K 扫描，颗粒保留完整；另一部同批上线的喜剧片 4K 版则是从 1080P 母带放大，暗部细节基本丢失。</p>
+          <div class="verdict">
+            <b>可核对的三步判断：</b>先看发行方是否公布了扫描规格（底片/中间片/母带）；再看修复说明里有没有提「去除划痕」以外的工序；最后对比同一场景的暗部——底片扫描版能看清背景墙上的海报文字，放大版是一片糊。三步里缺两步，这个修复版就不必优先收藏。
+          </div>
+
+          <h3>云盘索引的稳定性取决于发布组而非条目热度</h3>
+          <p>一个条目在热度榜上排得高，不代表它的云盘索引能长期存活。热度高的条目反而更容易因分享链接被批量举报而失效。2026 年 10 月下旬，《雾港》热播期间，多个公开索引链接在 48 小时内失效，而复传速度取决于是否有稳定的发布组在维护分卷。</p>
+          <p>判断一个条目是否值得收藏，可以看它的索引页是否标注了<b>发布组、分卷大小、校验信息</b>三样。三样齐全的条目，即使当前链接失效，通常也能在 24 小时内找到补档；三样缺两样的，失效后往往就断了线索。</p>
+        </div>
+      </section>
+
+      <!-- 6. 体验指南 -->
+      <section class="sec" id="guide">
+        <div class="sec-head"><h2>内容消费路径<small>从检索到收藏的判断顺序</small></h2></div>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <span class="step-num">1</span>
+            <h4>先定类型，再定版本</h4>
+            <p>悬疑剧优先找完结后统一封装的全集版，避免追更中途换源；番剧则相反，当季跟着固定字幕组走，比等完结合集更稳。</p>
+          </div>
+          <div class="guide-step">
+            <span class="step-num">2</span>
+            <h4>用文件体积做初筛</h4>
+            <p>同样标 4K 的剧集，单集体积低于 1.5GB 的先放一边。体积是排除超分版最快的一道筛，不需要打开正片。</p>
+          </div>
+          <div class="guide-step">
+            <span class="step-num">3</span>
+            <h4>核对字幕封装方式</h4>
+            <p>外挂字幕比内嵌字幕更灵活，但也更容易出现时间轴错位。追更中的番剧优先选内封软字幕，完结剧可选外挂。</p>
+          </div>
+          <div class="guide-step">
+            <span class="step-num">4</span>
+            <h4>比较同类条目的取舍</h4>
+            <p>《雾港》与《回声岛》同属国产悬疑，但前者适合一口气看完，后者前 4 集铺垫长，更适合分两天看。按自己的观看节奏选，不必都追。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section class="sec" id="faq">
+        <div class="sec-head"><h2>常见问题<small>关于条目与版本</small></h2></div>
+        <div class="faq-wrap">
+          <details>
+            <summary>《繁花》沪语版和普通话版差别在哪里？</summary>
+            <div class="faq-answer">台词密度差异最大。沪语版的方言包袱在普通话版里被替换成说明性对白，黄河路商战戏的节奏因此变慢。4K 沪语版码率 28Mbps，普通话首播版约 20Mbps，夜景霓虹的层次差别在 55 寸以上屏幕可辨。</div>
+          </details>
+          <details>
+            <summary>十月新番的「生肉」「熟肉」时间差一般多久？</summary>
+            <div class="faq-answer">热门番剧生肉通常在播出日 <b>01:00—02:00</b> 释出，熟肉最快当晚 18:00 左右。冷门番或字幕组排班紧张时，熟肉可能延后到次日中午。差 16 小时以上的情况，多半是字幕组临时换人。</div>
+          </details>
+          <details>
+            <summary>标着 4K 的修复版为什么有的只有 1GB 一集？</summary>
+            <div class="faq-answer">大概率是 AI 超分版。底片扫描重编码的 4K 剧集，单集普遍 3.5GB 起步；1GB 左右的「4K」文件，编码器多为 H.264，暗部细节和颗粒感都会丢失。查一下 mediainfo 里的编码器一栏就能确认。</div>
+          </details>
+          <details>
+            <summary>《雾港》和《回声岛》先看哪部？</summary>
+            <div class="faq-answer">按观看习惯选。《雾港》12 集，双线叙事到第 6 集交汇，适合周末连看；《回声岛》10 集，前 4 集铺垫慢，第 5 集反转后才进入快节奏，适合分几天看。两部都是国产悬疑，但叙事密度不在一个档位。</div>
+          </details>
+          <details>
+            <summary>纪录片《山河故人·幕后》和正片是什么关系？</summary>
+            <div class="faq-answer">幕后纪录片记录的是另一支团队在西南山区拍摄正片素材的过程，共 6 集。第 2 集「雨季转场」讲的是设备调度和天气应对，可以单独当拍摄方法素材看，不依赖正片剧情。</div>
+          </details>
+          <details>
+            <summary>云盘索引链接失效后怎么找补档？</summary>
+            <div class="faq-answer">先看索引页有没有标注发布组和分卷校验信息。有发布组标识的条目，通常在该组的发布页能找到补档；只有单一链接、没有分卷信息的条目，失效后基本断线索。收藏时优先选标注齐全的版本。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section class="sec" id="comments">
+        <div class="sec-head"><h2>用户评论<small>来自剧迷与收藏者</small></h2></div>
+        <div class="comment-grid">
+          <div class="comment-item">
+            <div class="avatar" style="background:#6b4e9e">林</div>
+            <div class="comment-body">
+              <div class="uname">林间有鹿 <time>11-07 22:14</time></div>
+              <p>《雾港》第 10 集彩蛋我反复看了三遍，第二季线索藏得太深了，不暂停根本看不到。</p>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="avatar" style="background:#3a6b8a">陈</div>
+            <div class="comment-body">
+              <div class="uname">陈默看片 <time>11-07 19:02</time></div>
+              <p>芙莉莲第 6 集换组了？译名突然从「魔法使」变成「魔法师」，差点以为搜错了。</p>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="avatar" style="background:#8a5a3a">阿</div>
+            <div class="comment-body">
+              <div class="uname">阿茶不喝茶 <time>11-06 23:47</time></div>
+              <p>繁花沪语版下了 4K，单集 3.8G，硬盘在滴血。但黄河路那段方言是真的值。</p>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="avatar" style="background:#5a7a4a">老</div>
+            <div class="comment-body">
+              <div class="uname">老胶片 <time>11-06 16:20</time></div>
+              <p>最近那批港片修复版，一半是底片扫描一半是放大，买之前真得看发行方说明。</p>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="avatar" style="background:#7a4a6a">星</div>
+            <div class="comment-body">
+              <div class="uname">星野拾光 <time>11-05 21:33</time></div>
+              <p>《回声岛》前四集我真的差点弃了，第五集反转之后才感觉前面都是伏笔。</p>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="avatar" style="background:#4a5a7a">周</div>
+            <div class="comment-body">
+              <div class="uname">周末放映员 <time>11-05 14:08</time></div>
+              <p>山河故人幕后第 2 集讲雨季转场，比很多正片都好看，设备调度那块我做了笔记。</p>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="avatar" style="background:#8a6a3a">小</div>
+            <div class="comment-body">
+              <div class="uname">小满 <time>11-04 20:55</time></div>
+              <p>时光代理人第三季第 4 集作画崩了一下，不过剧情撑住了，忍了。</p>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="avatar" style="background:#3a8a7a">番</div>
+            <div class="comment-body">
+              <div class="uname">番剧仓管 <time>11-04 11:30</time></div>
+              <p>十月番追更太累了，一周五部，字幕组还各不相同，收藏夹快成译名对照表了。</p>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="avatar" style="background:#7a3a3a">北</div>
+            <div class="comment-body">
+              <div class="uname">北方有剧 <time>11-03 22:12</time></div>
+              <p>雾港的 4K 版夜戏确实干净，之前 1080P 版第 3 集码头那段糊成一片。</p>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="avatar" style="background:#4a7a5a">有</div>
+            <div class="comment-body">
+              <div class="uname">有只猫在看 <time>11-03 15:40</time></div>
+              <p>纪录片中配和原声我都下了，央视版旁白更平稳，BBC 原声更有现场感，看心情切。</p>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="avatar" style="background:#6a4a8a">路</div>
+            <div class="comment-body">
+              <div class="uname">路边社消息 <time>11-02 18:26</time></div>
+              <p>声生不息彩排片段比正片好看，这种附加内容多来点。</p>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="avatar" style="background:#8a7a3a">硬</div>
+            <div class="comment-body">
+              <div class="uname">硬盘告急 <time>11-02 09:15</time></div>
+              <p>收了三个版本的繁花，硬盘已经没地方放新番了，这大概就是收藏党的宿命。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section class="sec" id="news">
+        <div class="sec-head"><h2>相关资讯<small>近期条目动态</small></h2></div>
+        <div class="news-list">
+          <article class="news-item">
+            <div class="news-thumb"><img src="https://picsum.photos/seed/news-wugang/600/400" alt="《雾港》发布会现场照片" width="600" height="400" loading="lazy"></div>
+            <div class="news-body">
+              <h4>《雾港》第二季官宣启动，预计 2027 年春季开机</h4>
+              <div class="news-meta">11-06 · 剧集动态</div>
+              <p>制片方在 11-06 的收官活动上确认第二季进入剧本阶段，主演阵容保留，取景地新增一处海岛。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <div class="news-thumb"><img src="https://picsum.photos/seed/news-fanhua/600/400" alt="《繁花》沪语版上线宣传图" width="600" height="400" loading="lazy"></div>
+            <div class="news-body">
+              <h4>《繁花》沪语 4K 修复版上线，单集码率提升至 28Mbps</h4>
+              <div class="news-meta">11-05 · 修复动态</div>
+              <p>发行方公布技术规格：底片 4K 扫描，x265 10bit 编码，音轨为 DTS-HD 5.1，与首播版相比暗部层次提升明显。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <div class="news-thumb"><img src="https://picsum.photos/seed/news-frieren/600/400" alt="《葬送的芙莉莲》第二季宣传视觉图" width="600" height="400" loading="lazy"></div>
+            <div class="news-body">
+              <h4>《葬送的芙莉莲》第二季第 6 集播出，考试篇进入关键节点</h4>
+              <div class="news-meta">11-04 · 番剧动态</div>
+              <p>第 6 集播出后，日本推特相关话题 24 小时内讨论量突破 12 万条，主要集中在考试篇的规则设计。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <div class="news-thumb"><img src="https://picsum.photos/seed/news-shanhe/600/400" alt="《山河故人·幕后》拍摄现场" width="600" height="400" loading="lazy"></div>
+            <div class="news-body">
+              <h4>《山河故人·幕后》第 3 集上线，记录雨季转场 48 小时</h4>
+              <div class="news-meta">11-03 · 纪录片动态</div>
+              <p>本集完整呈现剧组在暴雨中转移拍摄设备的 48 小时，含导演现场收音版本和 11 分钟删减片段。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <div class="news-thumb"><img src="https://picsum.photos/seed/news-timeagent/600/400" alt="《时光代理人》第三季动画场景" width="600" height="400" loading="lazy"></div>
+            <div class="news-body">
+              <h4>《时光代理人》第三季 B站版与腾讯版正片时间轴相差 12 秒</h4>
+              <div class="news-meta">11-01 · 番剧动态</div>
+              <p>差异来自片头曲剪辑长度，正片内容一致。追更观众若跨平台接续观看，需手动对齐时间轴。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <div class="news-thumb"><img src="https://picsum.photos/seed/news-blueplanet/600/400" alt="《蓝色星球·极地篇》纪录片画面" width="600" height="400" loading="lazy"></div>
+            <div class="news-body">
+              <h4>《蓝色星球·极地篇》央视配音版上线，旁白文本差异约 8 处</h4>
+              <div class="news-meta">10-30 · 纪录片动态</div>
+              <p>央视版对极地生态术语做了本地化处理，BBC 原声版保留原始科学名称，两版可并行收藏。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section class="sec" id="recommend">
+        <div class="sec-head"><h2>相关推荐<small>具体方向与条目</small></h2></div>
+        <div class="rec-tags">
+          <a href="/#featured">迷雾剧场系列</a>
+          <a href="/#featured">底片扫描修复港片</a>
+          <a href="/#featured">十月新番熟肉合集</a>
+          <a href="/#featured">央视配音纪录片</a>
+          <a href="/#featured">沪语原声剧集</a>
+          <a href="/#featured">周更番剧字幕组对照</a>
+          <a href="/#featured">4K HDR 蓝光重编码</a>
+          <a href="/#featured">舞台影像官摄版</a>
+        </div>
+      </section>
+
+      <!-- 11. 热门榜单（补充板块） -->
+      <section class="sec" id="ranking">
+        <div class="sec-head"><h2>本周热度榜<small>11 月 1 日 — 11 月 7 日</small></h2></div>
+        <div class="hot-rank">
+          <div class="rank-item">
+            <div class="rank-num">1</div>
+            <div class="rank-info"><h4>雾港</h4><p>国产悬疑 · 12 集全 · 4K 版</p></div>
+            <div class="rank-score">9.6万</div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">2</div>
+            <div class="rank-info"><h4>繁花·沪语版</h4><p>年代剧 · 30 集 · 4K 修复</p></div>
+            <div class="rank-score">8.8万</div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">3</div>
+            <div class="rank-info"><h4>葬送的芙莉莲 第二季</h4><p>日本新番 · 考试篇 · 周更</p></div>
+            <div class="rank-score">7.9万</div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">4</div>
+            <div class="rank-info"><h4>时光代理人 第三季</h4><p>国产动画 · 周更 · 双平台</p></div>
+            <div class="rank-score">7.2万</div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">5</div>
+            <div class="rank-info"><h4>回声岛</h4><p>国产悬疑 · 10 集完结 · 迷雾剧场</p></div>
+            <div class="rank-score">6.1万</div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">6</div>
+            <div class="rank-info"><h4>山河故人·幕后</h4><p>人文纪录片 · 6 集 · 4K HDR</p></div>
+            <div class="rank-score">5.4万</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12. 投稿互动 -->
+      <section class="sec" id="contribute">
+        <div class="submit-panel">
+          <div>
+            <h3>投稿与交流</h3>
+            <p>发现新的条目、版本差异或字幕组更迭信息？欢迎提交条目线索与版本对比笔记。审核通过后纳入索引，与更多收藏者共享。</p>
+          </div>
+          <a class="btn-primary" href="/#contribute">提交条目线索</a>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 右侧辅助栏 -->
+    <aside class="aside-col" aria-label="辅助信息">
+      <div class="aside-card">
+        <h3>本周更新日历</h3>
+        <ul class="aside-list">
+          <li><span class="idx">01</span><div class="txt"><strong>11-07 繁花沪语 4K</strong><em>全 30 集 · 单集 3.8G</em></div></li>
+          <li><span class="idx">02</span><div class="txt"><strong>11-06 芙莉莲 第 6 集</strong><em>熟肉 18:00 发布</em></div></li>
+          <li><span class="idx">03</span><div class="txt"><strong>11-05 雾港 9-10 集</strong><em>两集连更 · 含彩蛋</em></div></li>
+          <li><span class="idx">04</span><div class="txt"><strong>11-04 时光代理人 第 5 集</strong><em>双平台时间轴差 12 秒</em></div></li>
+          <li><span class="idx">05</span><div class="txt"><strong>11-02 回声岛 完结</strong><em>10 集全 · 含制作特辑</em></div></li>
+        </ul>
+      </div>
+      <div class="aside-card">
+        <h3>版本标签索引</h3>
+        <div class="tag-cloud">
+          <a href="/#featured">x265 10bit</a>
+          <a href="/#featured">DTS-HD 5.1</a>
+          <a href="/#featured">内封软字幕</a>
+          <a href="/#featured">外挂字幕</a>
+          <a href="/#featured">底片扫描</a>
+          <a href="/#featured">AI 超分</a>
+          <a href="/#featured">蓝光重编码</a>
+          <a href="/#featured">4K HDR</a>
+          <a href="/#featured">沪语原声</a>
+          <a href="/#featured">央视配音</a>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-text">集芳閣云搜</span>
+        <p>收录 2023—2026 年间的剧集、番剧、纪录片与修复版条目索引，以版本差异与更新节奏为核心参考。条目类型涵盖连载、完结、修复重制与幕后特辑。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容频道</h4>
+        <a href="/#featured">精选内容</a>
+        <a href="/#updates">更新速递</a>
+        <a href="/#categories">分类入口</a>
+        <a href="/#ranking">热门榜单</a>
+      </div>
+      <div class="footer-col">
+        <h4>参考指南</h4>
+        <a href="/#deepread">深度解析</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#news">相关资讯</a>
+      </div>
+      <div class="footer-col">
+        <h4>互动参与</h4>
+        <a href="/#comments">用户评论</a>
+        <a href="/#contribute">投稿线索</a>
+        <a href="/#recommend">相关推荐</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 集芳閣云搜 · 内容索引示例站点</span>
+      <span class="update-note">最近更新：<b>2026-11-07</b> 繁花沪语 4K 索引上线 · 2026-11-06 芙莉莲第 6 集熟肉</span>
+    </div>
+  </div>
+</footer>
+
+<button id="backTop" aria-label="回到顶部">↑</button>
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "集芳閣云搜",
+  "description": "影视剧集、动漫番剧、纪录片与修复版的云盘索引聚合，含版本差异解析与更新追踪。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "《繁花》沪语版和普通话版差别在哪里？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "台词密度差异最大。沪语版的方言包袱在普通话版里被替换成说明性对白，黄河路商战戏的节奏因此变慢。4K 沪语版码率 28Mbps，普通话首播版约 20Mbps，夜景霓虹的层次差别在 55 寸以上屏幕可辨。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "十月新番的「生肉」「熟肉」时间差一般多久？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "热门番剧生肉通常在播出日 01:00—02:00 释出，熟肉最快当晚 18:00 左右。冷门番或字幕组排班紧张时，熟肉可能延后到次日中午。差 16 小时以上的情况，多半是字幕组临时换人。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "标着 4K 的修复版为什么有的只有 1GB 一集？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "大概率是 AI 超分版。底片扫描重编码的 4K 剧集，单集普遍 3.5GB 起步；1GB 左右的「4K」文件，编码器多为 H.264，暗部细节和颗粒感都会丢失。查一下 mediainfo 里的编码器一栏就能确认。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "《雾港》和《回声岛》先看哪部？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "按观看习惯选。《雾港》12 集，双线叙事到第 6 集交汇，适合周末连看；《回声岛》10 集，前 4 集铺垫慢，第 5 集反转后才进入快节奏，适合分几天看。两部都是国产悬疑，但叙事密度不在一个档位。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "纪录片《山河故人·幕后》和正片是什么关系？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "幕后纪录片记录的是另一支团队在西南山区拍摄正片素材的过程，共 6 集。第 2 集「雨季转场」讲的是设备调度和天气应对，可以单独当拍摄方法素材看，不依赖正片剧情。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "云盘索引链接失效后怎么找补档？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "先看索引页有没有标注发布组和分卷校验信息。有发布组标识的条目，通常在该组的发布页能找到补档；只有单一链接、没有分卷信息的条目，失效后基本断线索。收藏时优先选标注齐全的版本。"
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 移动端菜单 ---------- */
+  var hamburger=document.getElementById("hamburgerBtn");
+  var nav=document.getElementById("mainNav");
+  var overlay=document.getElementById("overlay");
+
+  function openMenu(){
+    nav.classList.add("mobile-open");
+    hamburger.setAttribute("aria-expanded","true");
+    overlay.classList.add("show");
+  }
+  function closeMenu(){
+    nav.classList.remove("mobile-open");
+    hamburger.setAttribute("aria-expanded","false");
+    overlay.classList.remove("show");
+  }
+  hamburger.addEventListener("click",function(){
+    if(nav.classList.contains("mobile-open")){closeMenu();}else{openMenu();}
+  });
+  overlay.addEventListener("click",closeMenu);
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape"&&nav.classList.contains("mobile-open")){closeMenu();hamburger.focus();}
+  });
+  nav.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click",function(){
+      if(window.innerWidth<=1024){closeMenu();}
+    });
+  });
+
+  /* ---------- 搜索筛选 ---------- */
+  var searchInput=document.getElementById("searchInput");
+  var searchBtn=document.getElementById("searchBtn");
+  var cards=Array.prototype.slice.call(document.querySelectorAll(".card[data-search]"));
+  var originalParents={};
+  cards.forEach(function(c){originalParents[c]=c.parentNode;});
+
+  function doSearch(){
+    var q=(searchInput.value||"").trim().toLowerCase();
+    if(!q){
+      cards.forEach(function(c){
+        if(!c.parentNode){originalParents[c].appendChild(c);}
+        c.style.display="";
+      });
+      return;
+    }
+    var hit=0;
+    cards.forEach(function(c){
+      var text=(c.getAttribute("data-search")||"").toLowerCase()+" "+c.textContent.toLowerCase();
+      if(text.indexOf(q)>-1){
+        if(!c.parentNode){originalParents[c].appendChild(c);}
+        c.style.display="";
+        hit++;
+      }else{
+        c.style.display="none";
+      }
+    });
+    var existing=document.getElementById("searchEmpty");
+    if(existing){existing.parentNode.removeChild(existing);}
+    if(hit===0){
+      var msg=document.createElement("div");
+      msg.id="searchEmpty";
+      msg.style.cssText="padding:24px;text-align:center;color:#8b8397;font-size:14px;background:#fff;border-radius:14px;border:1px solid #e4ded6;margin-top:6px";
+      msg.textContent="没有找到包含「"+searchInput.value.trim()+"」的条目，换个关键词试试。";
+      var grid=document.querySelector(".card-grid");
+      grid.parentNode.insertBefore(msg,grid);
+    }
+  }
+  searchBtn.addEventListener("click",doSearch);
+  searchInput.addEventListener("keydown",function(e){
+    if(e.key==="Enter"){doSearch();}
+  });
+
+  /* ---------- 回到顶部 ---------- */
+  var backTop=document.getElementById("backTop");
+  window.addEventListener("scroll",function(){
+    if(window.scrollY>420){backTop.classList.add("show");}
+    else{backTop.classList.remove("show");}
+  },{passive:true});
+  backTop.addEventListener("click",function(){
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+
+  /* ---------- 侧栏频道高亮 ---------- */
+  var sections=Array.prototype.slice.call(document.querySelectorAll(".sec[id]"));
+  var navLinks=Array.prototype.slice.call(document.querySelectorAll(".channel-nav a"));
+  if("IntersectionObserver" in window && sections.length){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var id=entry.target.id;
+          navLinks.forEach(function(a){
+            if(a.getAttribute("href")==="/#"+id){a.classList.add("active");}
+            else{a.classList.remove("active");}
+          });
+        }
+      });
+    },{rootMargin:"-120px 0px -55% 0px",threshold:0});
+    sections.forEach(function(s){obs.observe(s);});
+  }
+})();
+</script>
+</body>
+              </html>
