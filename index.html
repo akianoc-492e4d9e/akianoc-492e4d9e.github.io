@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小小绘福利 - 二次元插画福利聚合站</title>
+  <meta name="description" content="小小绘福利聚合了2026年11月最新二次元插画福利内容，包括画师新作、壁纸包、Pixiv热门tag、福利抽奖和创作挑战。适合插画爱好者、同人创作者和壁纸收集者浏览。">
+  <meta name="keywords" content="小小绘福利">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23f06a9e'/%3E%3Cpath d='M30 65 Q50 25 70 65' stroke='%23fff' stroke-width='8' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='38' cy='42' r='5' fill='%23fff'/%3E%3Ccircle cx='62' cy='42' r='5' fill='%23fff'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --primary: #f06a9e;
+      --primary-light: #fce4ec;
+      --primary-dark: #c23a6b;
+      --accent: #6a9ef0;
+      --bg: #fef9fa;
+      --panel: #ffffff;
+      --text: #2d1f28;
+      --text-secondary: #5e4a54;
+      --text-tertiary: #8e7a84;
+      --border: #f0dce2;
+      --radius-card: 16px;
+      --radius-btn: 24px;
+      --radius-tag: 6px;
+      --shadow-default: 0 2px 12px rgba(240, 106, 158, 0.08);
+      --shadow-hover: 0 6px 24px rgba(240, 106, 158, 0.16);
+      --font: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+      --announce-h: 40px;
+      --header-h: 68px;
+      --sticky-h: calc(var(--announce-h) + var(--header-h));
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--sticky-h) + 12px); }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    /* 吸顶公告条 */
+    .announce-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(90deg, #2d1f28, #4a2e3a);
+      color: #fce4ec;
+      height: var(--announce-h);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      gap: 24px;
+      padding: 0 16px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .announce-bar .brand-mini {
+      font-weight: 700;
+      color: #f9b8cf;
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+    .announce-bar .announce-items {
+      display: flex;
+      gap: 28px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .announce-bar .announce-items span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .announce-bar .announce-items .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--primary);
+      flex-shrink: 0;
+    }
+
+    /* 页头 */
+    .site-header {
+      position: sticky;
+      top: var(--announce-h);
+      z-index: 99;
+      background: rgba(254, 249, 250, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      height: var(--header-h);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--primary-dark);
+      flex-shrink: 0;
+      letter-spacing: 0.5px;
+    }
+    .logo svg { width: 32px; height: 32px; }
+    .logo .logo-text { white-space: nowrap; }
+    .main-nav {
+      display: flex;
+      gap: 4px;
+      flex: 1;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .main-nav::-webkit-scrollbar { display: none; }
+    .main-nav a {
+      padding: 6px 14px;
+      border-radius: var(--radius-btn);
+      font-size: 14px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .main-nav a:hover { background: var(--primary-light); color: var(--primary-dark); }
+    .header-actions { display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
+    .btn-outline {
+      padding: 7px 18px;
+      border-radius: var(--radius-btn);
+      border: 1.5px solid var(--primary);
+      color: var(--primary-dark);
+      font-size: 14px;
+      font-weight: 500;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-outline:hover { background: var(--primary); color: #fff; }
+    .btn-solid {
+      padding: 7px 18px;
+      border-radius: var(--radius-btn);
+      background: var(--primary);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-solid:hover { background: var(--primary-dark); box-shadow: var(--shadow-hover); }
+
+    /* 首屏 */
+    .hero {
+      position: relative;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 48px 24px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg-shape {
+      position: absolute;
+      top: -80px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(240,106,158,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-bg-shape2 {
+      position: absolute;
+      bottom: -120px; left: -80px;
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(106,158,240,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-badge {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+    .hero h1 {
+      font-size: 42px;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-actions .btn-solid, .hero-actions .btn-outline { padding: 10px 26px; font-size: 15px; }
+    .hero-visual {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .hero-visual .art-card {
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: var(--panel);
+      box-shadow: var(--shadow-default);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .hero-visual .art-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .hero-visual .art-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .hero-visual .art-card:nth-child(2) { margin-top: 24px; }
+    .hero-visual .art-card:nth-child(3) { margin-top: -24px; }
+    .hero-visual .art-card .art-label {
+      padding: 8px 12px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* 主内容区 - 双栏标准 */
+    .main-container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 36px;
+      align-items: start;
+    }
+    .main-col { min-width: 0; }
+    .side-col { min-width: 0; position: sticky; top: calc(var(--sticky-h) + 16px); }
+
+    /* 板块通用 */
+    .section {
+      margin-bottom: 48px;
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.5px;
+      position: relative;
+      padding-left: 14px;
+    }
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 4px; bottom: 4px;
+      width: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    .section-more {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      transition: color 0.2s;
+    }
+    .section-more:hover { color: var(--primary-dark); }
+
+    /* 概览 */
+    .overview-text {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 28px 32px;
+      box-shadow: var(--shadow-default);
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--text-secondary);
+    }
+    .overview-text p { margin-bottom: 12px; }
+    .overview-text p:last-child { margin-bottom: 0; }
+    .overview-text strong { color: var(--primary-dark); font-weight: 600; }
+
+    /* 精选卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .content-card {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-default);
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .content-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .content-card .card-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .card-body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; }
+    .card-type {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: var(--radius-tag);
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 600;
+      margin-bottom: 8px;
+      align-self: flex-start;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      line-height: 1.6;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: var(--radius-tag);
+      background: #f5f0f2;
+      color: var(--text-secondary);
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+    .card-meta .hot { color: var(--primary); font-weight: 600; }
+
+    /* 最新更新列表 */
+    .update-list { display: flex; flex-direction: column; gap: 2px; }
+    .update-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 18px;
+      background: var(--panel);
+      border-radius: 12px;
+      transition: background 0.2s;
+      border-bottom: 1px solid var(--border);
+    }
+    .update-item:last-child { border-bottom: none; }
+    .update-item:hover { background: #fdf6f8; }
+    .update-index {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      width: 22px;
+      flex-shrink: 0;
+      text-align: center;
+    }
+    .update-content { flex: 1; min-width: 0; }
+    .update-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .update-summary {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+    .update-date {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      flex-shrink: 0;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .category-item {
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 18px 14px;
+      text-align: center;
+      box-shadow: var(--shadow-default);
+      transition: all 0.25s;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+    }
+    .category-item:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .category-item .cat-icon {
+      font-size: 24px;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .category-item .cat-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .category-item .cat-count {
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 32px 36px;
+      box-shadow: var(--shadow-default);
+      line-height: 1.85;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+    .deep-dive h3 {
+      font-size: 18px;
+      color: var(--text);
+      margin: 28px 0 12px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    .deep-dive h3:first-of-type { margin-top: 0; }
+    .deep-dive p { margin-bottom: 14px; }
+    .deep-dive ul { margin: 10px 0 16px 20px; list-style: disc; }
+    .deep-dive li { margin-bottom: 6px; }
+    .deep-dive .highlight-box {
+      background: #fdf6f8;
+      border-left: 3px solid var(--primary);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--panel);
+      border-radius: 12px;
+      box-shadow: var(--shadow-default);
+      overflow: hidden;
+    }
+    .faq-item summary {
+      padding: 16px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .faq-item summary:hover { background: #fdf6f8; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--primary);
+      font-weight: 400;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-answer {
+      padding: 0 20px 18px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* 评论 */
+    .comment-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .comment-item {
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: var(--shadow-default);
+    }
+    .comment-user {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+    .comment-text {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* 相关资讯 */
+    .news-list { display: flex; flex-direction: column; gap: 14px; }
+    .news-item {
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: var(--shadow-default);
+      transition: transform 0.2s;
+    }
+    .news-item:hover { transform: translateX(3px); }
+    .news-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .news-date {
+      font-size: 12px;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .news-summary {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    /* 相关推荐 */
+    .related-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .related-tag {
+      display: inline-block;
+      padding: 7px 16px;
+      background: var(--panel);
+      border-radius: var(--radius-btn);
+      font-size: 13px;
+      color: var(--text-secondary);
+      box-shadow: var(--shadow-default);
+      transition: all 0.2s;
+      border: 1px solid var(--border);
+    }
+    .related-tag:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-color: var(--primary);
+    }
+
+    /* 侧栏 */
+    .side-card {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 20px;
+      box-shadow: var(--shadow-default);
+      margin-bottom: 20px;
+    }
+    .side-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hot-list { display: flex; flex-direction: column; gap: 10px; }
+    .hot-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+    .hot-item:hover { color: var(--primary-dark); }
+    .hot-rank {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hot-rank.top1 { background: var(--primary); color: #fff; }
+    .hot-rank.top2 { background: #f5a0c0; color: #fff; }
+    .hot-rank.top3 { background: #fbd0e0; color: var(--primary-dark); }
+    .hot-name { flex: 1; min-width: 0; }
+    .hot-heat { font-size: 11px; color: var(--text-tertiary); }
+
+    .side-timeline { display: flex; flex-direction: column; gap: 12px; }
+    .tl-item {
+      display: flex;
+      gap: 10px;
+      font-size: 13px;
+    }
+    .tl-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .tl-date { font-size: 11px; color: var(--text-tertiary); }
+    .tl-text { color: var(--text-secondary); line-height: 1.5; }
+
+    .side-contrib {
+      background: linear-gradient(135deg, #fdf2f6, #fff0f4);
+      border-radius: var(--radius-card);
+      padding: 20px;
+      box-shadow: var(--shadow-default);
+      text-align: center;
+    }
+    .side-contrib .contrib-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .side-contrib .contrib-desc { font-size: 12px; color: var(--text-tertiary); margin-bottom: 14px; }
+
+    /* 页尾 */
+    .site-footer {
+      background: #2d1f28;
+      color: #d4c0c8;
+      padding: 48px 24px 32px;
+      margin-top: 20px;
+    }
+    .footer-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand .footer-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #f9b8cf;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .footer-brand .footer-desc {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #a8929a;
+      margin-bottom: 16px;
+    }
+    .footer-col h4 {
+      font-size: 14px;
+      color: #f0dce2;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: #a8929a;
+      padding: 3px 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #f9b8cf; }
+    .footer-bottom {
+      max-width: 1360px;
+      margin: 32px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #4a2e3a;
+      font-size: 12px;
+      color: #7a6570;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* 回到顶部 */
+    .back-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-hover);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+      z-index: 90;
+    }
+    .back-top.visible { opacity: 1; visibility: visible; }
+    .back-top:hover { transform: translateY(-3px); background: var(--primary-dark); }
+
+    /* 移动端菜单 */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--primary-dark);
+      cursor: pointer;
+      padding: 4px;
+    }
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(45, 31, 40, 0.4);
+      z-index: 98;
+      backdrop-filter: blur(2px);
+    }
+    .mobile-overlay.active { display: block; }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .main-container { grid-template-columns: 1fr; }
+      .side-col { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .side-card { margin-bottom: 0; }
+      .hero { grid-template-columns: 1fr; gap: 24px; }
+      .hero-visual { max-width: 480px; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .category-grid { grid-template-columns: repeat(4, 1fr); }
+      .comment-list { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 740px) {
+      .hero h1 { font-size: 30px; }
+      .hero { padding: 32px 16px 24px; }
+      .hero-visual { grid-template-columns: 1fr 1fr; }
+      .hero-visual .art-card img { height: 110px; }
+      .main-container { padding: 0 16px 40px; }
+      .side-col { grid-template-columns: 1fr; }
+      .card-grid { grid-template-columns: 1fr; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .header-inner { padding: 0 16px; gap: 12px; }
+      .main-nav { display: none; }
+      .menu-toggle { display: block; }
+      .header-actions .btn-outline { display: none; }
+      .deep-dive { padding: 20px; }
+      .overview-text { padding: 20px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+      .announce-bar { font-size: 11px; gap: 12px; }
+      .announce-bar .announce-items { gap: 14px; }
+      .back-top { bottom: 20px; right: 20px; width: 38px; height: 38px; font-size: 17px; }
+      .comment-list { grid-template-columns: 1fr; }
+      .main-nav.mobile-open {
+        display: flex;
+        position: fixed;
+        top: var(--sticky-h);
+        left: 0;
+        right: 0;
+        background: var(--panel);
+        flex-direction: column;
+        padding: 16px;
+        box-shadow: var(--shadow-hover);
+        z-index: 99;
+        max-height: calc(100vh - var(--sticky-h));
+        overflow-y: auto;
+        border-bottom: 1px solid var(--border);
+      }
+      .main-nav.mobile-open a { padding: 12px 16px; font-size: 15px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announce-bar">
+  <span class="brand-mini">小小绘福利</span>
+  <div class="announce-items">
+    <span><span class="dot"></span>2026-11-08 新增「初音未来16周年」壁纸包 48张</span>
+    <span><span class="dot"></span>本周福利抽奖：第14期插画集《花与少女》实体书 3名</span>
+  </div>
+</div>
+
+<!-- 页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo" aria-label="小小绘福利首页">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="45" fill="#f06a9e"/>
+        <path d="M30 65 Q50 25 70 65" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <circle cx="38" cy="42" r="4.5" fill="#fff"/>
+        <circle cx="62" cy="42" r="4.5" fill="#fff"/>
+      </svg>
+      <span class="logo-text">小小绘福利</span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="打开导航菜单" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="主题导航">
+      <a href="/#overview">领域概览</a>
+      <a href="/#featured">精选推荐</a>
+      <a href="/#updates">最新更新</a>
+      <a href="/#categories">分类入口</a>
+      <a href="/#deepdive">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#comments">用户评论</a>
+      <a href="/#news">相关资讯</a>
+      <a href="/#related">相关推荐</a>
+    </nav>
+    <div class="header-actions">
+      <a href="/#submit" class="btn-outline">投稿</a>
+      <a href="/#featured" class="btn-solid">逛福利</a>
+    </div>
+  </div>
+</header>
+
+<!-- 移动端遮罩 -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<!-- 首屏 -->
+<section class="hero">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-bg-shape2"></div>
+  <div class="hero-content">
+    <span class="hero-badge">2026 秋季更新 · 第 14 期</span>
+    <h1>小小绘福利</h1>
+    <p class="hero-desc">
+      汇聚画师新作、壁纸包、Pixiv 周榜热图和同人福利抽奖。每天从 Pixiv、X、微博画师主页筛选值得收的插画资源，按壁纸、头像、桌面、手机壳适配分好，不用自己翻十几页 tag。
+    </p>
+    <div class="hero-actions">
+      <a href="/#featured" class="btn-solid">看本期精选</a>
+      <a href="/#updates" class="btn-outline">今日更新 12 条</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="art-card">
+      <img src="https://picsum.photos/seed/xiaoxiaohui-miku1/400/300" width="400" height="300" loading="lazy" alt="初音未来16周年纪念插画 蓝绿色双马尾">
+      <div class="art-label">初音未来16周年 · 壁纸</div>
+    </div>
+    <div class="art-card">
+      <img src="https://picsum.photos/seed/xiaoxiaohui-sakura2/400/300" width="400" height="300" loading="lazy" alt="樱花少女水彩风插画 粉色和服">
+      <div class="art-label">樱花少女 · 头像</div>
+    </div>
+    <div class="art-card">
+      <img src="https://picsum.photos/seed/xiaoxiaohui-neon3/400/300" width="400" height="300" loading="lazy" alt="赛博朋克霓虹灯赛璐璐风格插画 紫色夜景">
+      <div class="art-label">赛博霓虹 · 桌面</div>
+    </div>
+    <div class="art-card">
+      <img src="https://picsum.photos/seed/xiaoxiaohui-yue4/400/300" width="400" height="300" loading="lazy" alt="月下猫耳少女厚涂插画 深蓝夜空">
+      <div class="art-label">月下猫耳 · 手机壳</div>
+    </div>
+  </div>
+</section>
+
+<!-- 主内容区 -->
+<div class="main-container">
+  <main class="main-col">
+
+    <!-- 领域概览 -->
+    <section class="section" id="overview">
+      <div class="section-header">
+        <h2 class="section-title">二次元插画福利的当前分布</h2>
+      </div>
+      <div class="overview-text">
+        <p>
+          插画福利这个类目在 2026 年秋季的供给比去年同期更碎。Pixiv 日榜前 50 里，<strong>原创角色</strong>（オリジナル）占比从 2025 年 10 月的 34% 涨到 41%，意味着同人二创的福利图不再像前两年那样集中在少数几个 IP 上。对收图的人来说，好处是风格选择变多；麻烦的是筛选成本上去了——单靠 Pixiv 收藏榜翻，很容易漏掉 X 上只发单张的散图。
+        </p>
+        <p>
+          具体能看的几个方向：<strong>壁纸包</strong>（16:9 和 9:16 两种主流比例）、<strong>头像/半身</strong>（适合社交平台裁切）、<strong>手机壳适配图</strong>（中间留白区要干净）、<strong>桌面端纵版</strong>（2560×1440 以上才够用）。画师侧，<strong>米山舞</strong>、<strong>望月けい</strong>、<strong>LAM</strong> 这批人 10 月下旬陆续发了新图；同人圈子则是《原神》纳塔篇和《崩坏：星穹铁道》3.7 版本的角色图在涨。
+        </p>
+        <p>
+          抽奖和福利这边，实体画集比数字壁纸包更受欢迎。第 13 期《夜想曲》画集抽奖的参与数是壁纸包的 2.7 倍，但中奖率只有 0.8%。如果只是想要图，蹲画师本人发的 free 素材比蹲抽奖划算。
+        </p>
+      </div>
+    </section>
+
+    <!-- 精选内容推荐 -->
+    <section class="section" id="featured">
+      <div class="section-header">
+        <h2 class="section-title">本期精选插画与壁纸</h2>
+        <a href="/#updates" class="section-more">查看更新 →</a>
+      </div>
+      <div class="card-grid">
+        <article class="content-card">
+          <img class="card-img" src="https://picsum.photos/seed/xiaoxiaohui-card01/400/300" width="400" height="300" loading="lazy" alt="初音未来16周年纪念主视觉 蓝绿色双马尾插画">
+          <div class="card-body">
+            <span class="card-type">壁纸包</span>
+            <h3 class="card-title">初音未来16周年纪念壁纸包</h3>
+            <p class="card-desc">16 张 4K 壁纸，含横版和竖版两组。主视觉由三位画师分别绘制，其中一张是初音未来和镜音铃的合唱构图。附 PSD 分图层文件。</p>
+            <div class="card-tags"><span class="tag">初音未来</span><span class="tag">4K壁纸</span><span class="tag">VOCALOID</span></div>
+            <div class="card-meta"><span class="hot">热度 9.8k</span><span>2026-11-06 更新</span></div>
+          </div>
+        </article>
+        <article class="content-card">
+          <img class="card-img" src="https://picsum.photos/seed/xiaoxiaohui-card02/400/300" width="400" height="300" loading="lazy" alt="米山舞新作 水彩风格少女侧脸插画">
+          <div class="card-body">
+            <span class="card-type">画师新作</span>
+            <h3 class="card-title">米山舞《光之庭院》系列</h3>
+            <p class="card-desc">10 月 28 日在 X 上公开的 6 张系列图，以水彩和厚涂混合为主。第三张的侧脸构图被转发 2.3 万次，适合做电脑桌面。</p>
+            <div class="card-tags"><span class="tag">米山舞</span><span class="tag">水彩</span><span class="tag">桌面壁纸</span></div>
+            <div class="card-meta"><span class="hot">热度 8.2k</span><span>2026-10-28 发布</span></div>
+          </div>
+        </article>
+        <article class="content-card">
+          <img class="card-img" src="https://picsum.photos/seed/xiaoxiaohui-card03/400/300" width="400" height="300" loading="lazy" alt="赛博朋克霓虹城市少女 紫色调插画">
+          <div class="card-body">
+            <span class="card-type">手机壳图</span>
+            <h3 class="card-title">霓虹赛博手机壳适配图集</h3>
+            <p class="card-desc">8 张中间留白区经过适配的竖版图，适合 iPhone 和主流安卓机型。紫粉和蓝绿两个色系，留白区避开摄像头开孔。</p>
+            <div class="card-tags"><span class="tag">赛博朋克</span><span class="tag">手机壳</span><span class="tag">竖版</span></div>
+            <div class="card-meta"><span class="hot">热度 6.5k</span><span>2026-11-03 更新</span></div>
+          </div>
+        </article>
+        <article class="content-card">
+          <img class="card-img" src="https://picsum.photos/seed/xiaoxiaohui-card04/400/300" width="400" height="300" loading="lazy" alt="原神纳塔角色同人插画 火元素背景">
+          <div class="card-body">
+            <span class="card-type">同人二创</span>
+            <h3 class="card-title">纳塔篇角色同人精选 12 张</h3>
+            <p class="card-desc">从 Pixiv 和 X 筛出 12 张纳塔角色的同人图，以玛拉妮和基尼奇为主。半数以上是横版构图，适合做横幅或桌面。</p>
+            <div class="card-tags"><span class="tag">原神</span><span class="tag">纳塔</span><span class="tag">同人图</span></div>
+            <div class="card-meta"><span class="hot">热度 7.9k</span><span>2026-11-05 更新</span></div>
+          </div>
+        </article>
+        <article class="content-card">
+          <img class="card-img" src="https://picsum.photos/seed/xiaoxiaohui-card05/400/300" width="400" height="300" loading="lazy" alt="望月けい风格头像 蓝紫色调半身像">
+          <div class="card-body">
+            <span class="card-type">头像套装</span>
+            <h3 class="card-title">望月けい风格头像 9 张</h3>
+            <p class="card-desc">按望月けい的蓝紫冷色调筛选的 9 张半身像，裁切后适合做社交头像。作者标注可商用需署名，个人使用无限制。</p>
+            <div class="card-tags"><span class="tag">望月けい</span><span class="tag">头像</span><span class="tag">蓝紫调</span></div>
+            <div class="card-meta"><span class="hot">热度 5.4k</span><span>2026-11-01 更新</span></div>
+          </div>
+        </article>
+        <article class="content-card">
+          <img class="card-img" src="https://picsum.photos/seed/xiaoxiaohui-card06/400/300" width="400" height="300" loading="lazy" alt="星穹铁道3.7版本角色 同人壁纸">
+          <div class="card-body">
+            <span class="card-type">壁纸包</span>
+            <h3 class="card-title">星穹铁道 3.7 版本壁纸</h3>
+            <p class="card-desc">版本更新后一周内产出的同人壁纸，共 14 张。新角色相关 9 张，场景图 5 张。2560×1440 和 1080×1920 两种尺寸。</p>
+            <div class="card-tags"><span class="tag">星穹铁道</span><span class="tag">3.7版本</span><span class="tag">同人壁纸</span></div>
+            <div class="card-meta"><span class="hot">热度 8.7k</span><span>2026-11-07 更新</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 最新更新 -->
+    <section class="section" id="updates">
+      <div class="section-header">
+        <h2 class="section-title">11 月 8 日前后更新动态</h2>
+      </div>
+      <div class="update-list">
+        <div class="update-item">
+          <span class="update-index">01</span>
+          <div class="update-content">
+            <div class="update-name">初音未来16周年壁纸包 v2</div>
+            <div class="update-summary">追加 8 张竖版手机壁纸，修复上一版第 3 张色偏问题</div>
+          </div>
+          <span class="update-date">2026-11-08</span>
+        </div>
+        <div class="update-item">
+          <span class="update-index">02</span>
+          <div class="update-content">
+            <div class="update-name">米山舞《光之庭院》第 6 张公开</div>
+            <div class="update-summary">X 上发布终章图，评论区确认会收录进 2027 年画集</div>
+          </div>
+          <span class="update-date">2026-11-07</span>
+        </div>
+        <div class="update-item">
+          <span class="update-index">03</span>
+          <div class="update-content">
+            <div class="update-name">星穹铁道 3.7 同人壁纸合辑</div>
+            <div class="update-summary">新增 5 张，含两张新角色与开拓者的双人构图</div>
+          </div>
+          <span class="update-date">2026-11-07</span>
+        </div>
+        <div class="update-item">
+          <span class="update-index">04</span>
+          <div class="update-content">
+            <div class="update-name">Pixiv 周榜 11 月第 1 周 tag 变化</div>
+            <div class="update-summary">「オリジナル」tag 进入前 3，「初音ミク」tag 回升至第 7 位</div>
+          </div>
+          <span class="update-date">2026-11-06</span>
+        </div>
+        <div class="update-item">
+          <span class="update-index">05</span>
+          <div class="update-content">
+            <div class="update-name">第 14 期画集抽奖开奖</div>
+            <div class="update-summary">《花与少女》实体书 3 名中奖者已通过站内通知，48 小时内未回复顺延</div>
+          </div>
+          <span class="update-date">2026-11-05</span>
+        </div>
+        <div class="update-item">
+          <span class="update-index">06</span>
+          <div class="update-content">
+            <div class="update-name">赛博霓虹手机壳图集追加安卓版</div>
+            <div class="update-summary">新增 Galaxy S24 和 Pixel 9 适配版本，留白区重新测量</div>
+          </div>
+          <span class="update-date">2026-11-04</span>
+        </div>
+        <div class="update-item">
+          <span class="update-index">07</span>
+          <div class="update-content">
+            <div class="update-name">望月けい风格头像套装补 3 张</div>
+            <div class="update-summary">补入 3 张冷色半身像，作者署名信息已更新</div>
+          </div>
+          <span class="update-date">2026-11-03</span>
+        </div>
+        <div class="update-item">
+          <span class="update-index">08</span>
+          <div class="update-content">
+            <div class="update-name">纳塔篇同人图精选更新</div>
+            <div class="update-summary">替换 2 张画质不达标的图，新增 1 张基尼奇横版</div>
+          </div>
+          <span class="update-date">2026-11-02</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 分类入口 -->
+    <section class="section" id="categories">
+      <div class="section-header">
+        <h2 class="section-title">按用途和风格筛选</h2>
+      </div>
+      <div class="category-grid">
+        <div class="category-item">
+          <span class="cat-icon">🖥️</span>
+          <div class="cat-name">桌面壁纸</div>
+          <div class="cat-count">2560×1440 起 · 186 张</div>
+        </div>
+        <div class="category-item">
+          <span class="cat-icon">📱</span>
+          <div class="cat-name">手机壁纸</div>
+          <div class="cat-count">9:16 竖版 · 234 张</div>
+        </div>
+        <div class="category-item">
+          <span class="cat-icon">👤</span>
+          <div class="cat-name">头像/半身</div>
+          <div class="cat-count">裁切适配 · 97 张</div>
+        </div>
+        <div class="category-item">
+          <span class="cat-icon">📦</span>
+          <div class="cat-name">手机壳适配</div>
+          <div class="cat-count">留白区校准 · 64 张</div>
+        </div>
+        <div class="category-item">
+          <span class="cat-icon">🎨</span>
+          <div class="cat-name">画师新作</div>
+          <div class="cat-count">Pixiv/X 同步 · 42 组</div>
+        </div>
+        <div class="category-item">
+          <span class="cat-icon">🔄</span>
+          <div class="cat-name">同人二创</div>
+          <div class="cat-count">原神/星铁/明日方舟 · 78 组</div>
+        </div>
+        <div class="category-item">
+          <span class="cat-icon">🎁</span>
+          <div class="cat-name">福利抽奖</div>
+          <div class="cat-count">画集/周边 · 第 14 期</div>
+        </div>
+        <div class="category-item">
+          <span class="cat-icon">📚</span>
+          <div class="cat-name">画集评测</div>
+          <div class="cat-count">印刷/收录/价格 · 23 篇</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 深度解析 -->
+    <section class="section" id="deepdive">
+      <div class="section-header">
+        <h2 class="section-title">壁纸包与画集：值不值得收的判断依据</h2>
+      </div>
+      <div class="deep-dive">
+        <h3>分辨率标注和实际可用性之间的差距</h3>
+        <p>
+          一个壁纸包标“4K”不等于每张图都能直接当桌面。2026 年 10 月 Pixiv 上 47 个标 4K 的壁纸包样本里，真正每张都达到 3840×2160 的只有 19 个。剩下的大多是把 1920×1080 的图用 AI 放大后重新导出，放大痕迹在暗部渐变和线条边缘很明显——尤其是赛璐璐风格，放大后线条会发毛。
+        </p>
+        <p>
+          可核对的判断方法：下载后看图片属性里的实际像素，再放大到 200% 看头发边缘和纯色背景。如果纯色区出现规则的网格噪点，基本可以确定是插值放大的。另外看文件体积，真正的 4K 厚涂 PNG 通常在 8—15MB，被压到 2—3MB 的“4K”大概率有损。
+        </p>
+        <div class="highlight-box">
+          一个具体案例：10 月 21 日 X 上传播的某画师“4K壁纸包”，实际检查发现 12 张里只有 3 张是原生 4K，其余是 2K 放大。画师在 10 月 23 日的回复里承认“部分图用了 upscale”，但没有修改标注。
+        </div>
+
+        <h3>画集抽奖的中奖率与替代路径</h3>
+        <p>
+          第 13 期《夜想曲》画集抽奖参与 1.2 万人次，中奖 96 人，中奖率 0.8%。第 14 期《花与少女》参与数到 11 月 5 日截止时是 9,400 人，中奖 3 人，中奖率 0.03%。抽奖作为获取实体画集的方式，效率其实很低。
+        </p>
+        <p>
+          替代路径更实际：画集正式发售后，二手平台的首周均价通常比定价低 15%—20%，因为抽奖中奖者会转手。但要注意版本——有些画集分初回限定和普通版，初回附赠的明信片套装单独流通时价格可能超过画集本身。判断方法很简单：看商品页有没有标注“初回限定”和“特典”，两个都有的版本才有额外收藏价值。
+        </p>
+
+        <h3>同人图和官方图的收藏优先级</h3>
+        <p>
+          同人二创图的供给量大，但稳定性差。以《原神》纳塔篇为例，版本更新后两周内 Pixiv 相关 tag 新增约 2,300 张，四周后新增量降到每周 200 张左右。这意味着版本热度期内收图，能拿到更多画师的版本；过了热度期，剩下的多是长期画这个 IP 的人，风格更稳定但数量少。
+        </p>
+        <p>
+          官方图则相反，数量少但每张的传播周期长。初音未来 16 周年的官方主视觉 8 月就公开了，到 11 月仍有画师以它为参考做二创。如果目标是收“长期能用的壁纸”，官方主视觉和二创里的高质量版本都值得留；如果目标是追画师风格，同人 tag 下的新作更新更快。
+        </p>
+
+        <h3>从来源判断一张图能不能商用</h3>
+        <p>
+          商用限制这件事，Pixiv 和 X 上的标注方式不同。Pixiv 作品页底部的“利用規約”栏如果有“二次利用不可”或“商用不可”，那就是明确禁止。X 上则要看画师个人简介或置顶推文，有些画师会写“壁纸使用OK、商用要私信”，有些完全不写——不写不等于默认允许。
+        </p>
+        <ul>
+          <li>明确可商用：画师在简介或作品页写了“商用可”并给出署名要求</li>
+          <li>需联系：写了“商用请私信”或“要授权”</li>
+          <li>默认不可：没有任何标注，按日本著作权法默认保留所有权利</li>
+        </ul>
+        <p>
+          10 月 30 日有一位画师在 X 上公开表示，发现自己的图被印在手机壳上售卖，而此前从未授权商用。这条推文转发 1.8 万次，后续有 3 家店铺下架了相关商品。对收图做个人壁纸来说，这个案例不影响；但要拿图去做任何售卖性质的东西，先看标注再联系画师。
+        </p>
+      </div>
+    </section>
+
+    <!-- 体验指南 -->
+    <section class="section" id="guide">
+      <div class="section-header">
+        <h2 class="section-title">收图顺序与判断路径</h2>
+      </div>
+      <div class="deep-dive">
+        <h3>先定用途，再选尺寸</h3>
+        <p>
+          打开一个福利合集，先别急着存。确定这张图要放在哪：桌面（16:9，2560×1440 以上）、手机锁屏（9:16，1080×1920 以上）、社交头像（1:1，裁切后半身要完整）、手机壳（中间留白区不能有主体元素）。用途定了再筛，能砍掉一半不需要的图。
+        </p>
+        <h3>看画师署名和发布渠道</h3>
+        <p>
+          同一张图在 Pixiv 和 X 上的版本可能有差异。Pixiv 版本通常是原图或高分辨率，X 版本因为平台压缩会损失细节。优先存 Pixiv 原图，X 上的图用来判断画师最近在画什么。画师署名在图片角落或简介里，存图时顺手记下，以后想找同风格的人不用重新翻。
+        </p>
+        <h3>比较同类条目的三个维度</h3>
+        <p>
+          拿两个壁纸包对比，看三点：分辨率是否原生、构图是否适配你的屏幕比例、色彩在你的设备上是否偏色。第三点最容易被忽略——有些图在电脑上看没问题，传到手机上因为色域不同会发灰。简单办法是存下来在目标设备上打开看一眼，不合适就换。
+        </p>
+        <h3>抽奖和直接获取的取舍</h3>
+        <p>
+          抽奖中奖率低于 1% 的，当作娱乐参与就行，别把获取希望押在上面。想要实体画集，发售后一周内去二手平台看成色和版本，比等抽奖实际。数字壁纸包则看画师是否开放 free 下载——很多画师会在生日或周年时发 free 素材，关注画师的 X 比蹲福利合集更快。
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="section-header">
+        <h2 class="section-title">插画福利常见问题</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Pixiv 上标 4K 的壁纸包，怎么判断是不是真 4K？</summary>
+          <div class="faq-answer">
+            下载后看图片属性里的实际像素。真正的 4K 是 3840×2160，低于这个数值的就不是原生 4K。再放大到 200% 看纯色背景和线条边缘，放大过的图会出现规则噪点或线条发毛。文件体积也能参考，原生 4K 厚涂 PNG 通常在 8MB 以上。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>画集抽奖的中奖率一般多少？</summary>
+          <div class="faq-answer">
+            2026 年 10—11 月的几次画集抽奖，参与人数在 9,000 到 1.2 万之间，中奖名额 3 到 96 人不等。中奖率从 0.03% 到 0.8% 都有。名额少、参与多的抽奖，中奖率通常低于 0.1%。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>同人图拿来当手机壁纸，需要找画师授权吗？</summary>
+          <div class="faq-answer">
+            个人设备上的壁纸使用，绝大多数画师不追究。需要留意的是画师有没有在简介或作品页写明“壁纸使用不可”。如果写了禁止，就换一张。商用——比如印在手机壳上卖——则需要明确授权，没有任何标注不等于默认允许。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>“オリジナル”tag 为什么在 Pixiv 周榜上排这么前？</summary>
+          <div class="faq-answer">
+            2026 年 11 月第 1 周的 Pixiv 周榜里，“オリジナル”进入前 3。原创角色图不需要依附特定 IP，画师可以自由设计构图和配色，在壁纸和头像类需求里适配性更好。同期“初音ミク”tag 回升到第 7 位，和 16 周年活动有关。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>手机壳适配图和普通竖版壁纸有什么区别？</summary>
+          <div class="faq-answer">
+            手机壳适配图要把画面主体避开摄像头开孔区域，中间偏上位置通常需要留出干净区域。普通竖版壁纸没有这个限制，主体可以居中或偏下。买之前确认图集标注的适配机型，不同机型开孔位置不一样。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>画师在 X 上发的图和 Pixiv 上的版本，存哪个？</summary>
+          <div class="faq-answer">
+            优先存 Pixiv 版本。X 会对上传图片做压缩，细节和色彩会有损失。Pixiv 作品页通常保留原图或更高分辨率版本。如果画师只在 X 发，存之前看看有没有外部链接指向原图。
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 用户评论 -->
+    <section class="section" id="comments">
+      <div class="section-header">
+        <h2 class="section-title">收图的人都在说什么</h2>
+      </div>
+      <div class="comment-list">
+        <div class="comment-item">
+          <div class="comment-user">夜行猫</div>
+          <div class="comment-text">初音那套壁纸包 v2 的竖版终于能用了，v1 的竖版裁得头部太靠上，锁屏时间全挡住。</div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-user">小鹿乱撞</div>
+          <div class="comment-text">米山舞第 6 张等了快两周，收到推送的时候在地铁上直接点开存了。</div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-user">蓝色废料</div>
+          <div class="comment-text">星铁 3.7 那批同人图有几张画质不太行，感觉是截图转存的，放大看有 JPEG 块。</div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-user">芝士就是力量</div>
+          <div class="comment-text">抽了三期画集一次没中，中奖率 0.03% 真的别抱希望。</div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-user">猫背</div>
+          <div class="comment-text">手机壳那套留白区做得不错，S24 装上摄像头没挡住画面主体。</div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-user">大福</div>
+          <div class="comment-text">望月けい那 9 张头像风格差异有点大，混在一起不太像一组。</div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-user">三日月</div>
+          <div class="comment-text">纳塔篇基尼奇那张横版构图很稳，做横幅刚好。</div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-user">盐汽水</div>
+          <div class="comment-text">今天更新 12 条，实际点进去有 3 条是之前就有的，只是改了标题。</div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-user">不眠飞行</div>
+          <div class="comment-text">深度解析里说 4K 放大那段，我回去查了下之前下的一个包，果然只有 3 张是真的。</div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-user">番茄蛋</div>
+          <div class="comment-text">有没有人觉得这周 Pixiv オリジナル 的图颜色都偏淡，连着刷到好几张低饱和的。</div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-user">白噪音</div>
+          <div class="comment-text">第 14 期开奖没中，但去二手平台搜了下《花与少女》，已经有中奖的在出了，比定价便宜 20。</div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-user">半糖去冰</div>
+          <div class="comment-text">商用限制那节挺实用的，之前差点拿一张没标注的图去印贴纸。</div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-user">阿柴</div>
+          <div class="comment-text">更新列表里 11 月 4 号那条安卓适配，S24 的留白区和 iPhone 差挺多的，希望再多几款。</div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-user">时雨</div>
+          <div class="comment-text">这周初音 tag 回来主要是 16 周年，过一阵估计又会掉下去。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 相关资讯 -->
+    <section class="section" id="news">
+      <div class="section-header">
+        <h2 class="section-title">插画圈近期动态</h2>
+      </div>
+      <div class="news-list">
+        <div class="news-item">
+          <div class="news-date">2026-11-07</div>
+          <div class="news-title">米山舞确认《光之庭院》系列将收录进 2027 年画集</div>
+          <div class="news-summary">X 帖文里回复网友时提到，画集预计 2027 年 3 月发行，收录该系列 6 张加 4 张未公开草图。</div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2026-11-06</div>
+          <div class="news-title">Pixiv 周榜 11 月第 1 周：オリジナル tag 进入前 3</div>
+          <div class="news-summary">与 10 月第 4 周相比，オリジナル 上升 2 位，初音ミク 从第 12 位回升至第 7 位，原神 tag 下降 1 位。</div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2026-11-05</div>
+          <div class="news-title">《花与少女》画集抽奖开奖，中奖率 0.03%</div>
+          <div class="news-summary">9,400 人参与，3 个中奖名额。站内通知已发出，48 小时内未回复视为放弃，名额顺延给候补。</div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2026-11-03</div>
+          <div class="news-title">赛博霓虹手机壳图集追加 Galaxy S24 适配</div>
+          <div class="news-summary">留白区按 S24 摄像头模组重新测量，新增 4 张，Pixel 9 版本预计 11 月 10 日前完成。</div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2026-10-30</div>
+          <div class="news-title">画师公开维权：未授权商用图被印成手机壳</div>
+          <div class="news-summary">推文转发 1.8 万次，涉事 3 家店铺在 48 小时内下架相关商品，画师表示不再追究已下架部分。</div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2026-10-28</div>
+          <div class="news-title">米山舞《光之庭院》第 1—5 张在 X 公开</div>
+          <div class="news-summary">单条推文点赞超 4.7 万，第三张侧脸图被转发 2.3 万次，评论区多人询问壁纸尺寸。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 相关推荐 -->
+    <section class="section" id="related">
+      <div class="section-header">
+        <h2 class="section-title">按内容方向找图</h2>
+      </div>
+      <div class="related-tags">
+        <a href="/#featured" class="related-tag">初音未来16周年壁纸</a>
+        <a href="/#featured" class="related-tag">米山舞水彩风桌面</a>
+        <a href="/#featured" class="related-tag">星铁3.7同人图</a>
+        <a href="/#featured" class="related-tag">赛博朋克手机壳适配</a>
+        <a href="/#featured" class="related-tag">望月けい冷色调头像</a>
+        <a href="/#featured" class="related-tag">原神纳塔角色横版</a>
+        <a href="/#deepdive" class="related-tag">Pixiv 4K壁纸鉴别</a>
+        <a href="/#deepdive" class="related-tag">画集初回限定版本</a>
+      </div>
+    </section>
+
+    <!-- 投稿互动 -->
+    <section class="section" id="submit">
+      <div class="section-header">
+        <h2 class="section-title">投稿你的福利发现</h2>
+      </div>
+      <div class="overview-text" style="text-align:center;">
+        <p style="margin-bottom:16px;">拍到好看的展台返图、发现优质壁纸包、或者画了适合做手机壳的图，都可以投过来。</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a href="/#submit" class="btn-solid">上传作品</a>
+          <a href="/#submit" class="btn-outline">推荐画师</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 侧栏 -->
+  <aside class="side-col">
+    <!-- 热门榜单 -->
+    <div class="side-card">
+      <h3 class="side-title">本周热度榜</h3>
+      <div class="hot-list">
+        <div class="hot-item">
+          <span class="hot-rank top1">1</span>
+          <span class="hot-name">初音未来16周年壁纸包</span>
+          <span class="hot-heat">9.8k</span>
+        </div>
+        <div class="hot-item">
+          <span class="hot-rank top2">2</span>
+          <span class="hot-name">星穹铁道3.7同人壁纸</span>
+          <span class="hot-heat">8.7k</span>
+        </div>
+        <div class="hot-item">
+          <span class="hot-rank top3">3</span>
+          <span class="hot-name">米山舞《光之庭院》</span>
+          <span class="hot-heat">8.2k</span>
+        </div>
+        <div class="hot-item">
+          <span class="hot-rank">4</span>
+          <span class="hot-name">纳塔篇同人精选</span>
+          <span class="hot-heat">7.9k</span>
+        </div>
+        <div class="hot-item">
+          <span class="hot-rank">5</span>
+          <span class="hot-name">霓虹赛博手机壳图集</span>
+          <span class="hot-heat">6.5k</span>
+        </div>
+        <div class="hot-item">
+          <span class="hot-rank">6</span>
+          <span class="hot-name">望月けい风格头像</span>
+          <span class="hot-heat">5.4k</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 更新节奏 -->
+    <div class="side-card">
+      <h3 class="side-title">近期更新节奏</h3>
+      <div class="side-timeline">
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div><div class="tl-date">11-08</div><div class="tl-text">初音壁纸包 v2 追加竖版</div></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div><div class="tl-date">11-07</div><div class="tl-text">米山舞第 6 张 + 星铁壁纸合辑</div></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div><div class="tl-date">11-06</div><div class="tl-text">Pixiv 周榜 tag 变化记录</div></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div><div class="tl-date">11-05</div><div class="tl-text">第 14 期画集抽奖开奖</div></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <div><div class="tl-date">11-04</div><div class="tl-text">手机壳图集追加安卓适配</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 投稿入口 -->
+    <div class="side-contrib">
+      <div class="contrib-title">发现好图？</div>
+      <div class="contrib-desc">推荐画师或投稿壁纸包，审核后展示给同好</div>
+      <a href="/#submit" class="btn-solid" style="display:inline-block;padding:8px 24px;font-size:13px;">立即投稿</a>
+    </div>
+  </aside>
+</div>
+
+<!-- 回到顶部 -->
+<button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">小小绘福利</div>
+      <div class="footer-desc">
+        收录 2026 年 8 月至 11 月的二次元插画福利，覆盖壁纸包、头像、手机壳适配、画集评测和同人二创。每周三、周六固定更新，画师新作和版本热点随到随更。
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>内容分类</h4>
+      <a href="/#categories">桌面壁纸</a>
+      <a href="/#categories">手机壁纸</a>
+      <a href="/#categories">头像半身</a>
+      <a href="/#categories">手机壳适配</a>
+      <a href="/#categories">同人二创</a>
+    </div>
+    <div class="footer-col">
+      <h4>互动</h4>
+      <a href="/#submit">投稿作品</a>
+      <a href="/#submit">推荐画师</a>
+      <a href="/#comments">用户评论</a>
+      <a href="/#faq">常见问题</a>
+    </div>
+    <div class="footer-col">
+      <h4>关于</h4>
+      <a href="/#overview">领域概览</a>
+      <a href="/#deepdive">深度解析</a>
+      <a href="/#news">相关资讯</a>
+      <a href="/#related">相关推荐</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 小小绘福利 · 内容聚合示例站</span>
+    <span>页面内条目、热度、评论均为示例数据，用于展示内容结构</span>
+  </div>
+</footer>
+
+<script>
+  // 移动端菜单
+  const menuToggle = document.getElementById('menuToggle');
+  const mainNav = document.getElementById('mainNav');
+  const overlay = document.getElementById('mobileOverlay');
+
+  function closeMenu() {
+    menuToggle.setAttribute('aria-expanded', 'false');
+    mainNav.classList.remove('mobile-open');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function openMenu() {
+    menuToggle.setAttribute('aria-expanded', 'true');
+    mainNav.classList.add('mobile-open');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  menuToggle.addEventListener('click', () => {
+    if (mainNav.classList.contains('mobile-open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  overlay.addEventListener('click', closeMenu);
+
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 740) closeMenu();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mainNav.classList.contains('mobile-open')) {
+      closeMenu();
+      menuToggle.focus();
+    }
+  });
+
+  // 回到顶部
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight) {
+      backTop.classList.add('visible');
+    } else {
+      backTop.classList.remove('visible');
+    }
+  });
+  backTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // 侧栏导航高亮（简单版）
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.main-nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 140;
+      if (window.scrollY >= top) current = sec.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.style.background = '';
+      link.style.color = '';
+      if (link.getAttribute('href') === '/#' + current) {
+        link.style.background = 'var(--primary-light)';
+        link.style.color = 'var(--primary-dark)';
+      }
+    });
+  });
+</script>
+
+<!-- WebSite 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "小小绘福利",
+  "description": "二次元插画福利聚合，包含壁纸包、头像、手机壳适配图、画师新作与同人二创内容。",
+  "inLanguage": "zh-CN"
+}
+</script>
+
+<!-- FAQPage 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Pixiv 上标 4K 的壁纸包，怎么判断是不是真 4K？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "下载后看图片属性里的实际像素。真正的 4K 是 3840×2160，低于这个数值的就不是原生 4K。再放大到 200% 看纯色背景和线条边缘，放大过的图会出现规则噪点或线条发毛。文件体积也能参考，原生 4K 厚涂 PNG 通常在 8MB 以上。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "画集抽奖的中奖率一般多少？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2026 年 10—11 月的几次画集抽奖，参与人数在 9,000 到 1.2 万之间，中奖名额 3 到 96 人不等。中奖率从 0.03% 到 0.8% 都有。名额少、参与多的抽奖，中奖率通常低于 0.1%。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "同人图拿来当手机壁纸，需要找画师授权吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "个人设备上的壁纸使用，绝大多数画师不追究。需要留意的是画师有没有在简介或作品页写明“壁纸使用不可”。如果写了禁止，就换一张。商用——比如印在手机壳上卖——则需要明确授权，没有任何标注不等于默认允许。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "“オリジナル”tag 为什么在 Pixiv 周榜上排这么前？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2026 年 11 月第 1 周的 Pixiv 周榜里，“オリジナル”进入前 3。原创角色图不需要依附特定 IP，画师可以自由设计构图和配色，在壁纸和头像类需求里适配性更好。同期“初音ミク”tag 回升到第 7 位，和 16 周年活动有关。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "手机壳适配图和普通竖版壁纸有什么区别？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "手机壳适配图要把画面主体避开摄像头开孔区域，中间偏上位置通常需要留出干净区域。普通竖版壁纸没有这个限制，主体可以居中或偏下。买之前确认图集标注的适配机型，不同机型开孔位置不一样。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "画师在 X 上发的图和 Pixiv 上的版本，存哪个？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "优先存 Pixiv 版本。X 会对上传图片做压缩，细节和色彩会有损失。Pixiv 作品页通常保留原图或更高分辨率版本。如果画师只在 X 发，存之前看看有没有外部链接指向原图。"
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+                                                                                                                                                                                                   </html>
